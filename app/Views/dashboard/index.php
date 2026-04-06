@@ -44,6 +44,34 @@
         .user-table tr:hover {
             background-color: #f8f9fa;
         }
+
+        .list-group-item {
+            transition: all 0.3s ease;
+            border-radius: 12px !important;
+            margin-bottom: 5px;
+        }
+
+        .list-group-item:hover {
+            background-color: #f8f9fa;
+            transform: translateX(5px);
+            cursor: pointer;
+        }
+
+        /* Badge styling */
+        .badge {
+            font-weight: 500;
+            border-radius: 20px;
+            padding: 6px 12px;
+        }
+
+        /* Avatar circle */
+        .rounded-circle {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
 
@@ -53,7 +81,7 @@
         <div class="row mb-4">
             <div class="col-12">
                 <h2>Dashboard</h2>
-                <p class="text-muted">Welcome back, Admin! Here's what's happening today.</p>
+                <p class="text-muted">HOME</p>
             </div>
         </div>
 
@@ -113,39 +141,60 @@
             </div>
         </div>
 
-        <!-- Row 2: Earnings, Ideas, Location Cards -->
-        <div class="row mb-4">
-            <div class="col-md-4 mb-3">
-                <div class="card card-stats">
-                    <div class="card-body">
-                        <p class="text-muted mb-1">Total Earnings</p>
-                        <h3>$<?= number_format($total_earnings, 2) ?></h3>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-4 mb-3">
-                <div class="card card-stats">
-                    <div class="card-body">
-                        <p class="text-muted mb-1">Total Ideas</p>
-                        <h3><?= $total_ideas ?></h3>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-3">
-                <div class="card card-stats">
-                    <div class="card-body">
-                        <p class="text-muted mb-1">Total Location</p>
-                        <h3><?= $total_location ?></h3>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- Row 3: Chart and Rating -->
+        <!-- Row: Stats (Kiri) + Chart (Kanan) -->
         <div class="row mb-4">
-            <!-- Chart Card -->
+            <!-- Kolom Kiri: Total Earnings, Ideas, Location (Stacked/Vertikal) -->
+            <div class="col-md-5 mb-3">
+                <!-- Total Earnings -->
+                <div class="card card-stats mb-3">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <p class="text-muted mb-1">Total Earnings</p>
+                                <h2 class="mb-0">$<?= number_format($total_earnings, 2) ?></h2>
+                            </div>
+                            <div class="stat-icon bg-success bg-opacity-10">
+                                <i class="fas fa-money-bill text-success fs-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total Ideas -->
+                <div class="card card-stats mb-3">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <p class="text-muted mb-1">Total Ideas</p>
+                                <h2 class="mb-0"><?= number_format($total_ideas) ?></h2>
+                            </div>
+                            <div class="stat-icon bg-warning bg-opacity-10">
+                                <i class="fas fa-lightbulb text-warning fs-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total Location -->
+                <div class="card card-stats">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <p class="text-muted mb-1">Total Location</p>
+                                <h2 class="mb-0"><?= number_format($total_location) ?></h2>
+                            </div>
+                            <div class="stat-icon bg-primary bg-opacity-10">
+                                <i class="fas fa-map-marker-alt text-primary fs-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kolom Kanan: Chart Users From United States -->
             <div class="col-md-7 mb-3">
                 <div class="card h-100">
                     <div class="card-header d-flex justify-content-between align-items-center">
@@ -156,137 +205,336 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <canvas id="userChart" height="250"></canvas>
+                        <canvas id="userChart" height="220"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rating Card -->
+
+
+        <!-- Row: Social Media Stats (1 card per social media) -->
+        <div class="row mb-4">
+
+            <!-- CARD FACEBOOK -->
+            <div class="col-md-4 mb-3">
+                <div class="card card-stats h-100">
+                    <div class="card-header bg-primary text-white">
+                        <i class="fab fa-facebook-f me-2"></i> Facebook
+                    </div>
+                    <div class="card-body">
+                        <!-- Total Likes -->
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <p class="text-muted mb-1">Total Likes</p>
+                                <h3 class="mb-0">12,281</h3>
+                            </div>
+                            <div class="stat-icon bg-danger bg-opacity-10">
+                                <i class="fas fa-heart text-danger"></i>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <span class="trend-up"><i class="fas fa-arrow-up"></i> 7.2%</span>
+                        </div>
+
+                        <!-- Target -->
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <p class="text-muted mb-1">Target</p>
+                                <h3 class="mb-0">35,098</h3>
+                            </div>
+                            <div class="stat-icon bg-success bg-opacity-10">
+                                <i class="fas fa-bullseye text-success"></i>
+                            </div>
+                        </div>
+
+                        <!-- Duration -->
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <p class="text-muted mb-1">Duration</p>
+                                <h3 class="mb-0">3,539</h3>
+                            </div>
+                            <div class="stat-icon bg-info bg-opacity-10">
+                                <i class="fas fa-clock text-info"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Rating Card -->
+            <!-- CARD INSTAGRAM -->
+            <div class="col-md-4 mb-3">
+                <div class="card card-stats h-100">
+                    <div class="card-header" style="background: linear-gradient(45deg, #f09433, #d62976, #962fbf); color: white;">
+                        <i class="fab fa-instagram me-2"></i> Instagram
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <p class="text-muted mb-1">Total Likes</p>
+                                <h3 class="mb-0">15,432</h3>
+                            </div>
+                            <div class="stat-icon bg-danger bg-opacity-10">
+                                <i class="fas fa-heart text-danger"></i>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <span class="trend-up"><i class="fas fa-arrow-up"></i> 12.5%</span>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <p class="text-muted mb-1">Target</p>
+                                <h3 class="mb-0">50,000</h3>
+                            </div>
+                            <div class="stat-icon bg-success bg-opacity-10">
+                                <i class="fas fa-bullseye text-success"></i>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <p class="text-muted mb-1">Duration</p>
+                                <h3 class="mb-0">2,150</h3>
+                            </div>
+                            <div class="stat-icon bg-info bg-opacity-10">
+                                <i class="fas fa-clock text-info"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD TIKTOK -->
+            <div class="col-md-4 mb-3">
+                <div class="card card-stats h-100">
+                    <div class="card-header bg-dark text-white">
+                        <i class="fab fa-tiktok me-2"></i> TikTok
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <p class="text-muted mb-1">Total Likes</p>
+                                <h3 class="mb-0">28,901</h3>
+                            </div>
+                            <div class="stat-icon bg-danger bg-opacity-10">
+                                <i class="fas fa-heart text-danger"></i>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <span class="trend-up"><i class="fas fa-arrow-up"></i> 23.8%</span>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <p class="text-muted mb-1">Target</p>
+                                <h3 class="mb-0">100,000</h3>
+                            </div>
+                            <div class="stat-icon bg-success bg-opacity-10">
+                                <i class="fas fa-bullseye text-success"></i>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <p class="text-muted mb-1">Duration</p>
+                                <h3 class="mb-0">5,678</h3>
+                            </div>
+                            <div class="stat-icon bg-info bg-opacity-10">
+                                <i class="fas fa-clock text-info"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Row 5: Recent Users Table -->
+        <!-- Row: Recent Users & Rating (Berdampingan) -->
+        <div class="row mb-4">
+            <!-- Recent Users List (Kiri) -->
+            <div class="col-md-7 mb-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header bg-white border-0 pt-4">
+                        <h5 class="mb-0">
+                            <i class="fas fa-users text-primary me-2"></i> Recent Users
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <!-- User 1: Quinn Flynn -->
+                            <div class="list-group-item border-0 px-0 py-3">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0">
+                                            <div class="rounded-circle bg-primary bg-opacity-10 p-3 me-3">
+                                                <i class="fas fa-user text-primary fs-5"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1 fw-bold">Quinn Flynn</h6>
+                                            <p class="text-muted mb-1 small">
+                                                <i class="fab fa-android me-1"></i> Android developer
+                                            </p>
+                                            <small class="text-muted">
+                                                <i class="fas fa-calendar-alt me-1"></i> 11 may 12:30
+                                            </small>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="badge bg-success bg-opacity-10 text-success p-2">
+                                            <i class="fas fa-check-circle me-1"></i> Active
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- User 2: Garrett Winters -->
+                            <div class="list-group-item border-0 px-0 py-3">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0">
+                                            <div class="rounded-circle bg-secondary bg-opacity-10 p-3 me-3">
+                                                <i class="fas fa-user text-secondary fs-5"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1 fw-bold">Garrett Winters</h6>
+                                            <p class="text-muted mb-1 small">
+                                                <i class="fab fa-android me-1"></i> Android developer
+                                            </p>
+                                            <small class="text-muted">
+                                                <i class="fas fa-calendar-alt me-1"></i> 11 may 12:30
+                                            </small>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="badge bg-secondary bg-opacity-10 text-secondary p-2">
+                                            <i class="fas fa-minus-circle me-1"></i> Inactive
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- User 3: Ashton Cox -->
+                            <div class="list-group-item border-0 px-0 py-3">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0">
+                                            <div class="rounded-circle bg-danger bg-opacity-10 p-3 me-3">
+                                                <i class="fas fa-user text-danger fs-5"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1 fw-bold">Ashton Cox</h6>
+                                            <p class="text-muted mb-1 small">
+                                                <i class="fab fa-android me-1"></i> Android developer
+                                            </p>
+                                            <small class="text-muted">
+                                                <i class="fas fa-calendar-alt me-1"></i> 11 may 12:30
+                                            </small>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="badge bg-danger bg-opacity-10 text-danger p-2">
+                                            <i class="fas fa-times-circle me-1"></i> Blocked
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- User 4: Cedric Kelly -->
+                            <div class="list-group-item border-0 px-0 py-3">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0">
+                                            <div class="rounded-circle bg-success bg-opacity-10 p-3 me-3">
+                                                <i class="fas fa-user text-success fs-5"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1 fw-bold">Cedric Kelly</h6>
+                                            <p class="text-muted mb-1 small">
+                                                <i class="fab fa-android me-1"></i> Android developer
+                                            </p>
+                                            <small class="text-muted">
+                                                <i class="fas fa-calendar-alt me-1"></i> 11 may 12:30
+                                            </small>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="badge bg-success bg-opacity-10 text-success p-2">
+                                            <i class="fas fa-check-circle me-1"></i> Active
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-0 pb-4">
+                        <a href="#" class="text-decoration-none">
+                            <i class="fas fa-arrow-right me-1"></i> View all users
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rating Card (Kanan) -->
             <div class="col-md-5 mb-3">
                 <div class="card h-100">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0">
+                            <i class="fas fa-star text-warning me-2"></i> Rating
+                        </h5>
+                    </div>
                     <div class="card-body">
-                        <h5 class="card-title">Rating</h5>
-                        <div class="text-center mb-3">
-                            <h1 class="display-4"><?= $rating ?>/5</h1>
-                            <div class="rating-star">
+                        <!-- Rating Value -->
+                        <div class="text-center mb-4">
+                            <h1 class="display-2 fw-bold text-primary"><?= $rating ?><span class="fs-2 text-muted">/5</span></h1>
+                            <div class="rating-star mt-2">
                                 <?php for ($i = 1; $i <= 5; $i++): ?>
                                     <?php if ($i <= floor($rating)): ?>
-                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star fs-3"></i>
                                     <?php elseif ($i - $rating < 1 && $i - $rating > 0): ?>
-                                        <i class="fas fa-star-half-alt"></i>
+                                        <i class="fas fa-star-half-alt fs-3"></i>
                                     <?php else: ?>
-                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star fs-3"></i>
                                     <?php endif; ?>
                                 <?php endfor; ?>
                             </div>
+                            <p class="text-muted mt-2">Based on 554 reviews</p>
                         </div>
 
+                        <!-- Rating Details -->
                         <?php foreach ($rating_details as $star => $count): ?>
                             <div class="d-flex align-items-center mb-2">
-                                <div style="width: 50px;"><?= $star ?> star</div>
-                                <div class="progress flex-grow-1 mx-2" style="height: 8px;">
-                                    <div class="progress-bar" style="width: <?= ($count / array_sum($rating_details)) * 100 ?>%"></div>
+                                <div style="width: 60px;">
+                                    <span class="fw-bold"><?= $star ?></span>
+                                    <i class="fas fa-star text-warning fa-xs"></i>
                                 </div>
-                                <div style="width: 50px;"><?= $count ?></div>
+                                <div class="progress flex-grow-1 mx-2" style="height: 8px; border-radius: 10px;">
+                                    <div class="progress-bar bg-warning" style="width: <?= ($count / array_sum($rating_details)) * 100 ?>%; border-radius: 10px;"></div>
+                                </div>
+                                <div style="width: 50px;" class="text-muted">
+                                    <?= number_format($count) ?>
+                                </div>
                             </div>
                         <?php endforeach; ?>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Row 4: Additional Stats Cards -->
-        <div class="row mb-4">
-            <!-- Card Total Likes -->
-            <div class="col-md-4 mb-3">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
+                        <!-- Total Rating Summary -->
+                        <hr>
+                        <div class="d-flex justify-content-around text-center mt-3">
                             <div>
-                                <p class="text-muted mb-1">
-                                    <i class="fas fa-heart text-danger me-1"></i> Total Likes
-                                </p>
-                                <h3 class="mb-2 fw-bold"><?= number_format($total_likes) ?></h3>
+                                <h5 class="mb-0 text-success">4.8</h5>
+                                <small class="text-muted">Last Month</small>
                             </div>
-                            <div class="rounded-circle bg-danger bg-opacity-10 p-3">
-                                <i class="fas fa-heart text-danger fs-4"></i>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="trend-up">
-                                <i class="fas fa-arrow-up"></i> 7.2%
-                            </span>
-                            <small class="text-muted">
-                                <i class="fas fa-chart-line"></i> +892 dari bulan lalu
-                            </small>
-                        </div>
-                        <div class="mt-3">
-                            <div class="progress" style="height: 5px; border-radius: 10px;">
-                                <div class="progress-bar bg-danger" style="width: 72%; border-radius: 10px;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card Target -->
-            <div class="col-md-4 mb-3">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
                             <div>
-                                <p class="text-muted mb-1">
-                                    <i class="fas fa-bullseye text-success me-1"></i> Target
-                                </p>
-                                <h3 class="mb-2 fw-bold"><?= number_format($target) ?></h3>
+                                <h5 class="mb-0 text-danger">4.6</h5>
+                                <small class="text-muted">This Month</small>
                             </div>
-                            <div class="rounded-circle bg-success bg-opacity-10 p-3">
-                                <i class="fas fa-flag-checkered text-success fs-4"></i>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="text-success">
-                                <i class="fas fa-check-circle"></i> 85% tercapai
-                            </span>
-                            <small class="text-muted">
-                                <i class="fas fa-calendar"></i> Sisa 15 hari
-                            </small>
-                        </div>
-                        <div class="mt-3">
-                            <div class="progress" style="height: 5px; border-radius: 10px;">
-                                <div class="progress-bar bg-success" style="width: 85%; border-radius: 10px;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card Duration -->
-            <div class="col-md-4 mb-3">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
                             <div>
-                                <p class="text-muted mb-1">
-                                    <i class="fas fa-clock text-info me-1"></i> Duration
-                                </p>
-                                <h3 class="mb-2 fw-bold"><?= number_format($duration) ?></h3>
-                            </div>
-                            <div class="rounded-circle bg-info bg-opacity-10 p-3">
-                                <i class="fas fa-hourglass-half text-info fs-4"></i>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span>
-                                <i class="fas fa-hourglass-start"></i> 120 hari berjalan
-                            </span>
-                            <small class="text-muted">
-                                <i class="fas fa-hourglass-end"></i> 45 hari tersisa
-                            </small>
-                        </div>
-                        <div class="mt-3">
-                            <div class="progress" style="height: 5px; border-radius: 10px;">
-                                <div class="progress-bar bg-info" style="width: 73%; border-radius: 10px;"></div>
+                                <h5 class="mb-0 text-primary">+0.2</h5>
+                                <small class="text-muted">Growth</small>
                             </div>
                         </div>
                     </div>
@@ -294,77 +542,64 @@
             </div>
         </div>
 
-        <!-- Row 5: Recent Users Table -->
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0">Recent Users</h5>
-                    </div>
-                    <div class="card-body p-0">
-                        <table class="table user-table mb-0">
-                            <thead class="table-light">
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Role</th>
-                                    <th>Time</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($recent_users as $user): ?>
-                                    <tr>
-                                        <td><?= $user['name'] ?></td>
-                                        <td><?= $user['role'] ?></td>
-                                        <td><?= $user['time'] ?></td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Chart.js Script -->
-    <script>
-        // Sample data for US users chart
-        const ctx = document.getElementById('userChart').getContext('2d');
-        let userChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                datasets: [{
-                    label: 'Users from United States',
-                    data: [650, 720, 800, 750, 820, 900, 880, 950, 1020, 1100, 1150, 1200],
-                    borderColor: 'rgb(59, 130, 246)',
-                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                    tension: 0.4,
-                    fill: true
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
+        <!-- Chart.js Script -->
+        <script>
+            // Sample data for US users chart
+            const ctx = document.getElementById('userChart').getContext('2d');
+            let userChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Users from United States',
+                        data: [650, 720, 800, 750, 820, 900, 880, 950, 1020, 1100, 1150, 1200],
+                        borderColor: 'rgb(59, 130, 246)',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
                     }
                 }
-            }
-        });
+            });
 
-        // Zoom functionality (demo)
-        document.getElementById('zoomIn').addEventListener('click', () => {
-            alert('Zoom in feature - you can implement real zoom here');
-        });
+            // Zoom functionality (demo)
+            document.getElementById('zoomIn').addEventListener('click', () => {
+                alert('Zoom in feature - you can implement real zoom here');
+            });
 
-        document.getElementById('zoomOut').addEventListener('click', () => {
-            alert('Zoom out feature - you can implement real zoom here');
-        });
-    </script>
+            document.getElementById('zoomOut').addEventListener('click', () => {
+                alert('Zoom out feature - you can implement real zoom here');
+            });
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Efek klik pada baris tabel
+                document.querySelectorAll('.user-table tbody tr').forEach(row => {
+                    row.addEventListener('click', function() {
+                        const name = this.querySelector('td:first-child strong').innerText;
+                        console.log(`Selected user: ${name}`);
+                        // Bisa diarahkan ke halaman detail user
+                    });
+                });
+
+                // Tooltip untuk tombol action
+                var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+                tooltipTriggerList.forEach(function(tooltipTriggerEl) {
+                    new bootstrap.Tooltip(tooltipTriggerEl);
+                });
+            });
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
 
 </html>
