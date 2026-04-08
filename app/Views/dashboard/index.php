@@ -4,14 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?? 'Dashboard' ?></title>
+    <title><?= $title ?? 'Dashboard' ?> | Light Able</title>
+
+    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         .card-stats {
             transition: all 0.3s;
             border-radius: 15px;
+            border: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         .card-stats:hover {
@@ -70,33 +76,20 @@
             align-items: center;
             justify-content: center;
         }
-
-        .main-content {
-            margin-left: 260px;
-            padding: 20px;
-            min-height: 100vh;
-        }
-
-        @media (max-width: 768px) {
-            .main-content {
-                margin-left: 0;
-            }
-        }
     </style>
 </head>
 
-<body class="bg-light">
+<body>
     <!-- Sidebar -->
-    <?= view('layout/sidebar') ?>
+    <?= view('layout/sidebar_new') ?>
 
     <!-- Main Content -->
     <div class="main-content">
         <div class="container-fluid px-4 py-4">
             <!-- Welcome Row -->
-            <!-- Header dengan Breadcrumb untuk Home -->
             <div class="row mb-4">
                 <div class="col-12">
-                     <nav aria-label="breadcrumb">
+                    <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-2">
                             <li class="breadcrumb-item">
                                 <a href="<?= base_url('/') ?>" class="text-decoration-none text-muted">Dashboard</a>
@@ -107,11 +100,10 @@
                         </ol>
                     </nav>
                     <h1 class="display-6 fw-bold" style="color: #0f172a;">Home <span style="background: linear-gradient(135deg, #4f46e5, #7c3aed); background-clip: text; -webkit-background-clip: text; color: transparent;">Dashboard</span></h1>
-
                 </div>
             </div>
 
-            <!-- Row 1: 3 Main Cards (Daily, Monthly, Yearly Sales) -->
+            <!-- Row 1: 3 Main Cards -->
             <div class="row mb-4">
                 <div class="col-md-4 mb-3">
                     <div class="card card-stats h-100">
@@ -167,7 +159,7 @@
                 </div>
             </div>
 
-            <!-- Row: Stats (Kiri) + Chart (Kanan) -->
+            <!-- Row: Stats + Chart -->
             <div class="row mb-4">
                 <div class="col-md-5 mb-3">
                     <div class="card card-stats mb-3">
@@ -214,13 +206,9 @@
                 </div>
 
                 <div class="col-md-7 mb-3">
-                    <div class="card h-100">
-                        <div class="card-header d-flex justify-content-between align-items-center">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-header d-flex justify-content-between align-items-center bg-transparent">
                             <h5 class="mb-0">Users From United States</h5>
-                            <div>
-                                <button class="btn btn-sm btn-outline-secondary" id="zoomIn"><i class="fas fa-plus"></i></button>
-                                <button class="btn btn-sm btn-outline-secondary" id="zoomOut"><i class="fas fa-minus"></i></button>
-                            </div>
                         </div>
                         <div class="card-body">
                             <canvas id="userChart" height="220"></canvas>
@@ -401,7 +389,7 @@
                 </div>
 
                 <div class="col-md-5 mb-3">
-                    <div class="card h-100">
+                    <div class="card h-100 border-0 shadow-sm">
                         <div class="card-header bg-white">
                             <h5 class="mb-0">
                                 <i class="fas fa-star text-warning me-2"></i> Rating
@@ -458,9 +446,21 @@
                     </div>
                 </div>
             </div>
+
+            <footer class="mt-5 pt-3 pb-3 text-center">
+                <p class="mb-0 text-muted" style="font-family: 'Inter', sans-serif; font-size: 0.8rem;">
+                    © 2026
+                    <strong class="text-primary">Davin Loise</strong>
+                    <span class="mx-1">&</span>
+                    <strong class="text-primary">Amins Project Team</strong>
+                    <span class="mx-2">•</span>
+                    All rights reserved.
+                </p>
+            </footer>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const ctx = document.getElementById('userChart').getContext('2d');
         let userChart = new Chart(ctx, {
@@ -486,12 +486,7 @@
                 }
             }
         });
-
-        document.getElementById('zoomIn').addEventListener('click', () => alert('Zoom in feature'));
-        document.getElementById('zoomOut').addEventListener('click', () => alert('Zoom out feature'));
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

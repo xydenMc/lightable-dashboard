@@ -4,10 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?? 'Finance' ?> | CodeIgniter 4</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title><?= $title ?? 'Finance' ?> | Light Able</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+
     <style>
         * {
             margin: 0;
@@ -16,43 +20,64 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Public Sans', 'Inter', sans-serif;
             background: #f5f7fc;
         }
 
-        .card-stats {
-            transition: all 0.3s;
+        .card-border {
             border-radius: 20px;
-            border: none;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e9ecef;
+            transition: all 0.3s;
+            background: white;
         }
 
-        .card-stats:hover {
+        .card-border:hover {
             transform: translateY(-3px);
             box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.08);
         }
 
-        .stat-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 16px;
+        .avtar {
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: 12px;
         }
 
-        .trend-up {
+        .avtar-xs {
+            width: 24px;
+            height: 24px;
+            font-size: 14px;
+        }
+
+        .bg-light-primary {
+            background: rgba(79, 70, 229, 0.1);
+            color: #4f46e5;
+        }
+
+        .bg-light-success {
+            background: rgba(16, 185, 129, 0.1);
             color: #10b981;
         }
 
-        .trend-down {
+        .bg-light-info {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+        }
+
+        .bg-light-warning {
+            background: rgba(245, 158, 11, 0.1);
+            color: #f59e0b;
+        }
+
+        .bg-light-danger {
+            background: rgba(239, 68, 68, 0.1);
             color: #ef4444;
         }
 
-        .main-content {
-            margin-left: 260px;
-            padding: 20px;
-            min-height: 100vh;
+        .text-sm {
+            font-size: 12px;
         }
 
         .breadcrumb {
@@ -76,69 +101,12 @@
             color: #adb5bd;
             font-size: 18px;
         }
-
-        .credit-card {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            border-radius: 24px;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .credit-card::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 200px;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-        }
-
-        .credit-card::after {
-            content: "";
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 150px;
-            height: 150px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 50%;
-        }
-
-        .transaction-item {
-            transition: all 0.2s;
-            border-radius: 12px;
-            cursor: pointer;
-        }
-
-        .transaction-item:hover {
-            background-color: #f8fafc;
-            transform: translateX(5px);
-        }
-
-        .progress-custom {
-            height: 8px;
-            border-radius: 10px;
-            background-color: #e2e8f0;
-        }
-
-        .progress-custom .progress-bar {
-            border-radius: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .main-content {
-                margin-left: 0;
-            }
-        }
     </style>
 </head>
 
-<body class="bg-light">
+<body>
     <!-- Sidebar -->
-    <?= view('layout/sidebar') ?>
+    <?= view('layout/sidebar_new') ?>
 
     <!-- Main Content -->
     <div class="main-content">
@@ -146,379 +114,570 @@
             <!-- Breadcrumb -->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="<?= base_url('/') ?>">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Finance</li>
                 </ol>
             </nav>
 
             <!-- Header -->
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
-                <div>
-                    <h1 class="display-6 fw-bold" style="color: #0f172a;">Finance <span style="background: linear-gradient(135deg, #4f46e5, #7c3aed); background-clip: text; -webkit-background-clip: text; color: transparent;">Dashboard</span></h1>
-                    <p class="text-muted">Manage your finances, transactions, and balance</p>
-                </div>
-                <div class="mt-3 mt-md-0">
-                    <div class="btn-group shadow-sm">
-                        <button class="btn btn-light border rounded-3 px-4"><i class="far fa-calendar-alt me-2"></i>This month</button>
-                    </div>
-                </div>
+            <div class="page-header mb-4">
+                <h2 class="fw-bold mb-0" style="color: #0f172a;">Finance Dashboard</h2>
+                <p class="text-muted">Manage your finances and transactions</p>
             </div>
 
-            <!-- Row 1: Credit Card + Stats Cards -->
-            <!-- Row 1: Credit Card + Stats Cards -->
-            <div class="row g-4 mb-4">
-                <!-- My Card (tanpa Total Balance) -->
-                <div class="col-md-6">
-                    <div class="credit-card p-4" style="background: linear-gradient(135deg, #1e293b, #0f172a); border-radius: 24px; color: white;">
-                        <div class="d-flex justify-content-between align-items-start mb-4">
-                            <div>
-                                <small class="text-white-50">My Card</small>
-                            </div>
-                            <div>
-                                <i class="fab fa-cc-visa fs-1 text-white-50"></i>
-                            </div>
-                        </div>
-
-                        <div class="mb-4">
-                            <p class="text-white-50 small mb-1">CARD NUMBER</p>
-                            <h5 class="text-white mb-0" style="letter-spacing: 2px;">**** **** **** 8361</h5>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-6">
-                                <small class="text-white-50">CARD NAME</small>
-                                <p class="text-white mb-0 fw-semibold">JOHN SMITH</p>
-                            </div>
-                            <div class="col-3">
-                                <small class="text-white-50">EXP</small>
-                                <p class="text-white mb-0 fw-semibold">7/30</p>
-                            </div>
-                            <div class="col-3">
-                                <small class="text-white-50">CVV</small>
-                                <p class="text-white mb-0 fw-semibold">455</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Stats Cards (Income, Expense, Compare) -->
-                <div class="col-md-6">
-                    <div class="row g-3">
-                        <div class="col-6">
-                            <div class="card card-stats">
-                                <div class="card-body">
-                                    <p class="text-muted mb-1">Total Income</p>
-                                    <h3 class="mb-2">$8,520</h3>
-                                    <span class="trend-up"><i class="fas fa-arrow-up"></i> 10.6%</span>
+            <!-- Row 1: My Card & Transactions -->
+            <div class="row g-4">
+                <div class="col-md-5 col-xxl-4">
+                    <!-- My Card -->
+                    <div class="card card-border mb-4">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <h5 class="mb-0 fw-bold">My Card</h5>
+                                <div class="dropdown">
+                                    <button class="btn btn-sm btn-light rounded-circle" data-bs-toggle="dropdown">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#">Today</a></li>
+                                        <li><a class="dropdown-item" href="#">Weekly</a></li>
+                                        <li><a class="dropdown-item" href="#">Monthly</a></li>
+                                    </ul>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="card card-stats">
+                            <div class="card rounded-4 overflow-hidden mb-3" style="background: linear-gradient(135deg, #1e293b, #0f172a);">
                                 <div class="card-body">
-                                    <p class="text-muted mb-1">Total Expenses</p>
-                                    <h3 class="mb-2">$3,930</h3>
-                                    <span class="trend-down"><i class="fas fa-arrow-down"></i> 5.2%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="card card-stats">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex justify-content-between align-items-start">
                                         <div>
-                                            <p class="text-muted mb-1">Compare to last week</p>
-                                            <h4 class="mb-0 text-success">+5.44%</h4>
+                                            <p class="text-white-50 small mb-0">CARD NAME</p>
+                                            <h5 class="text-white">John Smith</h5>
                                         </div>
-                                        <div class="stat-icon bg-success bg-opacity-10">
-                                            <i class="fas fa-chart-line text-success fs-4"></i>
+                                        <div>
+                                            <i class="fab fa-cc-visa text-white-50 fs-1"></i>
+                                        </div>
+                                    </div>
+                                    <h4 class="text-white my-3">**** **** **** 8361</h4>
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <p class="text-white-50 small mb-0">EXP</p>
+                                            <h6 class="text-white mb-0">7/30</h6>
+                                        </div>
+                                        <div class="col-auto">
+                                            <p class="text-white-50 small mb-0">CVV</p>
+                                            <h6 class="text-white mb-0">455</h6>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Row 1.5: Total Balance (Card Terpisah) -->
-            <div class="row g-4 mb-4">
-                <div class="col-md-12">
-                    <div class="card card-stats">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <small class="text-muted">Total Balance</small>
-                                    <h2 class="fw-bold text-dark mb-0">$1.480.000</h2>
-                                </div>
-                                <div class="stat-icon bg-primary bg-opacity-10">
-                                    <i class="fas fa-wallet text-primary fs-4"></i>
-                                </div>
+                            <div class="text-center">
+                                <h3 class="mb-1 fw-bold">$1,480,000</h3>
+                                <p class="text-muted mb-0">Total Balance</p>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Stats Cards (Income, Expense, Compare) -->
-            
-        <!-- Row 2: Cashflow FULL -->
-        <div class="row g-4 mb-4">
-            <div class="col-md-12">
-                <div class="card card-stats">
-                    <div class="card-header bg-transparent border-0 pt-4 d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0"><i class="fas fa-chart-line me-2 text-success"></i> Cashflow</h5>
-                        <div class="dropdown">
-                            <button class="btn btn-sm btn-light border rounded-3 dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                                Monthly <i class="fas fa-chevron-down ms-1"></i>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Weekly</a></li>
-                                <li><a class="dropdown-item" href="#">Monthly</a></li>
-                                <li><a class="dropdown-item" href="#">Yearly</a></li>
+                    <!-- Transactions List -->
+                    <div class="card card-border">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <h5 class="mb-0 fw-bold">Transactions</h5>
+                                <div class="dropdown">
+                                    <button class="btn btn-sm btn-light rounded-circle" data-bs-toggle="dropdown">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#">Today</a></li>
+                                        <li><a class="dropdown-item" href="#">Weekly</a></li>
+                                        <li><a class="dropdown-item" href="#">Monthly</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item px-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avtar bg-light-primary me-3"><i class="fab fa-apple"></i></div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-0">Apple Inc.</h6>
+                                            <small class="text-muted">#ABLE-PRO-T00232</small>
+                                        </div>
+                                        <div class="text-end">
+                                            <h6 class="mb-0">$210,000</h6>
+                                            <small class="text-danger"><i class="fas fa-arrow-down"></i> 10.6%</small>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item px-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avtar bg-light-success me-3"><i class="fab fa-spotify"></i></div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-0">Spotify Music</h6>
+                                            <small class="text-muted">#ABLE-PRO-T10232</small>
+                                        </div>
+                                        <div class="text-end">
+                                            <h6 class="mb-0">-$10,000</h6>
+                                            <small class="text-success"><i class="fas fa-arrow-up"></i> 30.6%</small>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item px-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avtar bg-light-info me-3"><i class="fab fa-medium"></i></div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-0">Medium</h6>
+                                            <small class="text-muted">06:30 pm</small>
+                                        </div>
+                                        <div class="text-end">
+                                            <h6 class="mb-0">-$26</h6>
+                                            <small class="text-warning"><i class="fas fa-arrows-alt-h"></i> 5%</small>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item px-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avtar bg-light-warning me-3"><i class="fas fa-car"></i></div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-0">Uber</h6>
+                                            <small class="text-muted">08:40 pm</small>
+                                        </div>
+                                        <div class="text-end">
+                                            <h6 class="mb-0">+$210,000</h6>
+                                            <small class="text-success"><i class="fas fa-arrow-up"></i> 10.6%</small>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item px-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avtar bg-light-danger me-3"><i class="fas fa-taxi"></i></div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-0">Ola Cabs</h6>
+                                            <small class="text-muted">07:40 pm</small>
+                                        </div>
+                                        <div class="text-end">
+                                            <h6 class="mb-0">+$210,000</h6>
+                                            <small class="text-success"><i class="fas fa-arrow-up"></i> 10.6%</small>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <!-- Left Side: Percentage -->
-                            <div class="col-md-5">
-                                <div class="row g-3 mb-4">
-                                    <div class="col-6">
-                                        <div class="bg-light rounded-3 p-3 text-center">
-                                            <i class="fas fa-arrow-up text-success mb-1"></i>
-                                            <p class="text-muted small mb-0">Income</p>
-                                            <h4 class="text-success mb-0">5.44%</h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="bg-light rounded-3 p-3 text-center">
-                                            <i class="fas fa-arrow-down text-danger mb-1"></i>
-                                            <p class="text-muted small mb-0">Expense</p>
-                                            <h4 class="text-danger mb-0">5.44%</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Right Side: Progress -->
-                            <div class="col-md-7">
-                                <div class="mb-3">
-                                    <div class="d-flex justify-content-between mb-1">
-                                        <span class="small">Income</span>
-                                        <span class="small fw-bold text-success">$8,520 (68%)</span>
-                                    </div>
-                                    <div class="progress progress-custom" style="height: 8px;">
-                                        <div class="progress-bar bg-success" style="width: 68%"></div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="d-flex justify-content-between mb-1">
-                                        <span class="small">Expense</span>
-                                        <span class="small fw-bold text-danger">$3,930 (32%)</span>
-                                    </div>
-                                    <div class="progress progress-custom" style="height: 8px;">
-                                        <div class="progress-bar bg-danger" style="width: 32%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Weekly Overview Bar Chart -->
-                        <div class="mt-4">
-                            <p class="small text-muted mb-2">Weekly Overview</p>
-                            <div class="d-flex align-items-end gap-2" style="height: 80px;">
-                                <div style="flex: 1; background: #4f46e5; height: 40px; border-radius: 8px;"></div>
-                                <div style="flex: 1; background: #4f46e5; height: 35px; border-radius: 8px;"></div>
-                                <div style="flex: 1; background: #4f46e5; height: 45px; border-radius: 8px;"></div>
-                                <div style="flex: 1; background: #4f46e5; height: 60px; border-radius: 8px;"></div>
-                            </div>
-                            <div class="d-flex justify-content-around mt-2">
-                                <small class="text-muted">Week 1</small>
-                                <small class="text-muted">Week 2</small>
-                                <small class="text-muted">Week 3</small>
-                                <small class="text-muted">Week 4</small>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Row 3: Recent Transactions & Spending Chart -->
-        <div class="row g-4 mb-4">
-            <div class="col-md-7">
-                <div class="card card-stats">
-                    <div class="card-header bg-transparent border-0 pt-4 d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0"><i class="fas fa-history me-2 text-primary"></i> Recent Transactions</h5>
-                        <a href="#" class="text-decoration-none small">View all <i class="fas fa-arrow-right ms-1"></i></a>
+                <div class="col-md-7 col-xxl-8">
+                    <div class="row">
+                        <div class="col-md-6 col-xxl-4">
+                            <div class="card card-border">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-start justify-content-between mb-3">
+                                        <div>
+                                            <h6 class="mb-0">Transactions</h6>
+                                            <p class="mb-0 text-muted">2-31 July 2023</p>
+                                        </div>
+                                        <div class="dropdown">
+                                            <a class="avtar avtar-xs btn-link-secondary dropdown-toggle arrow-none" href="#" data-bs-toggle="dropdown">
+                                                <i class="ti ti-dots-vertical f-18"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a class="dropdown-item" href="#">Today</a>
+                                                <a class="dropdown-item" href="#">Weekly</a>
+                                                <a class="dropdown-item" href="#">Monthly</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="total-line-1-chart"></div>
+                                    <div class="d-flex align-items-center justify-content-between gap-2 mt-3">
+                                        <h4 class="mb-0">
+                                            <small class="text-muted">$</small>
+                                            650k
+                                        </h4>
+                                        <p class="mb-0 text-muted text-sm">Compare to last week</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xxl-4">
+                            <div class="card card-border">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-start justify-content-between mb-3">
+                                        <div>
+                                            <h6 class="mb-0">Revenue</h6>
+                                            <p class="mb-0 text-muted">2-31 July 2023</p>
+                                        </div>
+                                        <div class="dropdown">
+                                            <a class="avtar avtar-xs btn-link-secondary dropdown-toggle arrow-none" href="#" data-bs-toggle="dropdown">
+                                                <i class="ti ti-dots-vertical f-18"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a class="dropdown-item" href="#">Today</a>
+                                                <a class="dropdown-item" href="#">Weekly</a>
+                                                <a class="dropdown-item" href="#">Monthly</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="total-line-2-chart"></div>
+                                    <div class="d-flex align-items-center justify-content-between gap-2 mt-3">
+                                        <h4 class="mb-0">
+                                            <small class="text-muted">$</small>
+                                            892k
+                                        </h4>
+                                        <p class="mb-0 text-muted text-sm">Compare to last week</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-xxl-4">
+                            <div class="card card-border mt-3">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-start justify-content-between mb-3">
+                                        <div>
+                                            <h6 class="mb-0">Expenses</h6>
+                                            <p class="mb-0 text-muted">2-31 July 2023</p>
+                                        </div>
+                                        <div class="dropdown">
+                                            <a class="avtar avtar-xs btn-link-secondary dropdown-toggle arrow-none" href="#" data-bs-toggle="dropdown">
+                                                <i class="ti ti-dots-vertical f-18"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a class="dropdown-item" href="#">Today</a>
+                                                <a class="dropdown-item" href="#">Weekly</a>
+                                                <a class="dropdown-item" href="#">Monthly</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="total-line-3-chart"></div>
+                                    <div class="d-flex align-items-center justify-content-between gap-2 mt-3">
+                                        <h4 class="mb-0">
+                                            <small class="text-muted">$</small>
+                                            588k
+                                        </h4>
+                                        <p class="mb-0 text-muted text-sm">Compare to last week</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body p-0">
-                        <div class="list-group list-group-flush">
-                            <div class="list-group-item border-0 px-4 py-3 transaction-item">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="d-flex align-items-center">
-                                        <div class="rounded-circle bg-primary bg-opacity-10 p-3 me-3">
-                                            <i class="fas fa-shopping-cart text-primary"></i>
-                                        </div>
-                                        <div>
-                                            <h6 class="mb-0">Amazon Purchase</h6>
-                                            <small class="text-muted">06:30 pm</small>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <span class="text-danger">-$129.99</span>
-                                    </div>
+
+                    <!-- Cashflow Card -->
+                    <div class="card card-border mt-4 overflow-hidden">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
+                                <div>
+                                    <h5 class="mb-1 fw-bold">Cashflow</h5>
+                                    <p class="mb-0">
+                                        <span class="fw-bold text-success">5.44%</span>
+                                        <span class="badge bg-success bg-opacity-10 text-success ms-2">5.44%</span>
+                                    </p>
                                 </div>
+                                <select class="form-select rounded-3 form-select-sm w-auto" id="cashflowPeriod">
+                                    <option value="weekly">Weekly</option>
+                                    <option value="monthly" selected>Monthly</option>
+                                    <option value="yearly">Yearly</option>
+                                </select>
                             </div>
-                            <div class="list-group-item border-0 px-4 py-3 transaction-item">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="d-flex align-items-center">
-                                        <div class="rounded-circle bg-success bg-opacity-10 p-3 me-3">
-                                            <i class="fas fa-dollar-sign text-success"></i>
-                                        </div>
-                                        <div>
-                                            <h6 class="mb-0">Salary Deposit</h6>
-                                            <small class="text-muted">08:40 pm</small>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <span class="text-success">+$3,500.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="list-group-item border-0 px-4 py-3 transaction-item">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="d-flex align-items-center">
-                                        <div class="rounded-circle bg-warning bg-opacity-10 p-3 me-3">
-                                            <i class="fas fa-utensils text-warning"></i>
-                                        </div>
-                                        <div>
-                                            <h6 class="mb-0">Restaurant</h6>
-                                            <small class="text-muted">07:40 pm</small>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <span class="text-danger">-$45.50</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="list-group-item border-0 px-4 py-3 transaction-item">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="d-flex align-items-center">
-                                        <div class="rounded-circle bg-info bg-opacity-10 p-3 me-3">
-                                            <i class="fas fa-exchange-alt text-info"></i>
-                                        </div>
-                                        <div>
-                                            <h6 class="mb-0">Transfer to Savings</h6>
-                                            <small class="text-muted">2-31 July 2023</small>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <span class="text-danger">-$500.00</span>
-                                    </div>
-                                </div>
-                            </div>
+                            <div id="cashflowBarChart" style="height: 280px; width: 100%;"></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-5">
-                <div class="card card-stats h-100">
-                    <div class="card-header bg-transparent border-0 pt-4">
-                        <h5 class="mb-0"><i class="fas fa-chart-simple me-2 text-primary"></i> Spending by Category</h5>
+            <!-- Where your money go -->
+            <div class="card card-border mt-4">
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <h5 class="mb-0 fw-bold">Where your money go ?</h5>
+                        <button class="btn btn-sm btn-primary rounded-pill">+ Add New</button>
                     </div>
-                    <div class="card-body">
-                        <canvas id="spendingChart" height="200"></canvas>
-                        <div class="mt-3">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span><i class="fas fa-circle text-primary me-2"></i> Shopping</span>
-                                <span>65%</span>
+                    <div class="row g-3">
+                        <div class="col-6 col-md-3">
+                            <div class="card shadow-none border rounded-4 h-100">
+                                <div class="card-body p-3">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <i class="fas fa-utensils fs-1 text-primary"></i>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-light rounded-circle" data-bs-toggle="dropdown">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <h6 class="mb-3 fw-semibold">Food & Drink</h6>
+                                    <div class="bg-dark p-3 pt-4 rounded-4">
+                                        <div class="progress bg-white bg-opacity-25" style="height: 6px">
+                                            <div class="progress-bar bg-white" style="width: 65%"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <span class="text-white small">65%</span>
+                                            <span class="text-white small">$1000</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span><i class="fas fa-circle text-success me-2"></i> Food</span>
-                                <span>30%</span>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card shadow-none border rounded-4 h-100">
+                                <div class="card-body p-3">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <i class="fas fa-plane fs-1 text-primary"></i>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-light rounded-circle" data-bs-toggle="dropdown">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <h6 class="mb-3 fw-semibold">Travel</h6>
+                                    <div class="bg-dark p-3 pt-4 rounded-4">
+                                        <div class="progress bg-white bg-opacity-25" style="height: 6px">
+                                            <div class="progress-bar bg-white" style="width: 30%"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <span class="text-white small">30%</span>
+                                            <span class="text-white small">$400</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span><i class="fas fa-circle text-warning me-2"></i> Bills</span>
-                                <span>52%</span>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card shadow-none border rounded-4 h-100">
+                                <div class="card-body p-3">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <i class="fas fa-shopping-bag fs-1 text-primary"></i>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-light rounded-circle" data-bs-toggle="dropdown">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <h6 class="mb-3 fw-semibold">Shopping</h6>
+                                    <div class="bg-dark p-3 pt-4 rounded-4">
+                                        <div class="progress bg-white bg-opacity-25" style="height: 6px">
+                                            <div class="progress-bar bg-white" style="width: 52%"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <span class="text-white small">52%</span>
+                                            <span class="text-white small">$900</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-between">
-                                <span><i class="fas fa-circle text-info me-2"></i> Entertainment</span>
-                                <span>26%</span>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card shadow-none border rounded-4 h-100">
+                                <div class="card-body p-3">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <i class="fas fa-heartbeat fs-1 text-primary"></i>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-light rounded-circle" data-bs-toggle="dropdown">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <h6 class="mb-3 fw-semibold">Healthcare</h6>
+                                    <div class="bg-dark p-3 pt-4 rounded-4">
+                                        <div class="progress bg-white bg-opacity-25" style="height: 6px">
+                                            <div class="progress-bar bg-white" style="width: 26%"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <span class="text-white small">26%</span>
+                                            <span class="text-white small">$250</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Row 4: Recent Activity -->
-        <div class="row">
-            <div class="col-12">
-                <div class="card card-stats">
-                    <div class="card-header bg-transparent border-0 pt-4">
-                        <h5 class="mb-0"><i class="fas fa-bell me-2 text-primary"></i> Recent Activity</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <div class="d-flex">
-                                    <div class="me-3">
-                                        <i class="fas fa-calendar-day text-primary fs-4"></i>
+            <!-- Accounts Section -->
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <div class="card card-border">
+                        <div class="card-body">
+                            <h5 class="mb-3 fw-bold">Accounts</h5>
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <div class="card shadow-none border rounded-4">
+                                        <div class="card-body p-3">
+                                            <div class="d-flex align-items-center justify-content-between">
+                                                <div>
+                                                    <h6 class="mb-0">US Dollar Account</h6>
+                                                    <small class="text-muted">**** **** **** 1234</small>
+                                                    <h5 class="mt-2 mb-0">$12,920.00</h5>
+                                                </div>
+                                                <div class="bg-success bg-opacity-10 p-2 rounded-circle">
+                                                    <i class="fas fa-check-circle text-success"></i>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <h6 class="mb-1">Today</h6>
-                                        <p class="text-muted small mb-0">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card shadow-none border rounded-4">
+                                        <div class="card-body p-3">
+                                            <div class="d-flex align-items-center justify-content-between">
+                                                <div>
+                                                    <h6 class="mb-0">Euro Account</h6>
+                                                    <small class="text-muted">**** **** **** 5678</small>
+                                                    <h5 class="mt-2 mb-0">€8,450.00</h5>
+                                                </div>
+                                                <div class="bg-success bg-opacity-10 p-2 rounded-circle">
+                                                    <i class="fas fa-check-circle text-success"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card shadow-none border rounded-4">
+                                        <div class="card-body p-3">
+                                            <div class="d-flex align-items-center justify-content-between">
+                                                <div>
+                                                    <h6 class="mb-0">British Pound Account</h6>
+                                                    <small class="text-muted">**** **** **** 9012</small>
+                                                    <h5 class="mt-2 mb-0">£3,200.00</h5>
+                                                </div>
+                                                <div class="bg-secondary bg-opacity-10 p-2 rounded-circle">
+                                                    <i class="fas fa-minus-circle text-secondary"></i>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="d-flex">
-                                    <div class="me-3">
-                                        <i class="fas fa-calendar-day text-success fs-4"></i>
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-1">Yesterday</h6>
-                                        <p class="text-muted small mb-0">Jonny aber invites to join the challenge - Lorem Ipsum is simply dummy text of the printing.</p>
-                                    </div>
-                                </div>
+                            <div class="mt-3">
+                                <button class="btn btn-outline-primary w-100 rounded-pill" id="addAccountBtn">
+                                    <i class="fas fa-plus me-2"></i> Add New Account
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <footer class="mt-5 pt-3 pb-3 text-center">
+                <p class="mb-0 text-muted" style="font-family: 'Inter', sans-serif; font-size: 0.8rem;">
+                    © 2026
+                    <strong class="text-primary">Davin Loise</strong>
+                    <span class="mx-1">&</span>
+                    <strong class="text-primary">Amins Project Team</strong>
+                    <span class="mx-2">•</span>
+                    All rights reserved.
+                </p>
+            </footer>
         </div>
     </div>
+
+    <!-- Add Account Modal -->
+    <div class="modal fade" id="addAccountModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold">Add New Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body pt-0">
+                    <form id="addAccountForm">
+                        <div class="mb-3">
+                            <label class="form-label">Account Name</label>
+                            <input type="text" class="form-control rounded-3" placeholder="e.g., Savings Account" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Currency</label>
+                            <select class="form-select rounded-3">
+                                <option value="USD">US Dollar (USD)</option>
+                                <option value="EUR">Euro (EUR)</option>
+                                <option value="GBP">British Pound (GBP)</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Initial Balance</label>
+                            <input type="number" class="form-control rounded-3" placeholder="0.00" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 rounded-3 py-2">Add Account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
-        // Spending Chart (Doughnut)
-        const spendingCtx = document.getElementById('spendingChart').getContext('2d');
-        new Chart(spendingCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Shopping', 'Food', 'Bills', 'Entertainment'],
-                datasets: [{
-                    data: [65, 30, 52, 26],
-                    backgroundColor: ['#4f46e5', '#10b981', '#f59e0b', '#3b82f6'],
-                    borderWidth: 0
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom'
-                    }
-                }
+        // Add Account Modal
+        document.getElementById('addAccountBtn').addEventListener('click', function() {
+            new bootstrap.Modal(document.getElementById('addAccountModal')).show();
+        });
+
+        document.getElementById('addAccountForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Account added successfully!');
+            bootstrap.Modal.getInstance(document.getElementById('addAccountModal')).hide();
+            this.reset();
+        });
+
+        // Chart 1
+        var lineChartOptions1 = {
+            series: [{ name: "Transactions", data: [28, 45, 35, 50, 30, 60, 45] }],
+            chart: { height: 80, type: 'area', toolbar: { show: false }, sparkline: { enabled: true } },
+            stroke: { curve: 'smooth', width: 2 },
+            colors: ['#4f46e5'],
+            fill: { type: 'gradient', gradient: { shadeIntensity: 1, opacityFrom: 0.5, opacityTo: 0 } },
+            tooltip: { y: { formatter: function(val) { return '$' + val + 'k'; } } }
+        };
+        new ApexCharts(document.querySelector("#total-line-1-chart"), lineChartOptions1).render();
+
+        // Chart 2
+        var lineChartOptions2 = {
+            series: [{ name: "Revenue", data: [35, 50, 42, 65, 55, 70, 60] }],
+            chart: { height: 80, type: 'area', toolbar: { show: false }, sparkline: { enabled: true } },
+            stroke: { curve: 'smooth', width: 2 },
+            colors: ['#10b981'],
+            fill: { type: 'gradient', gradient: { shadeIntensity: 1, opacityFrom: 0.5, opacityTo: 0 } },
+            tooltip: { y: { formatter: function(val) { return '$' + val + 'k'; } } }
+        };
+        new ApexCharts(document.querySelector("#total-line-2-chart"), lineChartOptions2).render();
+
+        // Chart 3
+        var lineChartOptions3 = {
+            series: [{ name: "Expenses", data: [20, 35, 28, 42, 35, 48, 40] }],
+            chart: { height: 80, type: 'area', toolbar: { show: false }, sparkline: { enabled: true } },
+            stroke: { curve: 'smooth', width: 2 },
+            colors: ['#ef4444'],
+            fill: { type: 'gradient', gradient: { shadeIntensity: 1, opacityFrom: 0.5, opacityTo: 0 } },
+            tooltip: { y: { formatter: function(val) { return '$' + val + 'k'; } } }
+        };
+        new ApexCharts(document.querySelector("#total-line-3-chart"), lineChartOptions3).render();
+
+        // Cashflow Chart
+        var cashflowData = {
+            weekly: { categories: ['W1', 'W2', 'W3', 'W4'], income: [22.5, 28.7, 35.2, 42.9], expense: [15.2, 18.5, 22.1, 28.4] },
+            monthly: { categories: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'], income: [22.5, 28.7, 35.2, 42.9, 51.3, 67.8, 72.5, 68.2, 75.1, 82.4, 88.9, 95.2], expense: [15.2, 18.5, 22.1, 28.4, 35.2, 42.5, 48.1, 52.3, 55.8, 60.2, 65.5, 70.1] },
+            yearly: { categories: ['2020', '2021', '2022', '2023', '2024'], income: [245.5, 312.8, 425.3, 568.7, 720.4], expense: [185.2, 235.6, 312.4, 425.8, 540.2] }
+        };
+
+        var cashflowChart;
+        function renderCashflowChart(period) {
+            var data = cashflowData[period];
+            var options = {
+                series: [{ name: 'Income', data: data.income, color: '#10b981' }, { name: 'Expense', data: data.expense, color: '#ef4444' }],
+                chart: { type: 'bar', height: 240, toolbar: { show: false }, animations: { enabled: true, easing: 'easeinout', speed: 800 } },
+                plotOptions: { bar: { horizontal: false, columnWidth: '60%', borderRadius: 6 } },
+                xaxis: { categories: data.categories },
+                yaxis: { title: { text: 'Amount ($K)' }, labels: { formatter: function(val) { return '$' + val + 'K'; } } },
+                tooltip: { y: { formatter: function(val) { return '$' + val + 'K'; } } },
+                legend: { position: 'top', horizontalAlign: 'right' }
+            };
+            if (cashflowChart) {
+                cashflowChart.updateOptions(options);
+                cashflowChart.updateSeries(options.series);
+            } else {
+                cashflowChart = new ApexCharts(document.querySelector("#cashflowBarChart"), options);
+                cashflowChart.render();
             }
+        }
+        renderCashflowChart('monthly');
+        document.getElementById('cashflowPeriod').addEventListener('change', function(e) {
+            renderCashflowChart(e.target.value);
         });
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

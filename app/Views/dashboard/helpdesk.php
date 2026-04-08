@@ -4,13 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?? 'Helpdesk' ?> | CodeIgniter 4</title>
+    <title><?= $title ?? 'Helpdesk' ?> | Light Able</title>
 
-    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <!-- ApexCharts -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
     <style>
@@ -25,31 +22,8 @@
             background: #f5f7fc;
         }
 
-        .main-content {
-            margin-left: 260px;
-            padding: 20px;
-            min-height: 100vh;
-        }
-
-        .breadcrumb {
-            background: transparent;
-            padding: 0;
-            margin: 0 0 20px 0;
-        }
-
-        .breadcrumb-item a {
-            color: #6c757d;
-            text-decoration: none;
-        }
-
-        .breadcrumb-item.active {
-            color: #4f46e5;
-            font-weight: 500;
-        }
-
-        /* Card dengan border tepi berwarna biru muda */
         .card-border-top {
-            border-top: 4px solid;
+            border-top: 4px solid #7dd3fc;
             border-radius: 16px;
             transition: all 0.3s;
             background: white;
@@ -60,20 +34,6 @@
             box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
         }
 
-        /* Semua card support menggunakan border biru muda */
-        .card-border-info {
-            border-top-color: #7dd3fc;
-        }
-
-        .card-border-primary {
-            border-top-color: #7dd3fc;
-        }
-
-        .card-border-success {
-            border-top-color: #7dd3fc;
-        }
-
-        /* Customer Satisfaction Card */
         .satisfaction-card {
             background: white;
             border-radius: 24px;
@@ -101,17 +61,27 @@
             transform: translateX(8px);
         }
 
-        @media (max-width: 768px) {
-            .main-content {
-                margin-left: 0;
-            }
+        .breadcrumb {
+            background: transparent;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+
+        .breadcrumb-item a {
+            color: #6c757d;
+            text-decoration: none;
+        }
+
+        .breadcrumb-item.active {
+            color: #4f46e5;
+            font-weight: 500;
         }
     </style>
 </head>
 
-<body class="bg-light">
+<body>
     <!-- Sidebar -->
-    <?= view('layout/sidebar') ?>
+    <?= view('layout/sidebar_new') ?>
 
     <!-- Main Content -->
     <div class="main-content">
@@ -119,31 +89,23 @@
             <!-- Breadcrumb -->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="<?= base_url('/') ?>">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Helpdesk</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                    <li class="breadcrumb-item"><a href="<?= base_url('/') ?>">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Helpdesk</li>
                 </ol>
             </nav>
 
             <!-- Header -->
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
                 <div>
-                    <h2 class="fw-bold mb-0" style="color: #0f172a;">Dashboard</h2>
-                    <p class="text-muted mt-1">Helpdesk Dashboard</p>
-                </div>
-                <div class="mt-3 mt-md-0">
-                    <div class="btn-group shadow-sm">
-                        <button class="btn btn-light border rounded-3 px-4"><i class="far fa-calendar-alt me-2"></i>This month</button>
-                        <button class="btn btn-outline-secondary rounded-3"><i class="fas fa-download me-1"></i> Export</button>
-                    </div>
+                    <h2 class="fw-bold mb-0" style="color: #0f172a;">Helpdesk Dashboard</h2>
+                    <p class="text-muted mt-1">Manage support tickets and customer satisfaction</p>
                 </div>
             </div>
 
-            <!-- 3 Support Cards dengan Border Biru Muda -->
+            <!-- 3 Support Cards -->
             <div class="row g-4 mb-4">
-                <!-- Support Requests -->
                 <div class="col-xl-4 col-md-6">
-                    <div class="card card-border-top card-border-info border-0 shadow-sm h-100">
+                    <div class="card card-border-top border-0 shadow-sm h-100">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-start">
                                 <div>
@@ -175,15 +137,14 @@
                     </div>
                 </div>
 
-                <!-- Agent Response -->
                 <div class="col-xl-4 col-md-6">
-                    <div class="card card-border-top card-border-primary border-0 shadow-sm h-100">
+                    <div class="card card-border-top border-0 shadow-sm h-100">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-start">
                                 <div>
                                     <h2 class="fw-bold mb-2">500</h2>
                                     <span class="text-primary fw-semibold">Agent Response</span>
-                                    <p class="mb-0 mt-2 text-muted small">Total number of support requests that come in.</p>
+                                    <p class="mb-0 mt-2 text-muted small">Total number of agent responses.</p>
                                 </div>
                                 <div class="bg-primary bg-opacity-10 p-3 rounded-3">
                                     <i class="fas fa-user-tie text-primary fs-3"></i>
@@ -209,15 +170,14 @@
                     </div>
                 </div>
 
-                <!-- Support Resolved -->
                 <div class="col-xl-4 col-md-12">
-                    <div class="card card-border-top card-border-success border-0 shadow-sm h-100">
+                    <div class="card card-border-top border-0 shadow-sm h-100">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-start">
                                 <div>
                                     <h2 class="fw-bold mb-2">800</h2>
                                     <span class="text-success fw-semibold">Support Resolved</span>
-                                    <p class="mb-0 mt-2 text-muted small">Total number of support requests that come in.</p>
+                                    <p class="mb-0 mt-2 text-muted small">Total number of resolved tickets.</p>
                                 </div>
                                 <div class="bg-success bg-opacity-10 p-3 rounded-3">
                                     <i class="fas fa-check-double text-success fs-3"></i>
@@ -244,10 +204,10 @@
                 </div>
             </div>
 
-            <!-- Customer Satisfaction dengan PIE CHART FULL (bukan ring) & Warna Biru Muda -->
+            <!-- Customer Satisfaction with PIE Chart -->
             <div class="row g-4 mb-4">
                 <div class="col-xl-7 col-md-12">
-                    <div class="satisfaction-card  p-4 h-100  shadow-sm h-100">
+                    <div class="satisfaction-card p-4 shadow-sm h-100">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <div>
                                 <h4 class="fw-bold text-primary mb-1">Customer Satisfaction</h4>
@@ -265,58 +225,47 @@
                         </div>
 
                         <div class="row align-items-center">
-                            <!-- PIE CHART FULL (bukan ring) -->
                             <div class="col-md-6 text-center">
                                 <div id="satisfactionPieChart" style="height: 300px; width: 100%;"></div>
                             </div>
-
-                            <!-- Legend -->
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <span><i class="fas fa-circle" style="color: #38bdf8; font-size: 12px;"></i> Very Poor</span>
+                                        <span><i class="fas fa-circle" style="color: #38bdf8;"></i> Very Poor</span>
                                         <span class="fw-bold">35.5%</span>
                                     </div>
                                     <div class="progress" style="height: 6px; border-radius: 10px;">
-                                        <div class="progress-bar" style="width: 35.5%; border-radius: 10px; background-color: #38bdf8;"></div>
+                                        <div class="progress-bar" style="width: 35.5%; background-color: #38bdf8;"></div>
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <span><i class="fas fa-circle" style="color: #7dd3fc; font-size: 12px;"></i> Satisfied</span>
+                                        <span><i class="fas fa-circle" style="color: #7dd3fc;"></i> Satisfied</span>
                                         <span class="fw-bold">26.9%</span>
                                     </div>
                                     <div class="progress" style="height: 6px; border-radius: 10px;">
-                                        <div class="progress-bar" style="width: 26.9%; border-radius: 10px; background-color: #7dd3fc;"></div>
+                                        <div class="progress-bar" style="width: 26.9%; background-color: #7dd3fc;"></div>
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <span><i class="fas fa-circle" style="color: #bae6fd; font-size: 12px;"></i> Very Satisfied</span>
+                                        <span><i class="fas fa-circle" style="color: #bae6fd;"></i> Very Satisfied</span>
                                         <span class="fw-bold">21.5%</span>
                                     </div>
                                     <div class="progress" style="height: 6px; border-radius: 10px;">
-                                        <div class="progress-bar" style="width: 21.5%; border-radius: 10px; background-color: #bae6fd;"></div>
+                                        <div class="progress-bar" style="width: 21.5%; background-color: #bae6fd;"></div>
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <span><i class="fas fa-circle" style="color: #e0f2fe; font-size: 12px;"></i> Poor</span>
+                                        <span><i class="fas fa-circle" style="color: #e0f2fe;"></i> Poor</span>
                                         <span class="fw-bold">16.1%</span>
                                     </div>
                                     <div class="progress" style="height: 6px; border-radius: 10px;">
-                                        <div class="progress-bar" style="width: 16.1%; border-radius: 10px; background-color: #e0f2fe;"></div>
+                                        <div class="progress-bar" style="width: 16.1%; background-color: #e0f2fe;"></div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="mt-4 pt-2">
-                            <p class="text-secondary small mb-0">
-                                It takes continuous effort to maintain high customer satisfaction levels.
-                                Internal and external quality measures are often tied together, as the opinion...
-                                <a href="#" class="text-primary fw-semibold text-decoration-none">Learn more →</a>
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -392,9 +341,9 @@
                     </div>
                 </div>
             </div>
-            <!-- Social Media Sources: Facebook & Twitter -->
+
+            <!-- Social Media Sources -->
             <div class="row g-4 mb-4">
-                <!-- Facebook Source -->
                 <div class="col-md-6">
                     <div class="card border-0 shadow-sm rounded-4">
                         <div class="card-header bg-transparent border-0 pt-4">
@@ -409,7 +358,7 @@
                                     <span class="fw-bold">25%</span>
                                 </div>
                                 <div class="progress" style="height: 6px; border-radius: 10px;">
-                                    <div class="progress-bar bg-primary" style="width: 25%; border-radius: 10px;"></div>
+                                    <div class="progress-bar bg-primary" style="width: 25%;"></div>
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -418,7 +367,7 @@
                                     <span class="fw-bold">85%</span>
                                 </div>
                                 <div class="progress" style="height: 6px; border-radius: 10px;">
-                                    <div class="progress-bar bg-primary" style="width: 85%; border-radius: 10px;"></div>
+                                    <div class="progress-bar bg-primary" style="width: 85%;"></div>
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -427,14 +376,13 @@
                                     <span class="fw-bold">65%</span>
                                 </div>
                                 <div class="progress" style="height: 6px; border-radius: 10px;">
-                                    <div class="progress-bar bg-primary" style="width: 65%; border-radius: 10px;"></div>
+                                    <div class="progress-bar bg-primary" style="width: 65%;"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Twitter Source -->
                 <div class="col-md-6">
                     <div class="card border-0 shadow-sm rounded-4">
                         <div class="card-header bg-transparent border-0 pt-4">
@@ -449,7 +397,7 @@
                                     <span class="fw-bold">85%</span>
                                 </div>
                                 <div class="progress" style="height: 6px; border-radius: 10px;">
-                                    <div class="progress-bar bg-info" style="width: 85%; border-radius: 10px;"></div>
+                                    <div class="progress-bar bg-info" style="width: 85%;"></div>
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -458,7 +406,7 @@
                                     <span class="fw-bold">25%</span>
                                 </div>
                                 <div class="progress" style="height: 6px; border-radius: 10px;">
-                                    <div class="progress-bar bg-info" style="width: 25%; border-radius: 10px;"></div>
+                                    <div class="progress-bar bg-info" style="width: 25%;"></div>
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -467,13 +415,14 @@
                                     <span class="fw-bold">65%</span>
                                 </div>
                                 <div class="progress" style="height: 6px; border-radius: 10px;">
-                                    <div class="progress-bar bg-info" style="width: 65%; border-radius: 10px;"></div>
+                                    <div class="progress-bar bg-info" style="width: 65%;"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <!-- Tickets Answered Card -->
             <div class="row">
                 <div class="col-md-6">
@@ -494,57 +443,32 @@
                     </div>
                 </div>
             </div>
+
+            <footer class="mt-5 pt-3 pb-3 text-center">
+                <p class="mb-0 text-muted" style="font-family: 'Inter', sans-serif; font-size: 0.8rem;">
+                    © 2026
+                    <strong class="text-primary">Davin Loise</strong>
+                    <span class="mx-1">&</span>
+                    <strong class="text-primary">Amins Project Team</strong>
+                    <span class="mx-2">•</span>
+                    All rights reserved.
+                </p>
+            </footer>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // PIE CHART FULL (bukan ring/donut) - menggunakan type 'pie'
         var pieOptions = {
             series: [35.5, 26.9, 21.5, 16.1],
-            chart: {
-                type: 'pie', // PIE FULL, bukan donut
-                height: 280,
-                width: '100%',
-                toolbar: {
-                    show: false
-                }
-            },
+            chart: { type: 'pie', height: 280, toolbar: { show: false } },
             labels: ['Very Poor', 'Satisfied', 'Very Satisfied', 'Poor'],
-            colors: ['#38bdf8', '#7dd3fc', '#bae6fd', '#e0f2fe'], // Biru muda semua
-            legend: {
-                show: false
-            },
-            dataLabels: {
-                enabled: true,
-                style: {
-                    fontSize: '12px',
-                    fontWeight: 'bold',
-                    colors: ['#0c4a6e']
-                },
-                formatter: function(val, opts) {
-                    return opts.w.config.series[opts.seriesIndex] + '%';
-                }
-            },
-            tooltip: {
-                y: {
-                    formatter: function(val) {
-                        return val + '%';
-                    }
-                }
-            },
-            responsive: [{
-                breakpoint: 480,
-                options: {
-                    chart: {
-                        width: 250
-                    }
-                }
-            }]
+            colors: ['#38bdf8', '#7dd3fc', '#bae6fd', '#e0f2fe'],
+            legend: { show: false },
+            dataLabels: { enabled: true, style: { fontSize: '12px', fontWeight: 'bold' }, formatter: function(val, opts) { return opts.w.config.series[opts.seriesIndex] + '%'; } },
+            tooltip: { y: { formatter: function(val) { return val + '%'; } } }
         };
-
-        var chart = new ApexCharts(document.querySelector("#satisfactionPieChart"), pieOptions);
-        chart.render();
+        new ApexCharts(document.querySelector("#satisfactionPieChart"), pieOptions).render();
     </script>
 </body>
 

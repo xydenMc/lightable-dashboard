@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?> | CodeIgniter 4</title>
+    <title><?= $title ?> | Light Able</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -117,41 +117,19 @@
             letter-spacing: -0.2px;
             color: #0f172a;
         }
-
-        .main-content {
-            margin-left: 260px;
-            padding: 20px;
-            min-height: 100vh;
-        }
-
-        @media (max-width: 768px) {
-            .main-content {
-                margin-left: 0;
-            }
-
-            .stat-icon {
-                width: 44px;
-                height: 44px;
-                font-size: 1.4rem;
-            }
-        }
     </style>
 </head>
 
 <body>
-
-    <!-- Sidebar - SAMA PERSIS DENGAN INDEX -->
-    <?= view('layout/sidebar') ?>
+    <!-- Sidebar -->
+    <?= view('layout/sidebar_new') ?>
 
     <!-- Main Content -->
     <div class="main-content">
         <div class="container-xl py-4 py-lg-5">
             <!-- Header -->
-            <!-- Header - Ganti dengan ini -->
-            <!-- Header dengan Breadcrumb -->
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 pb-1">
                 <div>
-                    <!-- Breadcrumb navigation -->
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-2">
                             <li class="breadcrumb-item">
@@ -168,10 +146,10 @@
                 <div class="mt-3 mt-md-0">
                     <div class="btn-group shadow-sm">
                         <button class="btn btn-light border rounded-3 px-4"><i class="far fa-calendar-alt me-2"></i>This month</button>
-                        
                     </div>
                 </div>
             </div>
+            
             <!-- Stats Cards -->
             <div class="row g-4 mb-5">
                 <div class="col-md-4">
@@ -318,12 +296,20 @@
                 </div>
             </div>
 
-            <footer class="mt-5 pt-3 text-center text-muted">
-                <p class="mb-0"><i class="far fa-copyright me-1"></i> 2025 Affiliate Hub — CodeIgniter 4 Dashboard | All metrics are demo visuals</p>
+            <footer class="mt-5 pt-3 pb-3 text-center">
+                <p class="mb-0 text-muted" style="font-family: 'Inter', sans-serif; font-size: 0.8rem;">
+                    © 2026
+                    <strong class="text-primary">Davin Loise</strong>
+                    <span class="mx-1">&</span>
+                    <strong class="text-primary">Amins Project Team</strong>
+                    <span class="mx-2">•</span>
+                    All rights reserved.
+                </p>
             </footer>
         </div>
     </div>
-
+ 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const ctx = document.getElementById('trendChart').getContext('2d');
         new Chart(ctx, {
@@ -392,8 +378,6 @@
             }
         });
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
