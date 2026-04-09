@@ -73,7 +73,7 @@
 <body>
     <!-- Sidebar -->
     <?= view('layout/sidebar_new') ?>
-
+ <?= view('layout/navbar') ?>
     <!-- Main Content -->
     <div class="main-content">
         <div class="container-fluid px-4 py-4">

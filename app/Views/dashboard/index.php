@@ -5,19 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?? 'Dashboard' ?> | Light Able</title>
-
+    
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         .card-stats {
             transition: all 0.3s;
             border-radius: 15px;
             border: none;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .card-stats:hover {
@@ -82,7 +81,7 @@
 <body>
     <!-- Sidebar -->
     <?= view('layout/sidebar_new') ?>
-
+ <?= view('layout/navbar') ?>
     <!-- Main Content -->
     <div class="main-content">
         <div class="container-fluid px-4 py-4">
@@ -446,7 +445,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <footer class="mt-5 pt-3 pb-3 text-center">
                 <p class="mb-0 text-muted" style="font-family: 'Inter', sans-serif; font-size: 0.8rem;">
                     © 2026

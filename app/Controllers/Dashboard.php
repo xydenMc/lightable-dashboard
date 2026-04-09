@@ -28,7 +28,7 @@ class Dashboard extends BaseController
             ]
         ];
         
-        return view('index', $data);
+        return view('dashboard/index', $data);
     }
     
     // Affiliate Page
@@ -60,48 +60,48 @@ class Dashboard extends BaseController
             ]
         ];
         
-        return view('affiliate', $data);
+        return view('dashboard/affiliate', $data);
     }
     
     // Finance Page
     public function finance()
     {
         $data = ['title' => 'Finance Dashboard'];
-        return view('finance', $data);
+        return view('dashboard/finance', $data);
     }
     
     // Helpdesk Page
     public function helpdesk()
     {
         $data = ['title' => 'Helpdesk Dashboard'];
-        return view('helpdesk', $data);
+        return view('dashboard/helpdesk', $data);
     }
     
     // Invoice Page
     public function invoice()
     {
         $data = ['title' => 'Invoice Dashboard'];
-        return view('invoice', $data);
+        return view('dashboard/invoice', $data);
     }
     
     // Layouts Page
     public function layouts()
     {
         $data = ['title' => 'Layouts'];
-        return view('layouts', $data);
+        return view('dashboard/layouts', $data);
     }
     
     // Widget Page
     public function widget()
     {
         $data = ['title' => 'Widget'];
-        return view('widget', $data);
+        return view('dashboard/widget', $data);
     }
     
     // Statistics Page
     public function statistics()
     {
         $data = ['title' => 'Statistics'];
-        return view('statistics', $data);
+        return view('dashboard/statistics', $data);
     }
 }

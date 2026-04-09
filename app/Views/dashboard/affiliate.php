@@ -122,10 +122,11 @@
 
 <body>
     <!-- Sidebar -->
+   <?= view('layout/navbar') ?>
     <?= view('layout/sidebar_new') ?>
 
     <!-- Main Content -->
-    <div class="main-content">
+      <div class="main-content">
         <div class="container-xl py-4 py-lg-5">
             <!-- Header -->
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 pb-1">
@@ -145,7 +146,7 @@
                 </div>
                 <div class="mt-3 mt-md-0">
                     <div class="btn-group shadow-sm">
-                        <button class="btn btn-light border rounded-3 px-4"><i class="far fa-calendar-alt me-2"></i>This month</button>
+                        
                     </div>
                 </div>
             </div>
@@ -308,7 +309,7 @@
             </footer>
         </div>
     </div>
- 
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const ctx = document.getElementById('trendChart').getContext('2d');
