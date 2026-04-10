@@ -18,6 +18,7 @@ $routes->setAutoRoute(false);
 // Routes
 $routes->get('/', 'Dashboard::index');
 $routes->get('/dashboard', 'Dashboard::index');
+$routes->get('/index', 'Dashboard::index');
 $routes->get('/affiliate', 'Dashboard::affiliate');
 $routes->get('/finance', 'Dashboard::finance');
 $routes->get('/helpdesk', 'Dashboard::helpdesk');

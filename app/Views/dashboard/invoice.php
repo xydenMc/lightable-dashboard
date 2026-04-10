@@ -11,6 +11,346 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
     <style>
+        body.dark-mode .search-bar .input-group {
+            background: #1e293b !important;
+            border: 1px solid #334155 !important;
+        }
+
+        body.dark-mode .search-bar .input-group:focus-within {
+            background: #0f172a !important;
+            border-color: #4f46e5 !important;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2) !important;
+        }
+
+        body.dark-mode .search-bar input {
+            background: transparent !important;
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .search-bar input::placeholder {
+            color: #64748b !important;
+        }
+
+        body.dark-mode .search-bar .input-group-text {
+            background: transparent !important;
+            border: none !important;
+            color: #94a3b8 !important;
+        }
+
+        body.dark-mode .search-bar kbd {
+            background: #0f172a !important;
+            color: #94a3b8 !important;
+            border: 1px solid #334155 !important;
+        }
+
+        body.dark-mode .search-bar .btn-link {
+            color: #94a3b8 !important;
+        }
+
+        body.dark-mode .search-bar .btn-link:hover {
+            color: #818cf8 !important;
+        }
+/* Perbaikan agar search bar tidak terpotong */
+.search-bar {
+    width: 320px;
+}
+/* ========== CUSTOM SCROLLBAR ========== */
+/* Light Mode */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #e2e8f0;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* Dark Mode */
+body.dark-mode ::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background: #475569;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+}
+
+body.dark-mode {
+    scrollbar-color: #475569 #1e293b;
+}
+.search-bar .input-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.search-bar input {
+    flex: 1;
+    min-width: 0;
+}
+
+.search-bar .btn-link {
+    white-space: nowrap;
+}
+
+@media (max-width: 992px) {
+    .search-bar {
+        width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-bar {
+        width: auto;
+        margin: 0 10px;
+    }
+}
+        /* ========== FIX WARNA ANGKA DI MODE DARK ========== */
+        body.dark-mode {
+            --text-light: #e2e8f0;
+            --text-primary-light: #818cf8;
+            --text-success-light: #34d399;
+            --text-warning-light: #fbbf24;
+        }
+
+        body.dark-mode .fw-bold,
+        body.dark-mode .fw-semibold,
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3,
+        body.dark-mode h4,
+        body.dark-mode h5,
+        body.dark-mode h6,
+        body.dark-mode .card h2,
+        body.dark-mode .card h3,
+        body.dark-mode .card .fw-bold,
+        body.dark-mode .table-custom td,
+        body.dark-mode .card-body .fw-bold {
+            color: var(--text-light) !important;
+        }
+
+        /* Angka uang ($) jadi warna ungu terang */
+        body.dark-mode .card-stat h2,
+        body.dark-mode .card-stats h2,
+        body.dark-mode .card-border h5,
+        body.dark-mode .card-border h3,
+        body.dark-mode .display-6 {
+            color: var(--text-primary-light) !important;
+        }
+
+        /* Trend positif (hijau) */
+        body.dark-mode .trend-up,
+        body.dark-mode .text-success {
+            color: var(--text-success-light) !important;
+        }
+
+        /* Trend negatif (merah) */
+        body.dark-mode .trend-down,
+        body.dark-mode .text-danger {
+            color: #f87171 !important;
+        }
+
+        /* Total balance / earning utama (kuning) */
+        body.dark-mode .card .text-center h3,
+        body.dark-mode .total-earnings {
+            color: var(--text-warning-light) !important;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 0;
+            transition: margin-left 0.3s ease;
+            min-height: 100vh;
+            margin-top: 70px;
+        }
+
+        /* Dark Mode untuk Cards dan Elemen Lain di View */
+        body.dark-mode .card,
+        body.dark-mode .card-stat,
+        body.dark-mode .card-border,
+        body.dark-mode .card-stats {
+            background: #1e293b !important;
+            border-color: #334155 !important;
+        }
+
+        body.dark-mode .card-header {
+            background: transparent !important;
+            border-bottom-color: #334155 !important;
+        }
+
+        body.dark-mode .card-footer {
+            background: transparent !important;
+            border-top-color: #334155 !important;
+        }
+
+        body.dark-mode .text-muted {
+            color: #94a3b8 !important;
+        }
+
+        body.dark-mode .text-dark {
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .bg-light {
+            background: #334155 !important;
+        }
+
+        body.dark-mode .bg-white {
+            background: #1e293b !important;
+        }
+
+        body.dark-mode .table,
+        body.dark-mode .table-custom td,
+        body.dark-mode .table-custom th {
+            color: #e2e8f0;
+            border-color: #334155;
+        }
+
+        body.dark-mode .list-group-item {
+            background: transparent;
+            color: #e2e8f0;
+            border-color: #334155;
+        }
+
+        body.dark-mode .list-group-item:hover {
+            background: #334155;
+        }
+
+        body.dark-mode .progress {
+            background-color: #334155;
+        }
+
+        body.dark-mode .border {
+            border-color: #334155 !important;
+        }
+
+        body.dark-mode .btn-light {
+            background: #334155;
+            border-color: #475569;
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .btn-light:hover {
+            background: #475569;
+            color: white;
+        }
+
+        body.dark-mode .alert-light {
+            background: #334155;
+            border-color: #475569;
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .badge.bg-light {
+            background: #334155 !important;
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .badge.bg-white {
+            background: #334155 !important;
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .breadcrumb-item a {
+            color: #94a3b8;
+        }
+
+        body.dark-mode .breadcrumb-item.active {
+            color: #818cf8;
+        }
+
+        body.dark-mode .breadcrumb-item+.breadcrumb-item::before {
+            color: #64748b;
+        }
+
+        body.dark-mode .dropdown-menu {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        body.dark-mode .dropdown-item {
+            color: #cbd5e1;
+        }
+
+        body.dark-mode .dropdown-item:hover {
+            background: #334155;
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .modal-content {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        body.dark-mode .modal-header,
+        body.dark-mode .modal-footer {
+            border-color: #334155;
+        }
+
+        body.dark-mode .form-control,
+        body.dark-mode .form-select {
+            background: #0f172a;
+            border-color: #334155;
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .form-control:focus,
+        body.dark-mode .form-select:focus {
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .input-group-text {
+            background: #334155;
+            border-color: #475569;
+            color: #cbd5e1;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0;
+            }
+        }
+
+        .main-content {
+            margin-left: 280px;
+            padding: 0;
+            transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            min-height: 100vh;
+            margin-top: 70px;
+        }
+
+        /* Saat sidebar collapsed (hilang), main content melebar ke kiri */
+        .main-content.expanded {
+            margin-left: 0;
+        }
+
+        /* Responsive untuk mobile */
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0;
+            }
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -43,8 +383,13 @@
             border-radius: 12px;
         }
 
-        .trend-up { color: #10b981; }
-        .trend-down { color: #ef4444; }
+        .trend-up {
+            color: #10b981;
+        }
+
+        .trend-down {
+            color: #ef4444;
+        }
 
         .breadcrumb {
             background: transparent;
@@ -71,9 +416,9 @@
 </head>
 
 <body>
-    <!-- Sidebar -->
+    <?= view('layout/navbar') ?><!-- Sidebar -->
     <?= view('layout/sidebar_new') ?>
- <?= view('layout/navbar') ?>
+    
     <!-- Main Content -->
     <div class="main-content">
         <div class="container-fluid px-4 py-4">
@@ -456,38 +801,100 @@
     <script>
         // Invoice Chart
         var invoiceOptions = {
-            series: [{ name: 'Income', data: [31, 40, 28, 51, 42, 85, 77, 60, 55, 68, 45, 70] }, { name: 'Expenses', data: [11, 32, 45, 32, 34, 52, 41, 38, 44, 58, 35, 48] }],
-            chart: { type: 'area', height: 320, toolbar: { show: false } },
+            series: [{
+                name: 'Income',
+                data: [31, 40, 28, 51, 42, 85, 77, 60, 55, 68, 45, 70]
+            }, {
+                name: 'Expenses',
+                data: [11, 32, 45, 32, 34, 52, 41, 38, 44, 58, 35, 48]
+            }],
+            chart: {
+                type: 'area',
+                height: 320,
+                toolbar: {
+                    show: false
+                }
+            },
             colors: ['#4f46e5', '#f59e0b'],
-            stroke: { curve: 'smooth', width: 2 },
-            fill: { type: 'gradient', gradient: { shadeIntensity: 1, opacityFrom: 0.3, opacityTo: 0.1 } },
-            xaxis: { categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] },
-            tooltip: { shared: true }
+            stroke: {
+                curve: 'smooth',
+                width: 2
+            },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shadeIntensity: 1,
+                    opacityFrom: 0.3,
+                    opacityTo: 0.1
+                }
+            },
+            xaxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            },
+            tooltip: {
+                shared: true
+            }
         };
         new ApexCharts(document.querySelector("#invoiceChart"), invoiceOptions).render();
 
         // Expenses Chart (Donut)
         var expensesOptions = {
             series: [3202, 45050, 25000, 7694],
-            chart: { type: 'donut', height: 200 },
+            chart: {
+                type: 'donut',
+                height: 200
+            },
             labels: ['Pending', 'Paid', 'Overdue', 'Draft'],
             colors: ['#f59e0b', '#10b981', '#ef4444', '#6c757d'],
-            legend: { show: false },
-            dataLabels: { enabled: false },
+            legend: {
+                show: false
+            },
+            dataLabels: {
+                enabled: false
+            },
             plotOptions: {
                 pie: {
                     donut: {
                         size: '65%',
                         labels: {
                             show: true,
-                            name: { show: true, fontSize: '14px', fontWeight: 600, offsetY: -10 },
-                            value: { show: true, fontSize: '18px', fontWeight: 'bold', color: '#1e293b', offsetY: 10, formatter: function(val) { return '$' + val.toLocaleString(); } },
-                            total: { show: true, label: 'Total', fontSize: '12px', color: '#6c757d', formatter: function(w) { var total = w.globals.seriesTotals.reduce((a, b) => a + b, 0); return '$' + total.toLocaleString(); } }
+                            name: {
+                                show: true,
+                                fontSize: '14px',
+                                fontWeight: 600,
+                                offsetY: -10
+                            },
+                            value: {
+                                show: true,
+                                fontSize: '18px',
+                                fontWeight: 'bold',
+                                color: '#1e293b',
+                                offsetY: 10,
+                                formatter: function(val) {
+                                    return '$' + val.toLocaleString();
+                                }
+                            },
+                            total: {
+                                show: true,
+                                label: 'Total',
+                                fontSize: '12px',
+                                color: '#6c757d',
+                                formatter: function(w) {
+                                    var total = w.globals.seriesTotals.reduce((a, b) => a + b, 0);
+                                    return '$' + total.toLocaleString();
+                                }
+                            }
                         }
                     }
                 }
             },
-            tooltip: { y: { formatter: function(val) { return '$' + val.toLocaleString(); } } }
+            tooltip: {
+                y: {
+                    formatter: function(val) {
+                        return '$' + val.toLocaleString();
+                    }
+                }
+            }
         };
 
         var expensesChart = new ApexCharts(document.querySelector("#expensesChart"), expensesOptions);
@@ -499,8 +906,16 @@
                     pie: {
                         donut: {
                             labels: {
-                                name: { formatter: function() { return label; } },
-                                value: { formatter: function() { return '$' + value.toLocaleString(); } }
+                                name: {
+                                    formatter: function() {
+                                        return label;
+                                    }
+                                },
+                                value: {
+                                    formatter: function() {
+                                        return '$' + value.toLocaleString();
+                                    }
+                                }
                             }
                         }
                     }
@@ -508,10 +923,18 @@
             });
         }
 
-        document.querySelector('.pending-item').addEventListener('click', function() { updateCenterText('Pending', 3202); });
-        document.querySelector('.paid-item').addEventListener('click', function() { updateCenterText('Paid', 45050); });
-        document.querySelector('.overdue-item').addEventListener('click', function() { updateCenterText('Overdue', 25000); });
-        document.querySelector('.draft-item').addEventListener('click', function() { updateCenterText('Draft', 7694); });
+        document.querySelector('.pending-item').addEventListener('click', function() {
+            updateCenterText('Pending', 3202);
+        });
+        document.querySelector('.paid-item').addEventListener('click', function() {
+            updateCenterText('Paid', 45050);
+        });
+        document.querySelector('.overdue-item').addEventListener('click', function() {
+            updateCenterText('Overdue', 25000);
+        });
+        document.querySelector('.draft-item').addEventListener('click', function() {
+            updateCenterText('Draft', 7694);
+        });
     </script>
 </body>
 

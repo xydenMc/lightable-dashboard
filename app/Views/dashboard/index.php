@@ -5,23 +5,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?? 'Dashboard' ?> | Light Able</title>
-    
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js">
+
     <style>
-        .card-stats {
-            transition: all 0.3s;
-            border-radius: 15px;
-            border: none;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        body.dark-mode .card.h-100.border-0.shadow-sm,
+        body.dark-mode .card-header.bg-white,
+        body.dark-mode .card-footer.bg-white {
+            background: #1e293b !important;
         }
 
-        .card-stats:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        body.dark-mode .card-header.bg-white {
+            border-bottom-color: #334155 !important;
+        }
+
+        body.dark-mode .card-footer.bg-white {
+            border-top-color: #334155 !important;
+        }
+
+        body.dark-mode .list-group-item {
+            background: transparent !important;
+            border-color: #334155 !important;
+        }
+
+        body.dark-mode .list-group-item .text-muted {
+            color: #94a3b8 !important;
+        }
+
+        body.dark-mode .list-group-item h6 {
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .badge.bg-success.bg-opacity-10.text-success {
+            background: rgba(52, 211, 153, 0.15) !important;
+            color: #34d399 !important;
+        }
+
+        body.dark-mode .rounded-circle.bg-primary.bg-opacity-10 {
+            background: rgba(129, 140, 248, 0.15) !important;
+        }
+
+        body.dark-mode .rounded-circle.bg-primary.bg-opacity-10 i {
+            color: #818cf8 !important;
+        }
+
+        /* ========== FIX WARNA ANGKA DI MODE DARK ========== */
+        body.dark-mode {
+            --text-light: #e2e8f0;
+            --text-primary-light: #818cf8;
+            --text-success-light: #34d399;
+            --text-warning-light: #fbbf24;
+        }
+
+        body.dark-mode .fw-bold,
+        body.dark-mode .fw-semibold,
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3,
+        body.dark-mode h4,
+        body.dark-mode h5,
+        body.dark-mode h6,
+        body.dark-mode .card h2,
+        body.dark-mode .card h3,
+        body.dark-mode .card .fw-bold,
+        body.dark-mode .table-custom td,
+        body.dark-mode .card-body .fw-bold {
+            color: var(--text-light) !important;
+        }
+
+        /* Angka uang ($) jadi warna ungu terang */
+        body.dark-mode .card-stat h2,
+        body.dark-mode .card-stats h2,
+        body.dark-mode .card-border h5,
+        body.dark-mode .card-border h3,
+        body.dark-mode .display-6 {
+            color: var(--text-primary-light) !important;
+        }
+
+        /* Trend positif (hijau) */
+        body.dark-mode .trend-up,
+        body.dark-mode .text-success {
+            color: var(--text-success-light) !important;
+        }
+
+        /* Trend negatif (merah) */
+        body.dark-mode .trend-down,
+        body.dark-mode .text-danger {
+            color: #f87171 !important;
+        }
+
+        /* Total balance / earning utama (kuning) */
+        body.dark-mode .card .text-center h3,
+        body.dark-mode .total-earnings {
+            color: var(--text-warning-light) !important;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 0;
+            transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            min-height: 100vh;
+            margin-top: 70px;
+        }
+
+        .main-content.expanded {
+            margin-left: 0;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0;
+            }
+        }
+
+        /* ========== STYLE SAMA SEPERTI FINANCE ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Public Sans', 'Inter', sans-serif;
+            background: #f5f7fc;
+        }
+
+        .card-border {
+            border-radius: 20px;
+            border: 1px solid #e9ecef;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .card-border:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.08);
         }
 
         .stat-icon {
@@ -37,121 +160,202 @@
             color: #28a745;
         }
 
-        .rating-star {
-            color: #ffc107;
-            font-size: 20px;
+        .breadcrumb {
+            background: transparent;
+            padding: 0;
+            margin: 0 0 20px 0;
         }
 
-        .user-table tr {
-            transition: all 0.2s;
+        .breadcrumb-item a {
+            color: #6c757d;
+            text-decoration: none;
         }
 
-        .user-table tr:hover {
-            background-color: #f8f9fa;
-        }
-
-        .list-group-item {
-            transition: all 0.3s ease;
-            border-radius: 12px !important;
-            margin-bottom: 5px;
-        }
-
-        .list-group-item:hover {
-            background-color: #f8f9fa;
-            transform: translateX(5px);
-            cursor: pointer;
-        }
-
-        .badge {
+        .breadcrumb-item.active {
+            color: #4f46e5;
             font-weight: 500;
-            border-radius: 20px;
-            padding: 6px 12px;
         }
 
-        .rounded-circle {
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .breadcrumb-item+.breadcrumb-item::before {
+            content: "›";
+            color: #adb5bd;
+            font-size: 18px;
+        }
+
+        /* ========== DARK MODE CARDS ========== */
+        body.dark-mode .card,
+        body.dark-mode .card-border {
+            background: #1e293b !important;
+            border-color: #334155 !important;
+        }
+
+        body.dark-mode .card-header {
+            background: transparent !important;
+            border-bottom-color: #334155 !important;
+        }
+
+        body.dark-mode .text-muted {
+            color: #94a3b8 !important;
+        }
+
+        body.dark-mode .text-dark {
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .bg-light {
+            background: #334155 !important;
+        }
+
+        body.dark-mode .bg-white {
+            background: #1e293b !important;
+        }
+
+        body.dark-mode .border {
+            border-color: #334155 !important;
+        }
+
+        body.dark-mode .btn-light {
+            background: #334155;
+            border-color: #475569;
+            color: #e2e8f0;
+        }
+
+        /* ========== CUSTOM SCROLLBAR ========== */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+
+        body.dark-mode ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+
+        body.dark-mode ::-webkit-scrollbar-thumb {
+            background: #475569;
+        }
+
+        body.dark-mode ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+
+        * {
+            scrollbar-width: thin;
+        }
+
+        body.dark-mode {
+            scrollbar-color: #475569 #1e293b;
+        }
+
+        /* Dark mode untuk rating stars */
+        body.dark-mode .rating-star .fas.fa-star,
+        body.dark-mode .rating-star .fas.fa-star-half-alt {
+            color: #fbbf24 !important;
+            /* bintang aktif: kuning */
+        }
+
+        body.dark-mode .rating-star .far.fa-star {
+            color: #475569 !important;
+            /* bintang kosong: abu-abu gelap */
+        }
+
+       
+
+        body.dark-mode .fs-2.text-muted {
+            color: #94a3b8 !important;
+            /* angka /5 jadi abu-abu */
+        }
+
+        body.dark-mode .progress-bar.bg-warning {
+            background-color: #fbbf24 !important;
+            /* progress bar rating */
+        }
+
+        body.dark-mode .progress {
+            background-color: #334155 !important;
         }
     </style>
 </head>
 
 <body>
-    <!-- Sidebar -->
+    <!-- Navbar dulu, baru sidebar (SAMA SEPERTI FINANCE) -->
+    <?= view('layout/navbar') ?>
     <?= view('layout/sidebar_new') ?>
- <?= view('layout/navbar') ?>
+
     <!-- Main Content -->
     <div class="main-content">
         <div class="container-fluid px-4 py-4">
-            <!-- Welcome Row -->
-            <div class="row mb-4">
-                <div class="col-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb mb-2">
-                            <li class="breadcrumb-item">
-                                <a href="<?= base_url('/') ?>" class="text-decoration-none text-muted">Dashboard</a>
-                            </li>
-                            <li class="breadcrumb-item active text-primary" aria-current="page">
-                                Analytics
-                            </li>
-                        </ol>
-                    </nav>
-                    <h1 class="display-6 fw-bold" style="color: #0f172a;">Home <span style="background: linear-gradient(135deg, #4f46e5, #7c3aed); background-clip: text; -webkit-background-clip: text; color: transparent;">Dashboard</span></h1>
-                </div>
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="<?= base_url('/') ?>">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Analytics</li>
+                </ol>
+            </nav>
+
+            <!-- Header -->
+            <div class="page-header mb-4">
+                <h2 class="fw-bold mb-0" style="color: #0f172a;">Home <span style="background: linear-gradient(135deg, #4f46e5, #7c3aed); background-clip: text; -webkit-background-clip: text; color: transparent;">Dashboard</span></h2>
+                <p class="text-muted">Welcome back, Davin! Here's your sales overview</p>
             </div>
 
             <!-- Row 1: 3 Main Cards -->
-            <div class="row mb-4">
-                <div class="col-md-4 mb-3">
-                    <div class="card card-stats h-100">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <div>
-                                    <p class="text-muted mb-1">Daily Sales</p>
-                                    <h2 class="mb-2">$<?= number_format($daily_sales, 2) ?></h2>
-                                    <span class="trend-up"><i class="fas fa-arrow-up"></i> <?= $daily_percent ?>%</span>
-                                    <small class="text-muted">You made an extra 35,000 this daily</small>
-                                </div>
-                                <div class="stat-icon bg-primary bg-opacity-10">
-                                    <i class="fas fa-calendar-day text-primary fs-4"></i>
-                                </div>
+            <div class="row g-4 mb-4">
+                <div class="col-md-4">
+                    <div class="card-border card p-3 p-xl-4">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <p class="text-muted mb-1">Daily Sales</p>
+                                <h2 class="mb-2 fw-bold">$<?= number_format($daily_sales, 2) ?></h2>
+                                <span class="trend-up"><i class="fas fa-arrow-up"></i> <?= $daily_percent ?>%</span>
+                                <small class="text-muted ms-2">You made an extra 35,000 this daily</small>
+                            </div>
+                            <div class="stat-icon bg-primary bg-opacity-10">
+                                <i class="fas fa-calendar-day text-primary fs-4"></i>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-3">
-                    <div class="card card-stats h-100">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <div>
-                                    <p class="text-muted mb-1">Monthly Sales</p>
-                                    <h2 class="mb-2">$<?= number_format($monthly_sales, 2) ?></h2>
-                                    <span class="trend-up"><i class="fas fa-arrow-up"></i> <?= $monthly_percent ?>%</span>
-                                    <small class="text-muted">You made an extra 35,000 this Monthly</small>
-                                </div>
-                                <div class="stat-icon bg-success bg-opacity-10">
-                                    <i class="fas fa-calendar-alt text-success fs-4"></i>
-                                </div>
+                <div class="col-md-4">
+                    <div class="card-border card p-3 p-xl-4">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <p class="text-muted mb-1">Monthly Sales</p>
+                                <h2 class="mb-2 fw-bold">$<?= number_format($monthly_sales, 2) ?></h2>
+                                <span class="trend-up"><i class="fas fa-arrow-up"></i> <?= $monthly_percent ?>%</span>
+                                <small class="text-muted ms-2">You made an extra 35,000 this Monthly</small>
+                            </div>
+                            <div class="stat-icon bg-success bg-opacity-10">
+                                <i class="fas fa-calendar-alt text-success fs-4"></i>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-3">
-                    <div class="card card-stats h-100">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <div>
-                                    <p class="text-muted mb-1">Yearly Sales</p>
-                                    <h2 class="mb-2">$<?= number_format($yearly_sales, 2) ?></h2>
-                                    <small class="text-muted">You made an extra 35,000 this Yearly</small>
-                                </div>
-                                <div class="stat-icon bg-info bg-opacity-10">
-                                    <i class="fas fa-chart-line text-info fs-4"></i>
-                                </div>
+                <div class="col-md-4">
+                    <div class="card-border card p-3 p-xl-4">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <p class="text-muted mb-1">Yearly Sales</p>
+                                <h2 class="mb-2 fw-bold">$<?= number_format($yearly_sales, 2) ?></h2>
+                                <small class="text-muted">You made an extra 35,000 this Yearly</small>
+                            </div>
+                            <div class="stat-icon bg-info bg-opacity-10">
+                                <i class="fas fa-chart-line text-info fs-4"></i>
                             </div>
                         </div>
                     </div>
@@ -159,59 +363,49 @@
             </div>
 
             <!-- Row: Stats + Chart -->
-            <div class="row mb-4">
-                <div class="col-md-5 mb-3">
-                    <div class="card card-stats mb-3">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <div>
-                                    <p class="text-muted mb-1">Total Earnings</p>
-                                    <h2 class="mb-0">$<?= number_format($total_earnings, 2) ?></h2>
-                                </div>
-                                <div class="stat-icon bg-success bg-opacity-10">
-                                    <i class="fas fa-money-bill text-success fs-4"></i>
-                                </div>
+            <div class="row g-4 mb-4">
+                <div class="col-md-5">
+                    <div class="card-border card mb-4 p-3 p-xl-4">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <p class="text-muted mb-1">Total Earnings</p>
+                                <h2 class="mb-0 fw-bold">$<?= number_format($total_earnings, 2) ?></h2>
+                            </div>
+                            <div class="stat-icon bg-success bg-opacity-10">
+                                <i class="fas fa-money-bill text-success fs-4"></i>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card card-stats mb-3">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <div>
-                                    <p class="text-muted mb-1">Total Ideas</p>
-                                    <h2 class="mb-0"><?= number_format($total_ideas) ?></h2>
-                                </div>
-                                <div class="stat-icon bg-warning bg-opacity-10">
-                                    <i class="fas fa-lightbulb text-warning fs-4"></i>
-                                </div>
+                    <div class="card-border card mb-4 p-3 p-xl-4">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <p class="text-muted mb-1">Total Ideas</p>
+                                <h2 class="mb-0 fw-bold"><?= number_format($total_ideas) ?></h2>
+                            </div>
+                            <div class="stat-icon bg-warning bg-opacity-10">
+                                <i class="fas fa-lightbulb text-warning fs-4"></i>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card card-stats">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <div>
-                                    <p class="text-muted mb-1">Total Location</p>
-                                    <h2 class="mb-0"><?= number_format($total_location) ?></h2>
-                                </div>
-                                <div class="stat-icon bg-primary bg-opacity-10">
-                                    <i class="fas fa-map-marker-alt text-primary fs-4"></i>
-                                </div>
+                    <div class="card-border card p-3 p-xl-4">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <p class="text-muted mb-1">Total Location</p>
+                                <h2 class="mb-0 fw-bold"><?= number_format($total_location) ?></h2>
+                            </div>
+                            <div class="stat-icon bg-primary bg-opacity-10">
+                                <i class="fas fa-map-marker-alt text-primary fs-4"></i>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-7 mb-3">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-header d-flex justify-content-between align-items-center bg-transparent">
-                            <h5 class="mb-0">Users From United States</h5>
-                        </div>
-                        <div class="card-body">
-                            <canvas id="userChart" height="220"></canvas>
-                        </div>
+                <div class="col-md-7">
+                    <div class="card-border card h-100 p-3 p-xl-4">
+                        <h5 class="mb-3 fw-bold">Users From United States</h5>
+                        <canvas id="userChart" height="250"></canvas>
                     </div>
                 </div>
             </div>
@@ -445,7 +639,8 @@
                     </div>
                 </div>
             </div>
-            
+
+
             <footer class="mt-5 pt-3 pb-3 text-center">
                 <p class="mb-0 text-muted" style="font-family: 'Inter', sans-serif; font-size: 0.8rem;">
                     © 2026
@@ -459,18 +654,18 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         const ctx = document.getElementById('userChart').getContext('2d');
-        let userChart = new Chart(ctx, {
+        new Chart(ctx, {
             type: 'line',
             data: {
                 labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                 datasets: [{
                     label: 'Users from United States',
                     data: [650, 720, 800, 750, 820, 900, 880, 950, 1020, 1100, 1150, 1200],
-                    borderColor: 'rgb(59, 130, 246)',
-                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    borderColor: '#4f46e5',
+                    backgroundColor: 'rgba(79, 70, 229, 0.1)',
                     tension: 0.4,
                     fill: true
                 }]

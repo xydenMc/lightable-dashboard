@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +22,25 @@
         body {
             font-family: 'Public Sans', 'Inter', sans-serif;
             background: #f5f7fc;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 0;
+            transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            min-height: 100vh;
+            margin-top: 70px;
+        }
+
+        .main-content.expanded {
+            margin-left: 0;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0;
+            }
         }
 
         .card-border {
@@ -102,14 +120,403 @@
             color: #adb5bd;
             font-size: 18px;
         }
+
+        /* ========== DARK MODE STYLES LENGKAP ========== */
+        body.dark-mode {
+            background: #0f172a;
+        }
+
+        /* Background semua card */
+        body.dark-mode .card,
+        body.dark-mode .card-border,
+        body.dark-mode .card-body,
+        body.dark-mode .modal-content {
+            background: #1e293b !important;
+            border-color: #334155 !important;
+        }
+
+        /* Header card */
+        body.dark-mode .card-header {
+            background: #1e293b !important;
+            border-bottom-color: #334155 !important;
+        }
+
+        /* Footer card */
+        body.dark-mode .card-footer {
+            background: #1e293b !important;
+            border-top-color: #334155 !important;
+        }
+
+        /* Teks umum */
+        body.dark-mode,
+        body.dark-mode .text-dark,
+        body.dark-mode .fw-bold,
+        body.dark-mode .fw-semibold,
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3,
+        body.dark-mode h4,
+        body.dark-mode h5,
+        body.dark-mode h6,
+        body.dark-mode p,
+        body.dark-mode span,
+        body.dark-mode .card-text {
+            color: #e2e8f0 !important;
+        }
+
+        /* Teks muted */
+        body.dark-mode .text-muted,
+        body.dark-mode small:not(.text-white):not(.text-primary),
+        body.dark-mode .small {
+            color: #94a3b8 !important;
+        }
+
+        /* Teks putih (yang memang harus putih) */
+        body.dark-mode .text-white,
+        body.dark-mode .text-white-50 {
+            color: #ffffff !important;
+        }
+
+        /* Teks primary */
+        body.dark-mode .text-primary {
+            color: #818cf8 !important;
+        }
+
+        /* Teks success (hijau) */
+        body.dark-mode .text-success {
+            color: #34d399 !important;
+        }
+
+        /* Teks danger (merah) */
+        body.dark-mode .text-danger {
+            color: #f87171 !important;
+        }
+
+        .card-border {
+            border-radius: 20px !important;
+            overflow: hidden;
+        }
+
+        /* Teks warning */
+        body.dark-mode .text-warning {
+            color: #fbbf24 !important;
+        }
+
+        /* Angka uang di card */
+        body.dark-mode .card-border h3,
+        body.dark-mode .card-border h4,
+        body.dark-mode .card-border h5,
+        body.dark-mode .card-border .fw-bold,
+        body.dark-mode h2.fw-bold,
+        body.dark-mode .display-6 {
+            color: #c7c7c7 !important;
+        }
+
+        /* Angka di transactions */
+        body.dark-mode .list-group-item h6,
+        body.dark-mode .list-group-item .fw-bold {
+            color: #e2e8f0 !important;
+        }
+
+        /* List group item */
+        body.dark-mode .list-group-item {
+            background: transparent !important;
+            border-color: #334155 !important;
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .list-group-item:hover {
+            background: #334155 !important;
+        }
+
+        /* Dropdown */
+        body.dark-mode .dropdown-menu {
+            background: #1e293b !important;
+            border-color: #334155 !important;
+        }
+
+        body.dark-mode .dropdown-item {
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .dropdown-item:hover {
+            background: #334155 !important;
+            color: #818cf8 !important;
+        }
+
+        /* Button light */
+        body.dark-mode .btn-light {
+            background: #334155 !important;
+            border-color: #475569 !important;
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .btn-light:hover {
+            background: #475569 !important;
+        }
+
+        /* Button outline primary */
+        body.dark-mode .btn-outline-primary {
+            color: #818cf8 !important;
+            border-color: #818cf8 !important;
+        }
+
+        body.dark-mode .btn-outline-primary:hover {
+            background: #818cf8 !important;
+            color: #0f172a !important;
+        }
+
+        /* Modal */
+        body.dark-mode .modal-header,
+        body.dark-mode .modal-footer {
+            border-color: #334155 !important;
+        }
+
+        body.dark-mode .modal-title {
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .btn-close {
+            filter: invert(1) grayscale(100%) brightness(200%);
+        }
+
+        /* Form control */
+        body.dark-mode .form-control,
+        body.dark-mode .form-select {
+            background: #0f172a !important;
+            border-color: #334155 !important;
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .form-control:focus,
+        body.dark-mode .form-select:focus {
+            background: #0f172a !important;
+            border-color: #818cf8 !important;
+            box-shadow: 0 0 0 0.25rem rgba(129, 140, 248, 0.25);
+        }
+
+        body.dark-mode .form-label {
+            color: #94a3b8 !important;
+        }
+
+        /* Progress bar */
+        body.dark-mode .progress {
+            background-color: #334155 !important;
+        }
+
+        body.dark-mode .progress-bar {
+            background-color: #818cf8 !important;
+        }
+
+        /* Breadcrumb */
+        body.dark-mode .breadcrumb-item a {
+            color: #94a3b8 !important;
+        }
+
+        body.dark-mode .breadcrumb-item.active {
+            color: #818cf8 !important;
+        }
+
+        body.dark-mode .breadcrumb-item+.breadcrumb-item::before {
+            color: #64748b !important;
+        }
+
+        /* Border */
+        body.dark-mode .border {
+            border-color: #334155 !important;
+        }
+
+        body.dark-mode .border-bottom {
+            border-bottom-color: #334155 !important;
+        }
+
+        body.dark-mode .border-top {
+            border-top-color: #334155 !important;
+        }
+
+        /* Background light */
+        body.dark-mode .bg-light {
+            background: #334155 !important;
+        }
+
+        body.dark-mode .bg-white {
+            background: #1e293b !important;
+        }
+
+        /* Badge */
+        body.dark-mode .badge.bg-light {
+            background: #334155 !important;
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .badge.bg-white {
+            background: #334155 !important;
+            color: #e2e8f0 !important;
+        }
+
+        /* Table */
+        body.dark-mode .table {
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .table td,
+        body.dark-mode .table th {
+            border-color: #334155 !important;
+        }
+
+       
+        /* Scrollbar */
+        body.dark-mode ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+
+        body.dark-mode ::-webkit-scrollbar-thumb {
+            background: #475569;
+        }
+
+        body.dark-mode ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+
+        /* ApexCharts di dark mode */
+        body.dark-mode .apexcharts-text,
+        body.dark-mode .apexcharts-legend-text {
+            fill: #e2e8f0 !important;
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .apexcharts-tooltip {
+            background: #1e293b !important;
+            border-color: #334155 !important;
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .apexcharts-tooltip-title {
+            background: #0f172a !important;
+            border-bottom-color: #334155 !important;
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .apexcharts-grid line {
+            stroke: #334155 !important;
+        }
+
+        body.dark-mode .apexcharts-xaxis line,
+        body.dark-mode .apexcharts-yaxis line {
+            stroke: #334155 !important;
+        }
+        .search-bar .input-group {
+    background: #f1f5f9 !important;
+    border-radius: 40px !important;
+    border: none !important;
+    transition: all 0.3s ease-in-out !important;
+}
+
+.search-bar .input-group:focus-within {
+    background: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1) !important;
+}
+
+.search-bar input {
+    background: transparent !important;
+    color: #1e293b !important;
+}
+
+.search-bar input::placeholder {
+    color: #64748b !important;
+}
+
+.search-bar .input-group-text {
+    background: transparent !important;
+    border: none !important;
+    color: #64748b !important;
+}
+
+.search-bar .btn-link {
+    text-decoration: none !important;
+    padding: 0 8px !important;
+}
+
+.search-bar kbd {
+    background: #e2e8f0 !important;
+    color: #475569 !important;
+    border-radius: 6px !important;
+    padding: 2px 8px !important;
+    font-size: 0.7rem !important;
+    font-weight: 500 !important;
+}
+
+/* Dark mode - PAKSA WARNA YANG BENAR */
+body.dark-mode .search-bar .input-group {
+    background: #1e293b !important;
+    border: 1px solid #334155 !important;
+    border-radius: 40px !important;
+    box-shadow: none !important;
+}
+
+body.dark-mode .search-bar .input-group:hover {
+    background: #0f172a !important;
+    border-color: #4f46e5 !important;
+}
+
+body.dark-mode .search-bar .input-group:focus-within {
+    background: #0f172a !important;
+    border-color: #4f46e5 !important;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2) !important;
+}
+
+body.dark-mode .search-bar input {
+    color: #94a3b8 !important;
+    background: transparent !important;
+}
+
+body.dark-mode .search-bar .input-group:focus-within input,
+body.dark-mode .search-bar input:focus {
+    color: #ffffff !important;
+}
+
+body.dark-mode .search-bar input::placeholder {
+    color: #64748b !important;
+}
+
+body.dark-mode .search-bar .input-group-text {
+    background: transparent !important;
+    border: none !important;
+}
+
+body.dark-mode .search-bar .input-group-text i {
+    color: #64748b !important;
+}
+
+body.dark-mode .search-bar .input-group:focus-within .input-group-text i {
+    color: #818cf8 !important;
+}
+
+body.dark-mode .search-bar kbd {
+    background: #0f172a !important;
+    color: #94a3b8 !important;
+    border: 1px solid #334155 !important;
+}
+
+body.dark-mode .search-bar .input-group:focus-within kbd {
+    background: #1e293b !important;
+    color: #818cf8 !important;
+    border-color: #4f46e5 !important;
+}
+
+body.dark-mode .search-bar .btn-link {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .search-bar .input-group:focus-within .btn-link {
+    color: #818cf8 !important;
+}
     </style>
 </head>
 
 <body>
-    <!-- Sidebar -->
- <?= view('layout/navbar') ?>
+    <?= view('layout/navbar') ?>
     <?= view('layout/sidebar_new') ?>
-
 
     <!-- Main Content -->
     <div class="main-content">
@@ -125,7 +532,7 @@
 
             <!-- Header -->
             <div class="page-header mb-4">
-                <h2 class="fw-bold mb-0" style="color: #0f172a;">Finance Dashboard</h2>
+                <h2 class="fw-bold mb-0">Finance Dashboard</h2>
                 <p class="text-muted">Manage your finances and transactions</p>
             </div>
 
@@ -267,9 +674,9 @@
                 </div>
 
                 <div class="col-md-7 col-xxl-8">
-                    <div class="row">
+                    <div class="row g-4">
                         <div class="col-md-6 col-xxl-4">
-                            <div class="card card-border">
+                            <div class="card card-border h-100">
                                 <div class="card-body">
                                     <div class="d-flex align-items-start justify-content-between mb-3">
                                         <div>
@@ -299,7 +706,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-xxl-4">
-                            <div class="card card-border">
+                            <div class="card card-border h-100">
                                 <div class="card-body">
                                     <div class="d-flex align-items-start justify-content-between mb-3">
                                         <div>
@@ -329,7 +736,7 @@
                             </div>
                         </div>
                         <div class="col-md-12 col-xxl-4">
-                            <div class="card card-border mt-3">
+                            <div class="card card-border h-100">
                                 <div class="card-body">
                                     <div class="d-flex align-items-start justify-content-between mb-3">
                                         <div>
@@ -395,21 +802,27 @@
                             <div class="card shadow-none border rounded-4 h-100">
                                 <div class="card-body p-3">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <i class="fas fa-utensils fs-1 text-primary"></i>
+                                        <div class="bg-danger bg-opacity-10 p-3 rounded-3">
+                                            <i class="fas fa-utensils fs-3 text-danger"></i>
+                                        </div>
                                         <div class="dropdown">
                                             <button class="btn btn-sm btn-light rounded-circle" data-bs-toggle="dropdown">
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </button>
                                         </div>
                                     </div>
-                                    <h6 class="mb-3 fw-semibold">Food & Drink</h6>
-                                    <div class="bg-dark p-3 pt-4 rounded-4">
-                                        <div class="progress bg-white bg-opacity-25" style="height: 6px">
-                                            <div class="progress-bar bg-white" style="width: 65%"></div>
+                                    <h6 class="mb-2 fw-semibold">Food & Drink</h6>
+                                    <div class="mt-2">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span class="text-muted small">Spent</span>
+                                            <span class="fw-semibold">$1,000</span>
                                         </div>
-                                        <div class="d-flex justify-content-between mt-2">
-                                            <span class="text-white small">65%</span>
-                                            <span class="text-white small">$1000</span>
+                                        <div class="progress" style="height: 6px; border-radius: 10px;">
+                                            <div class="progress-bar bg-danger" style="width: 65%; border-radius: 10px;"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between mt-1">
+                                            <span class="text-muted small">of $1,538</span>
+                                            <span class="text-muted small">65%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -419,21 +832,27 @@
                             <div class="card shadow-none border rounded-4 h-100">
                                 <div class="card-body p-3">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <i class="fas fa-plane fs-1 text-primary"></i>
+                                        <div class="bg-primary bg-opacity-10 p-3 rounded-3">
+                                            <i class="fas fa-plane fs-3 text-primary"></i>
+                                        </div>
                                         <div class="dropdown">
                                             <button class="btn btn-sm btn-light rounded-circle" data-bs-toggle="dropdown">
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </button>
                                         </div>
                                     </div>
-                                    <h6 class="mb-3 fw-semibold">Travel</h6>
-                                    <div class="bg-dark p-3 pt-4 rounded-4">
-                                        <div class="progress bg-white bg-opacity-25" style="height: 6px">
-                                            <div class="progress-bar bg-white" style="width: 30%"></div>
+                                    <h6 class="mb-2 fw-semibold">Travel</h6>
+                                    <div class="mt-2">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span class="text-muted small">Spent</span>
+                                            <span class="fw-semibold">$400</span>
                                         </div>
-                                        <div class="d-flex justify-content-between mt-2">
-                                            <span class="text-white small">30%</span>
-                                            <span class="text-white small">$400</span>
+                                        <div class="progress" style="height: 6px; border-radius: 10px;">
+                                            <div class="progress-bar bg-primary" style="width: 30%; border-radius: 10px;"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between mt-1">
+                                            <span class="text-muted small">of $1,333</span>
+                                            <span class="text-muted small">30%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -443,21 +862,27 @@
                             <div class="card shadow-none border rounded-4 h-100">
                                 <div class="card-body p-3">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <i class="fas fa-shopping-bag fs-1 text-primary"></i>
+                                        <div class="bg-warning bg-opacity-10 p-3 rounded-3">
+                                            <i class="fas fa-shopping-bag fs-3 text-warning"></i>
+                                        </div>
                                         <div class="dropdown">
                                             <button class="btn btn-sm btn-light rounded-circle" data-bs-toggle="dropdown">
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </button>
                                         </div>
                                     </div>
-                                    <h6 class="mb-3 fw-semibold">Shopping</h6>
-                                    <div class="bg-dark p-3 pt-4 rounded-4">
-                                        <div class="progress bg-white bg-opacity-25" style="height: 6px">
-                                            <div class="progress-bar bg-white" style="width: 52%"></div>
+                                    <h6 class="mb-2 fw-semibold">Shopping</h6>
+                                    <div class="mt-2">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span class="text-muted small">Spent</span>
+                                            <span class="fw-semibold">$900</span>
                                         </div>
-                                        <div class="d-flex justify-content-between mt-2">
-                                            <span class="text-white small">52%</span>
-                                            <span class="text-white small">$900</span>
+                                        <div class="progress" style="height: 6px; border-radius: 10px;">
+                                            <div class="progress-bar bg-warning" style="width: 52%; border-radius: 10px;"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between mt-1">
+                                            <span class="text-muted small">of $1,730</span>
+                                            <span class="text-muted small">52%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -467,21 +892,27 @@
                             <div class="card shadow-none border rounded-4 h-100">
                                 <div class="card-body p-3">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <i class="fas fa-heartbeat fs-1 text-primary"></i>
+                                        <div class="bg-success bg-opacity-10 p-3 rounded-3">
+                                            <i class="fas fa-heartbeat fs-3 text-success"></i>
+                                        </div>
                                         <div class="dropdown">
                                             <button class="btn btn-sm btn-light rounded-circle" data-bs-toggle="dropdown">
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </button>
                                         </div>
                                     </div>
-                                    <h6 class="mb-3 fw-semibold">Healthcare</h6>
-                                    <div class="bg-dark p-3 pt-4 rounded-4">
-                                        <div class="progress bg-white bg-opacity-25" style="height: 6px">
-                                            <div class="progress-bar bg-white" style="width: 26%"></div>
+                                    <h6 class="mb-2 fw-semibold">Healthcare</h6>
+                                    <div class="mt-2">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span class="text-muted small">Spent</span>
+                                            <span class="fw-semibold">$250</span>
                                         </div>
-                                        <div class="d-flex justify-content-between mt-2">
-                                            <span class="text-white small">26%</span>
-                                            <span class="text-white small">$250</span>
+                                        <div class="progress" style="height: 6px; border-radius: 10px;">
+                                            <div class="progress-bar bg-success" style="width: 26%; border-radius: 10px;"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between mt-1">
+                                            <span class="text-muted small">of $961</span>
+                                            <span class="text-muted small">26%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -558,7 +989,7 @@
             </div>
 
             <footer class="mt-5 pt-3 pb-3 text-center">
-                <p class="mb-0 text-muted" style="font-family: 'Inter', sans-serif; font-size: 0.8rem;">
+                <p class="mb-0 text-muted">
                     © 2026
                     <strong class="text-primary">Davin Loise</strong>
                     <span class="mx-1">&</span>
@@ -602,9 +1033,9 @@
             </div>
         </div>
     </div>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        
         // Add Account Modal
         document.getElementById('addAccountBtn').addEventListener('click', function() {
             new bootstrap.Modal(document.getElementById('addAccountModal')).show();
@@ -619,55 +1050,197 @@
 
         // Chart 1
         var lineChartOptions1 = {
-            series: [{ name: "Transactions", data: [28, 45, 35, 50, 30, 60, 45] }],
-            chart: { height: 80, type: 'area', toolbar: { show: false }, sparkline: { enabled: true } },
-            stroke: { curve: 'smooth', width: 2 },
+            series: [{
+                name: "Transactions",
+                data: [28, 45, 35, 50, 30, 60, 45]
+            }],
+            chart: {
+                height: 80,
+                type: 'area',
+                toolbar: {
+                    show: false
+                },
+                sparkline: {
+                    enabled: true
+                }
+            },
+            stroke: {
+                curve: 'smooth',
+                width: 2
+            },
             colors: ['#4f46e5'],
-            fill: { type: 'gradient', gradient: { shadeIntensity: 1, opacityFrom: 0.5, opacityTo: 0 } },
-            tooltip: { y: { formatter: function(val) { return '$' + val + 'k'; } } }
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shadeIntensity: 1,
+                    opacityFrom: 0.5,
+                    opacityTo: 0
+                }
+            },
+            tooltip: {
+                y: {
+                    formatter: function(val) {
+                        return '$' + val + 'k';
+                    }
+                }
+            }
         };
         new ApexCharts(document.querySelector("#total-line-1-chart"), lineChartOptions1).render();
 
         // Chart 2
         var lineChartOptions2 = {
-            series: [{ name: "Revenue", data: [35, 50, 42, 65, 55, 70, 60] }],
-            chart: { height: 80, type: 'area', toolbar: { show: false }, sparkline: { enabled: true } },
-            stroke: { curve: 'smooth', width: 2 },
+            series: [{
+                name: "Revenue",
+                data: [35, 50, 42, 65, 55, 70, 60]
+            }],
+            chart: {
+                height: 80,
+                type: 'area',
+                toolbar: {
+                    show: false
+                },
+                sparkline: {
+                    enabled: true
+                }
+            },
+            stroke: {
+                curve: 'smooth',
+                width: 2
+            },
             colors: ['#10b981'],
-            fill: { type: 'gradient', gradient: { shadeIntensity: 1, opacityFrom: 0.5, opacityTo: 0 } },
-            tooltip: { y: { formatter: function(val) { return '$' + val + 'k'; } } }
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shadeIntensity: 1,
+                    opacityFrom: 0.5,
+                    opacityTo: 0
+                }
+            },
+            tooltip: {
+                y: {
+                    formatter: function(val) {
+                        return '$' + val + 'k';
+                    }
+                }
+            }
         };
         new ApexCharts(document.querySelector("#total-line-2-chart"), lineChartOptions2).render();
 
         // Chart 3
         var lineChartOptions3 = {
-            series: [{ name: "Expenses", data: [20, 35, 28, 42, 35, 48, 40] }],
-            chart: { height: 80, type: 'area', toolbar: { show: false }, sparkline: { enabled: true } },
-            stroke: { curve: 'smooth', width: 2 },
+            series: [{
+                name: "Expenses",
+                data: [20, 35, 28, 42, 35, 48, 40]
+            }],
+            chart: {
+                height: 80,
+                type: 'area',
+                toolbar: {
+                    show: false
+                },
+                sparkline: {
+                    enabled: true
+                }
+            },
+            stroke: {
+                curve: 'smooth',
+                width: 2
+            },
             colors: ['#ef4444'],
-            fill: { type: 'gradient', gradient: { shadeIntensity: 1, opacityFrom: 0.5, opacityTo: 0 } },
-            tooltip: { y: { formatter: function(val) { return '$' + val + 'k'; } } }
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shadeIntensity: 1,
+                    opacityFrom: 0.5,
+                    opacityTo: 0
+                }
+            },
+            tooltip: {
+                y: {
+                    formatter: function(val) {
+                        return '$' + val + 'k';
+                    }
+                }
+            }
         };
         new ApexCharts(document.querySelector("#total-line-3-chart"), lineChartOptions3).render();
 
         // Cashflow Chart
         var cashflowData = {
-            weekly: { categories: ['W1', 'W2', 'W3', 'W4'], income: [22.5, 28.7, 35.2, 42.9], expense: [15.2, 18.5, 22.1, 28.4] },
-            monthly: { categories: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'], income: [22.5, 28.7, 35.2, 42.9, 51.3, 67.8, 72.5, 68.2, 75.1, 82.4, 88.9, 95.2], expense: [15.2, 18.5, 22.1, 28.4, 35.2, 42.5, 48.1, 52.3, 55.8, 60.2, 65.5, 70.1] },
-            yearly: { categories: ['2020', '2021', '2022', '2023', '2024'], income: [245.5, 312.8, 425.3, 568.7, 720.4], expense: [185.2, 235.6, 312.4, 425.8, 540.2] }
+            weekly: {
+                categories: ['W1', 'W2', 'W3', 'W4'],
+                income: [22.5, 28.7, 35.2, 42.9],
+                expense: [15.2, 18.5, 22.1, 28.4]
+            },
+            monthly: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
+                income: [22.5, 28.7, 35.2, 42.9, 51.3, 67.8, 72.5, 68.2, 75.1, 82.4, 88.9, 95.2],
+                expense: [15.2, 18.5, 22.1, 28.4, 35.2, 42.5, 48.1, 52.3, 55.8, 60.2, 65.5, 70.1]
+            },
+            yearly: {
+                categories: ['2020', '2021', '2022', '2023', '2024'],
+                income: [245.5, 312.8, 425.3, 568.7, 720.4],
+                expense: [185.2, 235.6, 312.4, 425.8, 540.2]
+            }
         };
 
         var cashflowChart;
+
         function renderCashflowChart(period) {
             var data = cashflowData[period];
             var options = {
-                series: [{ name: 'Income', data: data.income, color: '#10b981' }, { name: 'Expense', data: data.expense, color: '#ef4444' }],
-                chart: { type: 'bar', height: 240, toolbar: { show: false }, animations: { enabled: true, easing: 'easeinout', speed: 800 } },
-                plotOptions: { bar: { horizontal: false, columnWidth: '60%', borderRadius: 6 } },
-                xaxis: { categories: data.categories },
-                yaxis: { title: { text: 'Amount ($K)' }, labels: { formatter: function(val) { return '$' + val + 'K'; } } },
-                tooltip: { y: { formatter: function(val) { return '$' + val + 'K'; } } },
-                legend: { position: 'top', horizontalAlign: 'right' }
+                series: [{
+                    name: 'Income',
+                    data: data.income,
+                    color: '#10b981'
+                }, {
+                    name: 'Expense',
+                    data: data.expense,
+                    color: '#ef4444'
+                }],
+                chart: {
+                    type: 'bar',
+                    height: 240,
+                    toolbar: {
+                        show: false
+                    },
+                    animations: {
+                        enabled: true,
+                        easing: 'easeinout',
+                        speed: 800
+                    }
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: '60%',
+                        borderRadius: 6
+                    }
+                },
+                xaxis: {
+                    categories: data.categories
+                },
+                yaxis: {
+                    title: {
+                        text: 'Amount ($K)'
+                    },
+                    labels: {
+                        formatter: function(val) {
+                            return '$' + val + 'K';
+                        }
+                    }
+                },
+                tooltip: {
+                    y: {
+                        formatter: function(val) {
+                            return '$' + val + 'K';
+                        }
+                    }
+                },
+                legend: {
+                    position: 'top',
+                    horizontalAlign: 'right'
+                }
             };
             if (cashflowChart) {
                 cashflowChart.updateOptions(options);
