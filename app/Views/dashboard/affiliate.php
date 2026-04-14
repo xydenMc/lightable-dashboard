@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
@@ -12,6 +12,165 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 
     <style>
+        /* ========== DARK MODE KHUSUS UNTUK AFFILIATE.PHP ========== */
+
+        /* Card stats di dark mode */
+        body.dark-mode .card-stat {
+            background: #1e293b !important;
+            border: 1px solid #334155 !important;
+        }
+
+        /* Badge trend up di dark mode */
+        body.dark-mode .badge-trend-up {
+            background: rgba(52, 211, 153, 0.15) !important;
+            color: #34d399 !important;
+        }
+
+        /* Stat icon di dark mode */
+        body.dark-mode .stat-icon {
+            background: rgba(129, 140, 248, 0.15) !important;
+            color: #818cf8 !important;
+        }
+
+        /* Table custom di dark mode */
+        body.dark-mode .table-custom td {
+            color: #e2e8f0 !important;
+            border-bottom-color: #334155 !important;
+        }
+
+        body.dark-mode .table-custom th {
+            color: #94a3b8 !important;
+            border-bottom-color: #334155 !important;
+        }
+
+        /* Affiliate avatar di dark mode */
+        body.dark-mode .affiliate-avatar {
+            background: rgba(129, 140, 248, 0.15) !important;
+            color: #818cf8 !important;
+        }
+
+        /* Progress bar affiliate di dark mode */
+        body.dark-mode .progress-affiliate {
+            background-color: #334155 !important;
+        }
+
+        body.dark-mode .progress-affiliate .progress-bar {
+            background: #818cf8 !important;
+        }
+
+        /* Badge bg-light di dark mode */
+        body.dark-mode .badge.bg-light {
+            background: #334155 !important;
+            color: #e2e8f0 !important;
+            border: none !important;
+        }
+
+        /* Top visitor item di dark mode */
+        body.dark-mode .top-visitor-item {
+            background: transparent !important;
+        }
+
+        body.dark-mode .top-visitor-item:hover {
+            background: #334155 !important;
+        }
+
+        body.dark-mode .top-visitor-item .text-dark {
+            color: #fbbf24 !important;
+        }
+
+        body.dark-mode .top-visitor-item .fw-semibold {
+            color: #e2e8f0 !important;
+        }
+
+        /* Alert di card footer dark mode */
+        body.dark-mode .alert.alert-light {
+            background: #334155 !important;
+            border: none !important;
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .alert.alert-light strong {
+            color: #fbbf24 !important;
+        }
+
+        body.dark-mode .alert.alert-light .text-primary {
+            color: #818cf8 !important;
+        }
+
+        /* Recent affiliate activities dark mode */
+        body.dark-mode .card-stat.card .row.g-3 .col-md-4 {
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .card-stat.card .row.g-3 .col-md-4 span {
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .card-stat.card .row.g-3 .col-md-4 strong {
+            color: #fbbf24 !important;
+        }
+
+        /* Icon di recent activities */
+        body.dark-mode .card-stat.card .row.g-3 .col-md-4 .fa-user-plus {
+            color: #818cf8 !important;
+        }
+
+        body.dark-mode .card-stat.card .row.g-3 .col-md-4 .fa-chart-line {
+            color: #34d399 !important;
+        }
+
+        body.dark-mode .card-stat.card .row.g-3 .col-md-4 .fa-trophy {
+            color: #fbbf24 !important;
+        }
+
+        /* HR line di dark mode */
+        body.dark-mode .card-stat.card hr {
+            border-color: #334155 !important;
+            opacity: 1;
+        }
+
+        /* Card header clean di dark mode */
+        body.dark-mode .card-header-clean {
+            border-bottom-color: #334155 !important;
+        }
+
+        body.dark-mode .section-title {
+            color: #e2e8f0 !important;
+        }
+
+        /* Chart canvas di dark mode (background transparan) */
+        body.dark-mode canvas {
+            filter: brightness(0.9);
+        }
+
+        /* Breadcrumb di dark mode (sudah ada, tapi pastikan) */
+        body.dark-mode .breadcrumb-item a {
+            color: #94a3b8 !important;
+        }
+
+        body.dark-mode .breadcrumb-item.active {
+            color: #818cf8 !important;
+        }
+
+        /* Text muted tambahan */
+        body.dark-mode .text-muted.small {
+            color: #94a3b8 !important;
+        }
+
+        /* Badge trend up di tabel */
+        body.dark-mode .badge-trend-up i {
+            color: #34d399 !important;
+        }
+
+        /* Footer di dark mode */
+        body.dark-mode footer .text-muted {
+            color: #94a3b8 !important;
+        }
+
+        body.dark-mode footer .text-primary {
+            color: #818cf8 !important;
+        }
+
         /* ========== FIX WARNA ANGKA DI MODE DARK ========== */
         body.dark-mode {
             --text-light: #e2e8f0;
@@ -36,7 +195,7 @@
             color: var(--text-light) !important;
         }
 
-        /* Angka uang ($) jadi warna ungu terang */
+        /* Angka uang (Rp) jadi warna ungu terang */
         body.dark-mode .card-stat h2,
         body.dark-mode .card-stats h2,
         body.dark-mode .card-border h5,
@@ -122,48 +281,47 @@
                 width: 250px;
             }
         }
-/* ========== CUSTOM SCROLLBAR ========== */
-/* Light Mode */
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
 
-::-webkit-scrollbar-track {
-    background: #e2e8f0;
-    border-radius: 10px;
-}
+        /* ========== CUSTOM SCROLLBAR ========== */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
 
-::-webkit-scrollbar-thumb {
-    background: #94a3b8;
-    border-radius: 10px;
-}
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #64748b;
-}
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 10px;
+        }
 
-/* Dark Mode */
-body.dark-mode ::-webkit-scrollbar-track {
-    background: #1e293b;
-}
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
 
-body.dark-mode ::-webkit-scrollbar-thumb {
-    background: #475569;
-}
+        body.dark-mode ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
 
-body.dark-mode ::-webkit-scrollbar-thumb:hover {
-    background: #64748b;
-}
+        body.dark-mode ::-webkit-scrollbar-thumb {
+            background: #475569;
+        }
 
-/* Firefox */
-* {
-    scrollbar-width: thin;
-}
+        body.dark-mode ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
 
-body.dark-mode {
-    scrollbar-color: #475569 #1e293b;
-}
+        * {
+            scrollbar-width: thin;
+        }
+
+        body.dark-mode {
+            scrollbar-color: #475569 #1e293b;
+        }
+
         @media (max-width: 768px) {
             .search-bar {
                 width: auto;
@@ -171,169 +329,7 @@ body.dark-mode {
             }
         }
 
-        /* Total balance / earning utama (kuning) */
-        body.dark-mode .card .text-center h3,
-        body.dark-mode .total-earnings {
-            color: var(--text-warning-light) !important;
-        }
-
         /* Main Content */
-        .main-content {
-            margin-left: 280px;
-            padding: 0;
-            transition: margin-left 0.3s ease;
-            min-height: 100vh;
-            margin-top: 70px;
-        }
-
-        /* Dark Mode untuk Cards dan Elemen Lain di View */
-        body.dark-mode .card,
-        body.dark-mode .card-stat,
-        body.dark-mode .card-border,
-        body.dark-mode .card-stats {
-            background: #1e293b !important;
-            border-color: #334155 !important;
-        }
-
-        body.dark-mode .card-header {
-            background: transparent !important;
-            border-bottom-color: #334155 !important;
-        }
-
-        body.dark-mode .card-footer {
-            background: transparent !important;
-            border-top-color: #334155 !important;
-        }
-
-        body.dark-mode .text-muted {
-            color: #94a3b8 !important;
-        }
-
-        body.dark-mode .text-dark {
-            color: #e2e8f0 !important;
-        }
-
-        body.dark-mode .bg-light {
-            background: #334155 !important;
-        }
-
-        body.dark-mode .bg-white {
-            background: #1e293b !important;
-        }
-
-        body.dark-mode .table,
-        body.dark-mode .table-custom td,
-        body.dark-mode .table-custom th {
-            color: #e2e8f0;
-            border-color: #334155;
-        }
-
-        body.dark-mode .list-group-item {
-            background: transparent;
-            color: #e2e8f0;
-            border-color: #334155;
-        }
-
-        body.dark-mode .list-group-item:hover {
-            background: #334155;
-        }
-
-        body.dark-mode .progress {
-            background-color: #334155;
-        }
-
-        body.dark-mode .border {
-            border-color: #334155 !important;
-        }
-
-        body.dark-mode .btn-light {
-            background: #334155;
-            border-color: #475569;
-            color: #e2e8f0;
-        }
-
-        body.dark-mode .btn-light:hover {
-            background: #475569;
-            color: white;
-        }
-
-        body.dark-mode .alert-light {
-            background: #334155;
-            border-color: #475569;
-            color: #e2e8f0;
-        }
-
-        body.dark-mode .badge.bg-light {
-            background: #334155 !important;
-            color: #e2e8f0 !important;
-        }
-
-        body.dark-mode .badge.bg-white {
-            background: #334155 !important;
-            color: #e2e8f0 !important;
-        }
-
-        body.dark-mode .breadcrumb-item a {
-            color: #94a3b8;
-        }
-
-        body.dark-mode .breadcrumb-item.active {
-            color: #818cf8;
-        }
-
-        body.dark-mode .breadcrumb-item+.breadcrumb-item::before {
-            color: #64748b;
-        }
-
-        body.dark-mode .dropdown-menu {
-            background: #1e293b;
-            border-color: #334155;
-        }
-
-        body.dark-mode .dropdown-item {
-            color: #cbd5e1;
-        }
-
-        body.dark-mode .dropdown-item:hover {
-            background: #334155;
-            color: #e2e8f0;
-        }
-
-        body.dark-mode .modal-content {
-            background: #1e293b;
-            border-color: #334155;
-        }
-
-        body.dark-mode .modal-header,
-        body.dark-mode .modal-footer {
-            border-color: #334155;
-        }
-
-        body.dark-mode .form-control,
-        body.dark-mode .form-select {
-            background: #0f172a;
-            border-color: #334155;
-            color: #e2e8f0;
-        }
-
-        body.dark-mode .form-control:focus,
-        body.dark-mode .form-select:focus {
-            background: #0f172a;
-            color: #e2e8f0;
-        }
-
-        body.dark-mode .input-group-text {
-            background: #334155;
-            border-color: #475569;
-            color: #cbd5e1;
-        }
-
-        @media (max-width: 768px) {
-            .main-content {
-                margin-left: 0;
-            }
-        }
-
         .main-content {
             margin-left: 280px;
             padding: 0;
@@ -342,12 +338,10 @@ body.dark-mode {
             margin-top: 70px;
         }
 
-        /* Saat sidebar collapsed (hilang), main content melebar ke kiri */
         .main-content.expanded {
             margin-left: 0;
         }
 
-        /* Responsive untuk mobile */
         @media (max-width: 768px) {
             .main-content {
                 margin-left: 0;
@@ -459,13 +453,31 @@ body.dark-mode {
             letter-spacing: -0.2px;
             color: #0f172a;
         }
+
+        /* Dark Mode untuk Cards */
+        body.dark-mode .card,
+        body.dark-mode .card-stat {
+            background: #1e293b !important;
+            border-color: #334155 !important;
+        }
+
+        body.dark-mode .text-muted {
+            color: #94a3b8 !important;
+        }
+
+        body.dark-mode .text-dark {
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .bg-light {
+            background: #334155 !important;
+        }
     </style>
 </head>
 
 <body>
     <?= view('layout/navbar') ?>
     <?= view('layout/sidebar_new') ?>
-    
 
     <!-- Main Content -->
     <div class="main-content">
@@ -479,29 +491,27 @@ body.dark-mode {
                                 <a href="<?= base_url('/') ?>" class="text-decoration-none text-muted">Dashboard</a>
                             </li>
                             <li class="breadcrumb-item active text-primary" aria-current="page">
-                                Affiliate
+                                Afiliasi
                             </li>
                         </ol>
                     </nav>
-                    <h1 class="display-6 fw-bold" style="color: #0f172a;">Affiliate <span style="background: linear-gradient(135deg, #4f46e5, #7c3aed); background-clip: text; -webkit-background-clip: text; color: transparent;">Dashboard</span></h1>
-                    <p class="text-muted mt-1">Monitor referrals, earnings & top performers — all in one glance.</p>
-                </div>
-                <div class="mt-3 mt-md-0">
-                    <div class="btn-group shadow-sm">
-
-                    </div>
+                    <h1 class="display-6 fw-bold" style="color: #0f172a;">Afiliasi <span style="background: linear-gradient(135deg, #4f46e5, #7c3aed); background-clip: text; -webkit-background-clip: text; color: transparent;">Dashboard</span></h1>
+                    <p class="text-muted mt-1">Pantau referral, pendapatan & performer terbaik — semua dalam satu tampilan.</p>
                 </div>
             </div>
 
-            <!-- Stats Cards -->
+            <!-- Stats Cards (3 card) -->
             <div class="row g-4 mb-5">
                 <div class="col-md-4">
                     <div class="card-stat card p-3 p-xl-4">
                         <div class="d-flex align-items-center justify-content-between">
                             <div>
-                                <span class="text-muted text-uppercase small fw-semibold">Referrals</span>
-                                <h2 class="mt-2 fw-bold display-6">$<?= $stats['referrals']['value'] ?></h2>
-                                <div class="mt-2"><span class="badge-trend-up"><i class="fas fa-arrow-up me-1"></i> <?= $stats['referrals']['growth'] ?></span> <span class="text-muted small ms-2">vs last month</span></div>
+                                <span class="text-muted text-uppercase small fw-semibold">Referral</span>
+                                <h2 class="mt-2 fw-bold display-6">Rp <?= $stats['referrals']['value'] ?></h2>
+                                <div class="mt-2 d-flex align-items-center flex-wrap gap-1">
+                                    <span class="badge-trend-up"><i class="fas fa-arrow-up me-1"></i> <?= $stats['referrals']['growth'] ?></span>
+                                    <span class="text-muted small">dibanding bulan lalu</span>
+                                </div>
                             </div>
                             <div class="stat-icon"><i class="fas fa-<?= $stats['referrals']['icon'] ?>"></i></div>
                         </div>
@@ -511,9 +521,12 @@ body.dark-mode {
                     <div class="card-stat card p-3 p-xl-4">
                         <div class="d-flex align-items-center justify-content-between">
                             <div>
-                                <span class="text-muted text-uppercase small fw-semibold">Conversion Rate</span>
+                                <span class="text-muted text-uppercase small fw-semibold">Tingkat Konversi</span>
                                 <h2 class="mt-2 fw-bold display-6"><?= $stats['conversion']['value'] ?></h2>
-                                <div class="mt-2"><span class="badge-trend-up"><i class="fas fa-arrow-up me-1"></i> <?= $stats['conversion']['growth'] ?></span> <span class="text-muted small ms-2">improved</span></div>
+                                <div class="mt-2 d-flex align-items-center flex-wrap gap-1">
+                                    <span class="badge-trend-up"><i class="fas fa-arrow-up me-1"></i> <?= $stats['conversion']['growth'] ?></span>
+                                    <span class="text-muted small">dibanding sebelumnya</span>
+                                </div>
                             </div>
                             <div class="stat-icon"><i class="fas fa-<?= $stats['conversion']['icon'] ?>"></i></div>
                         </div>
@@ -523,9 +536,12 @@ body.dark-mode {
                     <div class="card-stat card p-3 p-xl-4">
                         <div class="d-flex align-items-center justify-content-between">
                             <div>
-                                <span class="text-muted text-uppercase small fw-semibold">Visits</span>
+                                <span class="text-muted text-uppercase small fw-semibold">Kunjungan</span>
                                 <h2 class="mt-2 fw-bold display-6"><?= $stats['visits']['value'] ?></h2>
-                                <div class="mt-2"><span class="badge-trend-up"><i class="fas fa-arrow-up me-1"></i> <?= $stats['visits']['growth'] ?></span> <span class="text-muted small ms-2">weekly trend</span></div>
+                                <div class="mt-2 d-flex align-items-center flex-wrap gap-1">
+                                    <span class="badge-trend-up"><i class="fas fa-arrow-up me-1"></i> <?= $stats['visits']['growth'] ?></span>
+                                    <span class="text-muted small">dibanding minggu lalu</span>
+                                </div>
                             </div>
                             <div class="stat-icon"><i class="fas fa-<?= $stats['visits']['icon'] ?>"></i></div>
                         </div>
@@ -533,37 +549,24 @@ body.dark-mode {
                 </div>
             </div>
 
-            <!-- Chart Section -->
-            <div class="card-stat card mb-5 p-3 p-lg-4">
-                <div class="d-flex justify-content-between align-items-center flex-wrap">
-                    <div>
-                        <h5 class="fw-bold mb-0"><i class="fas fa-chart-simple me-2 text-primary"></i>Affiliate performance (last 6 weeks)</h5>
-                    </div>
-                    <div class="mt-2 mt-sm-0"><span class="badge bg-light text-dark border px-3 py-2"><i class="far fa-circle-check text-success me-1"></i> real-time overview</span></div>
-                </div>
-                <div class="mt-3">
-                    <canvas id="trendChart" height="100" style="max-height: 280px; width: 100%"></canvas>
-                </div>
-            </div>
-
-            <!-- Main Content: Affiliates Table + Top Visitors -->
-            <div class="row g-4">
-                <div class="col-lg-7">
+            <!-- Card Afiliasi - FULL WIDTH -->
+            <div class="row g-4 mb-4">
+                <div class="col-12">
                     <div class="card-stat card h-100">
-                        <div class="card-header-clean d-flex justify-content-between align-items-center">
-                            <span class="section-title"><i class="fas fa-trophy me-2 text-warning"></i>Affiliates</span>
-                            <a href="#" class="text-decoration-none small fw-semibold">view all <i class="fas fa-arrow-right ms-1"></i></a>
+                        <div class="card-header-clean d-flex justify-content-between align-items-center flex-wrap gap-2">
+                            <span class="section-title"><i class="fas fa-trophy me-2 text-warning"></i>Daftar Afiliasi</span>
+                            <a href="#" class="text-decoration-none small fw-semibold">Lihat semua <i class="fas fa-arrow-right ms-1"></i></a>
                         </div>
                         <div class="card-body p-0">
                             <div class="table-responsive">
                                 <table class="table table-custom mb-0">
                                     <thead>
                                         <tr>
-                                            <th>Affiliate</th>
-                                            <th>Campaign</th>
-                                            <th>Earnings</th>
-                                            <th>Growth</th>
-                                            <th>Progress</th>
+                                            <th>Afiliasi</th>
+                                            <th>Kampanye</th>
+                                            <th>Pendapatan</th>
+                                            <th>Pertumbuhan</th>
+                                            <th>Progres</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -571,11 +574,12 @@ body.dark-mode {
                                             <tr>
                                                 <td>
                                                     <div class="d-flex align-items-center">
-                                                        <div class="affiliate-avatar"><i class="fas fa-<?= $aff['avatar'] ?>"></i></div> <span class="fw-semibold"><?= $aff['name'] ?></span>
+                                                        <div class="affiliate-avatar"><i class="fas fa-<?= $aff['avatar'] ?>"></i></div>
+                                                        <span class="fw-semibold"><?= $aff['name'] ?></span>
                                                     </div>
                                                 </td>
                                                 <td><span class="badge bg-light text-dark px-3 py-2 rounded-pill"><?= $aff['campaign'] ?></span></td>
-                                                <td class="fw-bold">$<?= number_format($aff['earnings']) ?></td>
+                                                <td class="fw-bold">Rp <?= number_format($aff['earnings']) ?></td>
                                                 <td><span class="badge-trend-up"><i class="fas fa-arrow-up"></i> <?= $aff['growth'] ?>%</span></td>
                                                 <td style="width: 120px;">
                                                     <div class="progress progress-affiliate">
@@ -590,29 +594,38 @@ body.dark-mode {
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="col-lg-5">
+            <!-- Card Pengunjung Teratas - DI BAWAH -->
+            <div class="row g-4 mb-4">
+                <div class="col-12">
                     <div class="card-stat card h-100">
                         <div class="card-header-clean">
-                            <span class="section-title"><i class="fas fa-crown me-2 text-warning"></i>Top Visitors</span>
-                            <p class="text-muted small mb-0 mt-1">Highest earnings & engagement</p>
+                            <span class="section-title"><i class="fas fa-crown me-2 text-warning"></i>Pengunjung Teratas</span>
+                            <p class="text-muted small mb-0 mt-1">Pendapatan & engagement tertinggi</p>
                         </div>
                         <div class="card-body p-0">
                             <div class="list-group list-group-flush">
                                 <?php foreach ($topVisitors as $visitor): ?>
                                     <div class="list-group-item border-0 d-flex justify-content-between align-items-center py-3 top-visitor-item px-4">
                                         <div class="d-flex align-items-center gap-3">
-                                            <div class="affiliate-avatar bg-warning bg-opacity-10"><i class="fas fa-<?= $visitor['avatar'] ?> text-warning"></i></div>
+                                            <div class="affiliate-avatar bg-warning bg-opacity-10">
+                                                <i class="fas fa-<?= $visitor['avatar'] ?> text-warning"></i>
+                                            </div>
                                             <span class="fw-semibold"><?= $visitor['name'] ?></span>
                                         </div>
-                                        <div><span class="fw-bold text-dark">$<?= number_format($visitor['earnings']) ?></span> <span class="badge-trend-up ms-2">+<?= $visitor['growth'] ?>%</span></div>
+                                        <div class="text-end">
+                                            <span class="fw-bold text-dark">Rp <?= number_format($visitor['earnings']) ?></span>
+                                            <span class="badge-trend-up ms-2">+<?= $visitor['growth'] ?>%</span>
+                                        </div>
                                     </div>
                                 <?php endforeach; ?>
                             </div>
                         </div>
-                        <div class="card-footer bg-transparent border-0 pt-2 pb-3">
-                            <div class="alert alert-light border-0 bg-gray-100 rounded-3 p-3 mb-0 small">
-                                <i class="fas fa-chart-line text-primary me-2"></i> Top affiliate <strong>Adeline</strong> generated +32% more traffic this week!
+                        <div class="card-footer bg-transparent border-0 pt-3 pb-3">
+                            <div class="alert alert-light border-0 rounded-3 p-3 mb-0 small d-flex align-items-center gap-2">
+                                <i class="fas fa-chart-line text-primary fs-6"></i>
+                                <span>Afiliasi teratas <strong>Adeline</strong> mencatat peningkatan trafik tertinggi, yaitu <strong class="text-success">+32%</strong> minggu ini.</span>
                             </div>
                         </div>
                     </div>
@@ -620,20 +633,31 @@ body.dark-mode {
             </div>
 
             <!-- Recent Activity -->
-            <div class="row mt-4 g-4">
+            <div class="row mt-2 g-4">
                 <div class="col-12">
                     <div class="card-stat card p-3 p-lg-4">
                         <div class="d-flex flex-wrap justify-content-between align-items-center">
                             <div>
-                                <h6 class="fw-bold mb-0"><i class="fas fa-fire-flame me-2 text-danger"></i>Recent affiliate activities</h6>
+                                <h6 class="fw-bold mb-0"><i class="fas fa-fire-flame me-2 text-danger"></i>Aktivitas Afiliasi Terbaru</h6>
                             </div>
-                            <div class="mt-2 mt-sm-0"><span class="text-muted small"><i class="far fa-clock"></i> updated 5 minutes ago</span></div>
+                            <div class="mt-2 mt-sm-0">
+                                <span class="text-muted small"><i class="far fa-clock me-1"></i> Diperbarui 5 menit lalu</span>
+                            </div>
                         </div>
                         <hr class="my-3">
-                        <div class="row g-3 text-center text-md-start">
-                            <div class="col-md-4 d-flex align-items-center gap-2"><i class="fas fa-user-plus text-primary"></i> <span>New affiliate: <strong>Sarah K.</strong> joined</span></div>
-                            <div class="col-md-4 d-flex align-items-center gap-2"><i class="fas fa-chart-line text-success"></i> <span>Record conversion: +12% yesterday</span></div>
-                            <div class="col-md-4 d-flex align-items-center gap-2"><i class="fas fa-trophy text-warning"></i> <span>Top earner Adeline hit $1.8K</span></div>
+                        <div class="row g-3">
+                            <div class="col-md-4 d-flex align-items-center gap-2">
+                                <i class="fas fa-user-plus text-primary"></i>
+                                <span>Afiliasi baru: <strong>Sarah K.</strong> bergabung</span>
+                            </div>
+                            <div class="col-md-4 d-flex align-items-center gap-2">
+                                <i class="fas fa-chart-line text-success"></i>
+                                <span>Rekor konversi: <strong class="text-success">+12%</strong> kemarin</span>
+                            </div>
+                            <div class="col-md-4 d-flex align-items-center gap-2">
+                                <i class="fas fa-trophy text-warning"></i>
+                                <span>Peraih pendapatan tertinggi <strong>Adeline</strong> mencapai <strong>Rp 1,8 juta</strong></span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -643,84 +667,14 @@ body.dark-mode {
                 <p class="mb-0 text-muted" style="font-family: 'Inter', sans-serif; font-size: 0.8rem;">
                     © 2026
                     <strong class="text-primary">Davin Loise</strong>
-                    <span class="mx-1">&</span>
-                    <strong class="text-primary">Amins Project Team</strong>
                     <span class="mx-2">•</span>
                     All rights reserved.
                 </p>
             </footer>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        const ctx = document.getElementById('trendChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: <?= json_encode($chartData['labels']) ?>,
-                datasets: [{
-                    label: 'Referral Revenue (K$)',
-                    data: <?= json_encode($chartData['revenue']) ?>,
-                    borderColor: '#4f46e5',
-                    backgroundColor: 'rgba(79, 70, 229, 0.05)',
-                    borderWidth: 3,
-                    pointBackgroundColor: '#4f46e5',
-                    pointBorderColor: '#fff',
-                    pointRadius: 5,
-                    tension: 0.3,
-                    fill: true,
-                }, {
-                    label: 'Conversions (%)',
-                    data: <?= json_encode($chartData['conversion']) ?>,
-                    borderColor: '#f97316',
-                    backgroundColor: 'transparent',
-                    borderWidth: 2.5,
-                    borderDash: [6, 5],
-                    pointBackgroundColor: '#f97316',
-                    pointRadius: 4,
-                    tension: 0.2,
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                        labels: {
-                            boxWidth: 12,
-                            font: {
-                                size: 12,
-                                family: 'Inter'
-                            }
-                        }
-                    },
-                    tooltip: {
-                        mode: 'index',
-                        intersect: false
-                    }
-                },
-                scales: {
-                    y: {
-                        grid: {
-                            color: '#eef2ff'
-                        },
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Revenue (K$) / %'
-                        }
-                    },
-                    x: {
-                        grid: {
-                            display: false
-                        }
-                    }
-                }
-            }
-        });
-    </script>
 </body>
 
 </html>

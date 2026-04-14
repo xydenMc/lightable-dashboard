@@ -5,17 +5,12 @@
     <div class="sidebar-menu p-2">
         <div class="nav-main-title">NAVIGASI</div>
 
-        <div class="nav-item">
-            <a href="<?= base_url('/') ?>" class="nav-link-custom">
-                <i class="fas fa-home"></i>
-                <span class="nav-label">Dashboard</span>
-            </a>
-        </div>
+        
 
         <div class="nav-item">
             <div class="nav-link-custom has-submenu" data-menu="analytics">
-                <i class="fas fa-chart-line"></i>
-                <span class="nav-label">Analytics</span>
+                <i class="fas fa-home"></i>
+                <span class="nav-label">dashboard</span>
                 <i class="fas fa-chevron-down chevron-icon ms-auto"></i>
             </div>
             <div class="sub-menu" data-submenu="analytics">

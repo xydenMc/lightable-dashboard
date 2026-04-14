@@ -788,8 +788,7 @@ body.dark-mode {
                 <p class="mb-0 text-muted" style="font-family: 'Inter', sans-serif; font-size: 0.8rem;">
                     © 2026
                     <strong class="text-primary">Davin Loise</strong>
-                    <span class="mx-1">&</span>
-                    <strong class="text-primary">Amins Project Team</strong>
+
                     <span class="mx-2">•</span>
                     All rights reserved.
                 </p>

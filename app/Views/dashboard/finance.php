@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?? 'Finance' ?> | Light Able</title>
+    <title><?= $title ?? 'Keuangan' ?> | Light Able</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -364,7 +364,7 @@
             border-color: #334155 !important;
         }
 
-       
+
         /* Scrollbar */
         body.dark-mode ::-webkit-scrollbar-track {
             background: #1e293b;
@@ -405,112 +405,113 @@
         body.dark-mode .apexcharts-yaxis line {
             stroke: #334155 !important;
         }
+
         .search-bar .input-group {
-    background: #f1f5f9 !important;
-    border-radius: 40px !important;
-    border: none !important;
-    transition: all 0.3s ease-in-out !important;
-}
+            background: #f1f5f9 !important;
+            border-radius: 40px !important;
+            border: none !important;
+            transition: all 0.3s ease-in-out !important;
+        }
 
-.search-bar .input-group:focus-within {
-    background: #ffffff !important;
-    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1) !important;
-}
+        .search-bar .input-group:focus-within {
+            background: #ffffff !important;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1) !important;
+        }
 
-.search-bar input {
-    background: transparent !important;
-    color: #1e293b !important;
-}
+        .search-bar input {
+            background: transparent !important;
+            color: #1e293b !important;
+        }
 
-.search-bar input::placeholder {
-    color: #64748b !important;
-}
+        .search-bar input::placeholder {
+            color: #64748b !important;
+        }
 
-.search-bar .input-group-text {
-    background: transparent !important;
-    border: none !important;
-    color: #64748b !important;
-}
+        .search-bar .input-group-text {
+            background: transparent !important;
+            border: none !important;
+            color: #64748b !important;
+        }
 
-.search-bar .btn-link {
-    text-decoration: none !important;
-    padding: 0 8px !important;
-}
+        .search-bar .btn-link {
+            text-decoration: none !important;
+            padding: 0 8px !important;
+        }
 
-.search-bar kbd {
-    background: #e2e8f0 !important;
-    color: #475569 !important;
-    border-radius: 6px !important;
-    padding: 2px 8px !important;
-    font-size: 0.7rem !important;
-    font-weight: 500 !important;
-}
+        .search-bar kbd {
+            background: #e2e8f0 !important;
+            color: #475569 !important;
+            border-radius: 6px !important;
+            padding: 2px 8px !important;
+            font-size: 0.7rem !important;
+            font-weight: 500 !important;
+        }
 
-/* Dark mode - PAKSA WARNA YANG BENAR */
-body.dark-mode .search-bar .input-group {
-    background: #1e293b !important;
-    border: 1px solid #334155 !important;
-    border-radius: 40px !important;
-    box-shadow: none !important;
-}
+        /* Dark mode - PAKSA WARNA YANG BENAR */
+        body.dark-mode .search-bar .input-group {
+            background: #1e293b !important;
+            border: 1px solid #334155 !important;
+            border-radius: 40px !important;
+            box-shadow: none !important;
+        }
 
-body.dark-mode .search-bar .input-group:hover {
-    background: #0f172a !important;
-    border-color: #4f46e5 !important;
-}
+        body.dark-mode .search-bar .input-group:hover {
+            background: #0f172a !important;
+            border-color: #4f46e5 !important;
+        }
 
-body.dark-mode .search-bar .input-group:focus-within {
-    background: #0f172a !important;
-    border-color: #4f46e5 !important;
-    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2) !important;
-}
+        body.dark-mode .search-bar .input-group:focus-within {
+            background: #0f172a !important;
+            border-color: #4f46e5 !important;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2) !important;
+        }
 
-body.dark-mode .search-bar input {
-    color: #94a3b8 !important;
-    background: transparent !important;
-}
+        body.dark-mode .search-bar input {
+            color: #94a3b8 !important;
+            background: transparent !important;
+        }
 
-body.dark-mode .search-bar .input-group:focus-within input,
-body.dark-mode .search-bar input:focus {
-    color: #ffffff !important;
-}
+        body.dark-mode .search-bar .input-group:focus-within input,
+        body.dark-mode .search-bar input:focus {
+            color: #ffffff !important;
+        }
 
-body.dark-mode .search-bar input::placeholder {
-    color: #64748b !important;
-}
+        body.dark-mode .search-bar input::placeholder {
+            color: #64748b !important;
+        }
 
-body.dark-mode .search-bar .input-group-text {
-    background: transparent !important;
-    border: none !important;
-}
+        body.dark-mode .search-bar .input-group-text {
+            background: transparent !important;
+            border: none !important;
+        }
 
-body.dark-mode .search-bar .input-group-text i {
-    color: #64748b !important;
-}
+        body.dark-mode .search-bar .input-group-text i {
+            color: #64748b !important;
+        }
 
-body.dark-mode .search-bar .input-group:focus-within .input-group-text i {
-    color: #818cf8 !important;
-}
+        body.dark-mode .search-bar .input-group:focus-within .input-group-text i {
+            color: #818cf8 !important;
+        }
 
-body.dark-mode .search-bar kbd {
-    background: #0f172a !important;
-    color: #94a3b8 !important;
-    border: 1px solid #334155 !important;
-}
+        body.dark-mode .search-bar kbd {
+            background: #0f172a !important;
+            color: #94a3b8 !important;
+            border: 1px solid #334155 !important;
+        }
 
-body.dark-mode .search-bar .input-group:focus-within kbd {
-    background: #1e293b !important;
-    color: #818cf8 !important;
-    border-color: #4f46e5 !important;
-}
+        body.dark-mode .search-bar .input-group:focus-within kbd {
+            background: #1e293b !important;
+            color: #818cf8 !important;
+            border-color: #4f46e5 !important;
+        }
 
-body.dark-mode .search-bar .btn-link {
-    color: #94a3b8 !important;
-}
+        body.dark-mode .search-bar .btn-link {
+            color: #94a3b8 !important;
+        }
 
-body.dark-mode .search-bar .input-group:focus-within .btn-link {
-    color: #818cf8 !important;
-}
+        body.dark-mode .search-bar .input-group:focus-within .btn-link {
+            color: #818cf8 !important;
+        }
     </style>
 </head>
 
@@ -524,16 +525,16 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
             <!-- Breadcrumb -->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="<?= base_url('/') ?>">Home</a></li>
+                    <li class="breadcrumb-item"><a href="<?= base_url('/') ?>">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Finance</li>
+                    <li class="breadcrumb-item active" aria-current="page">Keuangan</li>
                 </ol>
             </nav>
 
             <!-- Header -->
             <div class="page-header mb-4">
-                <h2 class="fw-bold mb-0">Finance Dashboard</h2>
-                <p class="text-muted">Manage your finances and transactions</p>
+                <h2 class="fw-bold mb-0">Dashboard Keuangan</h2>
+                <p class="text-muted">Kelola keuangan dan transaksi Anda</p>
             </div>
 
             <!-- Row 1: My Card & Transactions -->
@@ -543,15 +544,15 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                     <div class="card card-border mb-4">
                         <div class="card-body">
                             <div class="d-flex align-items-center justify-content-between mb-3">
-                                <h5 class="mb-0 fw-bold">My Card</h5>
+                                <h5 class="mb-0 fw-bold">Kartu Saya</h5>
                                 <div class="dropdown">
                                     <button class="btn btn-sm btn-light rounded-circle" data-bs-toggle="dropdown">
                                         <i class="fas fa-ellipsis-v"></i>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="#">Today</a></li>
-                                        <li><a class="dropdown-item" href="#">Weekly</a></li>
-                                        <li><a class="dropdown-item" href="#">Monthly</a></li>
+                                        <li><a class="dropdown-item" href="#">Hari Ini</a></li>
+                                        <li><a class="dropdown-item" href="#">Mingguan</a></li>
+                                        <li><a class="dropdown-item" href="#">Bulanan</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -559,7 +560,7 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
-                                            <p class="text-white-50 small mb-0">CARD NAME</p>
+                                            <p class="text-white-50 small mb-0">NAMA PEMILIK</p>
                                             <h5 class="text-white">John Smith</h5>
                                         </div>
                                         <div>
@@ -569,7 +570,7 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                                     <h4 class="text-white my-3">**** **** **** 8361</h4>
                                     <div class="row">
                                         <div class="col-auto">
-                                            <p class="text-white-50 small mb-0">EXP</p>
+                                            <p class="text-white-50 small mb-0">Berlaku Hingga</p>
                                             <h6 class="text-white mb-0">7/30</h6>
                                         </div>
                                         <div class="col-auto">
@@ -580,8 +581,8 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                                 </div>
                             </div>
                             <div class="text-center">
-                                <h3 class="mb-1 fw-bold">$1,480,000</h3>
-                                <p class="text-muted mb-0">Total Balance</p>
+                                <h3 class="mb-1 fw-bold">Rp 1.480.000</h3>
+                                <p class="text-muted mb-0">Saldo</p>
                             </div>
                         </div>
                     </div>
@@ -590,15 +591,15 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                     <div class="card card-border">
                         <div class="card-body">
                             <div class="d-flex align-items-center justify-content-between mb-3">
-                                <h5 class="mb-0 fw-bold">Transactions</h5>
+                                <h5 class="mb-0 fw-bold">Transaksi</h5>
                                 <div class="dropdown">
                                     <button class="btn btn-sm btn-light rounded-circle" data-bs-toggle="dropdown">
                                         <i class="fas fa-ellipsis-v"></i>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="#">Today</a></li>
-                                        <li><a class="dropdown-item" href="#">Weekly</a></li>
-                                        <li><a class="dropdown-item" href="#">Monthly</a></li>
+                                        <li><a class="dropdown-item" href="#">Hari Ini</a></li>
+                                        <li><a class="dropdown-item" href="#">Mingguan</a></li>
+                                        <li><a class="dropdown-item" href="#">Bulanan</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -611,7 +612,7 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                                             <small class="text-muted">#ABLE-PRO-T00232</small>
                                         </div>
                                         <div class="text-end">
-                                            <h6 class="mb-0">$210,000</h6>
+                                            <h6 class="mb-0">Rp 210.000</h6>
                                             <small class="text-danger"><i class="fas fa-arrow-down"></i> 10.6%</small>
                                         </div>
                                     </div>
@@ -624,7 +625,7 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                                             <small class="text-muted">#ABLE-PRO-T10232</small>
                                         </div>
                                         <div class="text-end">
-                                            <h6 class="mb-0">-$10,000</h6>
+                                            <h6 class="mb-0">-Rp 10.000</h6>
                                             <small class="text-success"><i class="fas fa-arrow-up"></i> 30.6%</small>
                                         </div>
                                     </div>
@@ -637,20 +638,20 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                                             <small class="text-muted">06:30 pm</small>
                                         </div>
                                         <div class="text-end">
-                                            <h6 class="mb-0">-$26</h6>
+                                            <h6 class="mb-0">-Rp 26.000</h6>
                                             <small class="text-warning"><i class="fas fa-arrows-alt-h"></i> 5%</small>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="list-group-item px-0">
                                     <div class="d-flex align-items-center">
-                                        <div class="avtar bg-light-warning me-3"><i class="fas fa-car"></i></div>
+                                        <div class="avtar bg-light-success me-3"><i class="fas fa-car"></i></div>
                                         <div class="flex-grow-1">
-                                            <h6 class="mb-0">Uber</h6>
+                                            <h6 class="mb-0">Grab Food</h6>
                                             <small class="text-muted">08:40 pm</small>
                                         </div>
                                         <div class="text-end">
-                                            <h6 class="mb-0">+$210,000</h6>
+                                            <h6 class="mb-0">+Rp 210.000</h6>
                                             <small class="text-success"><i class="fas fa-arrow-up"></i> 10.6%</small>
                                         </div>
                                     </div>
@@ -663,7 +664,33 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                                             <small class="text-muted">07:40 pm</small>
                                         </div>
                                         <div class="text-end">
-                                            <h6 class="mb-0">+$210,000</h6>
+                                            <h6 class="mb-0">+Rp 210.000</h6>
+                                            <small class="text-success"><i class="fas fa-arrow-up"></i> 10.6%</small>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item px-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avtar bg-light-success me-3"><i class="fas fa-car"></i></div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-0">Grab</h6>
+                                            <small class="text-muted">08:40 pm</small>
+                                        </div>
+                                        <div class="text-end">
+                                            <h6 class="mb-0">+Rp 210.000</h6>
+                                            <small class="text-success"><i class="fas fa-arrow-up"></i> 10.6%</small>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item px-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avtar bg-light-warning me-3"><i class="fas fa-car"></i></div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-0">Maxim</h6>
+                                            <small class="text-muted">08:40 pm</small>
+                                        </div>
+                                        <div class="text-end">
+                                            <h6 class="mb-0">+Rp 210.000</h6>
                                             <small class="text-success"><i class="fas fa-arrow-up"></i> 10.6%</small>
                                         </div>
                                     </div>
@@ -680,27 +707,27 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                                 <div class="card-body">
                                     <div class="d-flex align-items-start justify-content-between mb-3">
                                         <div>
-                                            <h6 class="mb-0">Transactions</h6>
-                                            <p class="mb-0 text-muted">2-31 July 2023</p>
+                                            <h6 class="mb-0">Transaksi</h6>
+                                            <p class="mb-0 text-muted">2-31 Juli 2023</p>
                                         </div>
                                         <div class="dropdown">
                                             <a class="avtar avtar-xs btn-link-secondary dropdown-toggle arrow-none" href="#" data-bs-toggle="dropdown">
                                                 <i class="ti ti-dots-vertical f-18"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="#">Today</a>
-                                                <a class="dropdown-item" href="#">Weekly</a>
-                                                <a class="dropdown-item" href="#">Monthly</a>
+                                                <a class="dropdown-item" href="#">Hari Ini</a>
+                                                <a class="dropdown-item" href="#">Mingguan</a>
+                                                <a class="dropdown-item" href="#">Bulanan</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div id="total-line-1-chart"></div>
                                     <div class="d-flex align-items-center justify-content-between gap-2 mt-3">
                                         <h4 class="mb-0">
-                                            <small class="text-muted">$</small>
-                                            650k
+                                            <small class="text-muted">Rp</small>
+                                            650.000
                                         </h4>
-                                        <p class="mb-0 text-muted text-sm">Compare to last week</p>
+                                        <p class="mb-0 text-muted text-sm">Dibandingkan minggu lalu</p>
                                     </div>
                                 </div>
                             </div>
@@ -710,27 +737,27 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                                 <div class="card-body">
                                     <div class="d-flex align-items-start justify-content-between mb-3">
                                         <div>
-                                            <h6 class="mb-0">Revenue</h6>
-                                            <p class="mb-0 text-muted">2-31 July 2023</p>
+                                            <h6 class="mb-0">Pendapatan</h6>
+                                            <p class="mb-0 text-muted">2-31 Juli 2023</p>
                                         </div>
                                         <div class="dropdown">
                                             <a class="avtar avtar-xs btn-link-secondary dropdown-toggle arrow-none" href="#" data-bs-toggle="dropdown">
                                                 <i class="ti ti-dots-vertical f-18"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="#">Today</a>
-                                                <a class="dropdown-item" href="#">Weekly</a>
-                                                <a class="dropdown-item" href="#">Monthly</a>
+                                                <a class="dropdown-item" href="#">Hari Ini</a>
+                                                <a class="dropdown-item" href="#">Mingguan</a>
+                                                <a class="dropdown-item" href="#">Bulanan</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div id="total-line-2-chart"></div>
                                     <div class="d-flex align-items-center justify-content-between gap-2 mt-3">
                                         <h4 class="mb-0">
-                                            <small class="text-muted">$</small>
-                                            892k
+                                            <small class="text-muted">Rp</small>
+                                            892.000
                                         </h4>
-                                        <p class="mb-0 text-muted text-sm">Compare to last week</p>
+                                        <p class="mb-0 text-muted text-sm">Dibandingkan minggu lalu</p>
                                     </div>
                                 </div>
                             </div>
@@ -740,27 +767,27 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                                 <div class="card-body">
                                     <div class="d-flex align-items-start justify-content-between mb-3">
                                         <div>
-                                            <h6 class="mb-0">Expenses</h6>
-                                            <p class="mb-0 text-muted">2-31 July 2023</p>
+                                            <h6 class="mb-0">Pengeluaran</h6>
+                                            <p class="mb-0 text-muted">2-31 Juli 2023</p>
                                         </div>
                                         <div class="dropdown">
                                             <a class="avtar avtar-xs btn-link-secondary dropdown-toggle arrow-none" href="#" data-bs-toggle="dropdown">
                                                 <i class="ti ti-dots-vertical f-18"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="#">Today</a>
-                                                <a class="dropdown-item" href="#">Weekly</a>
-                                                <a class="dropdown-item" href="#">Monthly</a>
+                                                <a class="dropdown-item" href="#">Hari Ini</a>
+                                                <a class="dropdown-item" href="#">Mingguan</a>
+                                                <a class="dropdown-item" href="#">Bulanan</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div id="total-line-3-chart"></div>
                                     <div class="d-flex align-items-center justify-content-between gap-2 mt-3">
                                         <h4 class="mb-0">
-                                            <small class="text-muted">$</small>
-                                            588k
+                                            <small class="text-muted">Rp</small>
+                                            588.000
                                         </h4>
-                                        <p class="mb-0 text-muted text-sm">Compare to last week</p>
+                                        <p class="mb-0 text-muted text-sm">Dibandingkan minggu lalu</p>
                                     </div>
                                 </div>
                             </div>
@@ -772,16 +799,16 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                         <div class="card-body">
                             <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
                                 <div>
-                                    <h5 class="mb-1 fw-bold">Cashflow</h5>
+                                    <h5 class="mb-1 fw-bold">Performa Keuangan</h5>
                                     <p class="mb-0">
                                         <span class="fw-bold text-success">5.44%</span>
                                         <span class="badge bg-success bg-opacity-10 text-success ms-2">5.44%</span>
                                     </p>
                                 </div>
                                 <select class="form-select rounded-3 form-select-sm w-auto" id="cashflowPeriod">
-                                    <option value="weekly">Weekly</option>
-                                    <option value="monthly" selected>Monthly</option>
-                                    <option value="yearly">Yearly</option>
+                                    <option value="weekly">Mingguan</option>
+                                    <option value="monthly" selected>Bulanan</option>
+                                    <option value="yearly">Tahunan</option>
                                 </select>
                             </div>
                             <div id="cashflowBarChart" style="height: 280px; width: 100%;"></div>
@@ -794,34 +821,32 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
             <div class="card card-border mt-4">
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between mb-3">
-                        <h5 class="mb-0 fw-bold">Where your money go ?</h5>
-                        <button class="btn btn-sm btn-primary rounded-pill">+ Add New</button>
+                        <h5 class="mb-0 fw-bold">Kemana uang Anda pergi?</h5>
+                        <button class="btn btn-sm btn-primary rounded-pill">+ Tambah Baru</button>
                     </div>
                     <div class="row g-3">
                         <div class="col-6 col-md-3">
                             <div class="card shadow-none border rounded-4 h-100">
                                 <div class="card-body p-3">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <div class="bg-danger bg-opacity-10 p-3 rounded-3">
-                                            <i class="fas fa-utensils fs-3 text-danger"></i>
-                                        </div>
+                                        <img src="<?= base_url('assets/images/burger_1058096.png') ?>" alt="Food & Drink" style="width: 60px; height: 60px;">
                                         <div class="dropdown">
-                                            <button class="btn btn-sm btn-light rounded-circle" data-bs-toggle="dropdown">
+                                            <button class="btn btn-sm btn-light rounded-3" data-bs-toggle="dropdown">
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </button>
                                         </div>
                                     </div>
-                                    <h6 class="mb-2 fw-semibold">Food & Drink</h6>
+                                    <h6 class="mb-2 fw-semibold">Makanan & Minuman</h6>
                                     <div class="mt-2">
                                         <div class="d-flex justify-content-between mb-1">
-                                            <span class="text-muted small">Spent</span>
-                                            <span class="fw-semibold">$1,000</span>
+                                            <span class="text-muted small">Terpakai</span>
+                                            <span class="fw-semibold">Rp 1.250.000</span>
                                         </div>
                                         <div class="progress" style="height: 6px; border-radius: 10px;">
                                             <div class="progress-bar bg-danger" style="width: 65%; border-radius: 10px;"></div>
                                         </div>
                                         <div class="d-flex justify-content-between mt-1">
-                                            <span class="text-muted small">of $1,538</span>
+                                            <span class="text-muted small">dari Rp 1.800.000</span>
                                             <span class="text-muted small">65%</span>
                                         </div>
                                     </div>
@@ -832,26 +857,24 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                             <div class="card shadow-none border rounded-4 h-100">
                                 <div class="card-body p-3">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <div class="bg-primary bg-opacity-10 p-3 rounded-3">
-                                            <i class="fas fa-plane fs-3 text-primary"></i>
-                                        </div>
+                                        <img src="<?= base_url('assets/images/travel.png') ?>" alt="Travel" style="width: 60px; height: 60px;">
                                         <div class="dropdown">
-                                            <button class="btn btn-sm btn-light rounded-circle" data-bs-toggle="dropdown">
+                                            <button class="btn btn-sm btn-light rounded-3" data-bs-toggle="dropdown">
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </button>
                                         </div>
                                     </div>
-                                    <h6 class="mb-2 fw-semibold">Travel</h6>
+                                    <h6 class="mb-2 fw-semibold">Perjalanan</h6>
                                     <div class="mt-2">
                                         <div class="d-flex justify-content-between mb-1">
-                                            <span class="text-muted small">Spent</span>
-                                            <span class="fw-semibold">$400</span>
+                                            <span class="text-muted small">Terpakai</span>
+                                            <span class="fw-semibold">Rp 450.000</span>
                                         </div>
                                         <div class="progress" style="height: 6px; border-radius: 10px;">
                                             <div class="progress-bar bg-primary" style="width: 30%; border-radius: 10px;"></div>
                                         </div>
                                         <div class="d-flex justify-content-between mt-1">
-                                            <span class="text-muted small">of $1,333</span>
+                                            <span class="text-muted small">dari Rp 1.200.000</span>
                                             <span class="text-muted small">30%</span>
                                         </div>
                                     </div>
@@ -862,26 +885,24 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                             <div class="card shadow-none border rounded-4 h-100">
                                 <div class="card-body p-3">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <div class="bg-warning bg-opacity-10 p-3 rounded-3">
-                                            <i class="fas fa-shopping-bag fs-3 text-warning"></i>
-                                        </div>
+                                        <img src="<?= base_url('assets/images/Market.png') ?>" alt="Shopping" style="width: 60px; height: 60px;">
                                         <div class="dropdown">
-                                            <button class="btn btn-sm btn-light rounded-circle" data-bs-toggle="dropdown">
+                                            <button class="btn btn-sm btn-light rounded-3" data-bs-toggle="dropdown">
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </button>
                                         </div>
                                     </div>
-                                    <h6 class="mb-2 fw-semibold">Shopping</h6>
+                                    <h6 class="mb-2 fw-semibold">Belanja</h6>
                                     <div class="mt-2">
                                         <div class="d-flex justify-content-between mb-1">
-                                            <span class="text-muted small">Spent</span>
-                                            <span class="fw-semibold">$900</span>
+                                            <span class="text-muted small">Terpakai</span>
+                                            <span class="fw-semibold">Rp 900.000</span>
                                         </div>
                                         <div class="progress" style="height: 6px; border-radius: 10px;">
                                             <div class="progress-bar bg-warning" style="width: 52%; border-radius: 10px;"></div>
                                         </div>
                                         <div class="d-flex justify-content-between mt-1">
-                                            <span class="text-muted small">of $1,730</span>
+                                            <span class="text-muted small">dari Rp 1.700.000</span>
                                             <span class="text-muted small">52%</span>
                                         </div>
                                     </div>
@@ -892,26 +913,24 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                             <div class="card shadow-none border rounded-4 h-100">
                                 <div class="card-body p-3">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <div class="bg-success bg-opacity-10 p-3 rounded-3">
-                                            <i class="fas fa-heartbeat fs-3 text-success"></i>
-                                        </div>
+                                        <img src="<?= base_url('assets/images/blood.png') ?>" alt="Healthcare" style="width: 60px; height: 60px;">
                                         <div class="dropdown">
-                                            <button class="btn btn-sm btn-light rounded-circle" data-bs-toggle="dropdown">
+                                            <button class="btn btn-sm btn-light rounded-3" data-bs-toggle="dropdown">
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </button>
                                         </div>
                                     </div>
-                                    <h6 class="mb-2 fw-semibold">Healthcare</h6>
+                                    <h6 class="mb-2 fw-semibold">Kesehatan</h6>
                                     <div class="mt-2">
                                         <div class="d-flex justify-content-between mb-1">
-                                            <span class="text-muted small">Spent</span>
-                                            <span class="fw-semibold">$250</span>
+                                            <span class="text-muted small">Terpakai</span>
+                                            <span class="fw-semibold">Rp 300.000</span>
                                         </div>
                                         <div class="progress" style="height: 6px; border-radius: 10px;">
                                             <div class="progress-bar bg-success" style="width: 26%; border-radius: 10px;"></div>
                                         </div>
                                         <div class="d-flex justify-content-between mt-1">
-                                            <span class="text-muted small">of $961</span>
+                                            <span class="text-muted small">dari Rp 1.000.000</span>
                                             <span class="text-muted small">26%</span>
                                         </div>
                                     </div>
@@ -927,18 +946,18 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                 <div class="col-md-12">
                     <div class="card card-border">
                         <div class="card-body">
-                            <h5 class="mb-3 fw-bold">Accounts</h5>
+                            <h5 class="mb-3 fw-bold">Akun</h5>
                             <div class="row g-3">
                                 <div class="col-md-4">
                                     <div class="card shadow-none border rounded-4">
                                         <div class="card-body p-3">
                                             <div class="d-flex align-items-center justify-content-between">
                                                 <div>
-                                                    <h6 class="mb-0">US Dollar Account</h6>
+                                                    <h6 class="mb-0">Akun Dolar AS</h6>
                                                     <small class="text-muted">**** **** **** 1234</small>
-                                                    <h5 class="mt-2 mb-0">$12,920.00</h5>
+                                                    <h5 class="mt-2 mb-0">US$ 12.920,00</h5>
                                                 </div>
-                                                <div class="bg-success bg-opacity-10 p-2 rounded-circle">
+                                                <div class="bg-success bg-opacity-10 p-3 rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
                                                     <i class="fas fa-check-circle text-success"></i>
                                                 </div>
                                             </div>
@@ -950,11 +969,11 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                                         <div class="card-body p-3">
                                             <div class="d-flex align-items-center justify-content-between">
                                                 <div>
-                                                    <h6 class="mb-0">Euro Account</h6>
+                                                    <h6 class="mb-0">Akun Euro</h6>
                                                     <small class="text-muted">**** **** **** 5678</small>
-                                                    <h5 class="mt-2 mb-0">€8,450.00</h5>
+                                                    <h5 class="mt-2 mb-0">€ 8.450,00</h5>
                                                 </div>
-                                                <div class="bg-success bg-opacity-10 p-2 rounded-circle">
+                                                <div class="bg-success bg-opacity-10 p-3 rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
                                                     <i class="fas fa-check-circle text-success"></i>
                                                 </div>
                                             </div>
@@ -966,11 +985,11 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                                         <div class="card-body p-3">
                                             <div class="d-flex align-items-center justify-content-between">
                                                 <div>
-                                                    <h6 class="mb-0">British Pound Account</h6>
+                                                    <h6 class="mb-0">Akun Pound Inggris</h6>
                                                     <small class="text-muted">**** **** **** 9012</small>
-                                                    <h5 class="mt-2 mb-0">£3,200.00</h5>
+                                                    <h5 class="mt-2 mb-0">£ 3.200,00</h5>
                                                 </div>
-                                                <div class="bg-secondary bg-opacity-10 p-2 rounded-circle">
+                                                <div class="bg-minus bg-opacity-10 p-3 rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
                                                     <i class="fas fa-minus-circle text-secondary"></i>
                                                 </div>
                                             </div>
@@ -980,7 +999,7 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                             </div>
                             <div class="mt-3">
                                 <button class="btn btn-outline-primary w-100 rounded-pill" id="addAccountBtn">
-                                    <i class="fas fa-plus me-2"></i> Add New Account
+                                    <i class="fas fa-plus me-2"></i> Tambah Akun Baru
                                 </button>
                             </div>
                         </div>
@@ -988,52 +1007,52 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                 </div>
             </div>
 
+            <!-- ========== FOOTER - SAMA PERSIS DENGAN AFFILIATE ========== -->
             <footer class="mt-5 pt-3 pb-3 text-center">
-                <p class="mb-0 text-muted">
+                <p class="mb-0 text-muted" style="font-family: 'Inter', sans-serif; font-size: 0.8rem;">
                     © 2026
                     <strong class="text-primary">Davin Loise</strong>
-                    <span class="mx-1">&</span>
-                    <strong class="text-primary">Amins Project Team</strong>
                     <span class="mx-2">•</span>
-                    All rights reserved.
+                    Hak Cipta Dilindungi.
                 </p>
             </footer>
-        </div>
-    </div>
+
+        </div> <!-- penutup container-fluid -->
+    </div> <!-- penutup main-content -->
 
     <!-- Add Account Modal -->
     <div class="modal fade" id="addAccountModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content rounded-4">
                 <div class="modal-header border-0 pb-0">
-                    <h5 class="modal-title fw-bold">Add New Account</h5>
+                    <h5 class="modal-title fw-bold">Tambah Akun Baru</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body pt-0">
                     <form id="addAccountForm">
                         <div class="mb-3">
-                            <label class="form-label">Account Name</label>
-                            <input type="text" class="form-control rounded-3" placeholder="e.g., Savings Account" required>
+                            <label class="form-label">Nama Akun</label>
+                            <input type="text" class="form-control rounded-3" placeholder="contoh: Akun Tabungan" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Currency</label>
+                            <label class="form-label">Mata Uang</label>
                             <select class="form-select rounded-3">
-                                <option value="USD">US Dollar (USD)</option>
+                                <option value="USD">Dolar AS (USD)</option>
                                 <option value="EUR">Euro (EUR)</option>
-                                <option value="GBP">British Pound (GBP)</option>
+                                <option value="GBP">Pound Inggris (GBP)</option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Initial Balance</label>
+                            <label class="form-label">Saldo Awal</label>
                             <input type="number" class="form-control rounded-3" placeholder="0.00" required>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100 rounded-3 py-2">Add Account</button>
+                        <button type="submit" class="btn btn-primary w-100 rounded-3 py-2">Tambah Akun</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
+     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Add Account Modal
@@ -1043,7 +1062,7 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
 
         document.getElementById('addAccountForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Account added successfully!');
+            alert('Akun berhasil ditambahkan!');
             bootstrap.Modal.getInstance(document.getElementById('addAccountModal')).hide();
             this.reset();
         });
@@ -1051,7 +1070,7 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
         // Chart 1
         var lineChartOptions1 = {
             series: [{
-                name: "Transactions",
+                name: "Transaksi",
                 data: [28, 45, 35, 50, 30, 60, 45]
             }],
             chart: {
@@ -1080,7 +1099,7 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
             tooltip: {
                 y: {
                     formatter: function(val) {
-                        return '$' + val + 'k';
+                        return 'Rp' + val + 'k';
                     }
                 }
             }
@@ -1090,7 +1109,7 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
         // Chart 2
         var lineChartOptions2 = {
             series: [{
-                name: "Revenue",
+                name: "Pendapatan",
                 data: [35, 50, 42, 65, 55, 70, 60]
             }],
             chart: {
@@ -1119,7 +1138,7 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
             tooltip: {
                 y: {
                     formatter: function(val) {
-                        return '$' + val + 'k';
+                        return 'Rp' + val + 'k';
                     }
                 }
             }
@@ -1129,7 +1148,7 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
         // Chart 3
         var lineChartOptions3 = {
             series: [{
-                name: "Expenses",
+                name: "Pengeluaran",
                 data: [20, 35, 28, 42, 35, 48, 40]
             }],
             chart: {
@@ -1158,7 +1177,7 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
             tooltip: {
                 y: {
                     formatter: function(val) {
-                        return '$' + val + 'k';
+                        return 'Rp' + val + 'k';
                     }
                 }
             }
@@ -1168,7 +1187,7 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
         // Cashflow Chart
         var cashflowData = {
             weekly: {
-                categories: ['W1', 'W2', 'W3', 'W4'],
+                categories: ['M1', 'M2', 'M3', 'M4'],
                 income: [22.5, 28.7, 35.2, 42.9],
                 expense: [15.2, 18.5, 22.1, 28.4]
             },
@@ -1189,18 +1208,21 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
         function renderCashflowChart(period) {
             var data = cashflowData[period];
             var options = {
-                series: [{
-                    name: 'Income',
-                    data: data.income,
-                    color: '#10b981'
-                }, {
-                    name: 'Expense',
-                    data: data.expense,
-                    color: '#ef4444'
-                }],
+                series: [
+                    {
+                        name: 'Pemasukan',
+                        data: data.income,
+                        color: '#10b981'
+                    },
+                    {
+                        name: 'Pengeluaran',
+                        data: data.expense,
+                        color: '#ef4444'
+                    }
+                ],
                 chart: {
                     type: 'bar',
-                    height: 240,
+                    height: 280,
                     toolbar: {
                         show: false
                     },
@@ -1213,35 +1235,98 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                 plotOptions: {
                     bar: {
                         horizontal: false,
-                        columnWidth: '60%',
-                        borderRadius: 6
+                        columnWidth: '55%',
+                        borderRadius: 8,
+                        borderRadiusApplication: 'end'
                     }
                 },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    show: false
+                },
+                fill: {
+                    opacity: 1,
+                    type: 'solid'
+                },
                 xaxis: {
-                    categories: data.categories
+                    categories: data.categories,
+                    labels: {
+                        style: {
+                            colors: '#64748b',
+                            fontSize: '11px',
+                            fontWeight: 500
+                        },
+                        rotate: -45,
+                        rotateAlways: false
+                    }
                 },
                 yaxis: {
                     title: {
-                        text: 'Amount ($K)'
+                        text: 'Jumlah (Rp ribu)',
+                        style: {
+                            color: '#64748b',
+                            fontSize: '12px',
+                            fontWeight: 500
+                        },
+                        offsetX: 30
                     },
                     labels: {
                         formatter: function(val) {
-                            return '$' + val + 'K';
-                        }
-                    }
+                            return 'Rp' + val + 'K';
+                        },
+                        style: {
+                            colors: '#64748b',
+                            fontSize: '11px',
+                            fontWeight: 500
+                        },
+                        align: 'right',
+                        offsetX: -25
+                    },
+                    forceNiceScale: true
                 },
                 tooltip: {
                     y: {
                         formatter: function(val) {
-                            return '$' + val + 'K';
+                            return 'Rp' + val + 'K';
                         }
+                    },
+                    style: {
+                        fontSize: '12px'
                     }
                 },
                 legend: {
                     position: 'top',
-                    horizontalAlign: 'right'
+                    horizontalAlign: 'right',
+                    labels: {
+                        colors: '#64748b',
+                        useSeriesColors: true
+                    },
+                    markers: {
+                        width: 12,
+                        height: 12,
+                        radius: 4
+                    }
+                },
+                colors: ['#10b981', '#ef4444'],
+                grid: {
+                    borderColor: '#e2e8f0',
+                    strokeDashArray: 4,
+                    position: 'back',
+                    xaxis: {
+                        lines: {
+                            show: false
+                        }
+                    },
+                    yaxis: {
+                        lines: {
+                            show: true
+                        }
+                    }
                 }
             };
+            
             if (cashflowChart) {
                 cashflowChart.updateOptions(options);
                 cashflowChart.updateSeries(options.series);
@@ -1250,6 +1335,7 @@ body.dark-mode .search-bar .input-group:focus-within .btn-link {
                 cashflowChart.render();
             }
         }
+
         renderCashflowChart('monthly');
         document.getElementById('cashflowPeriod').addEventListener('change', function(e) {
             renderCashflowChart(e.target.value);

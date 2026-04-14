@@ -7,7 +7,7 @@
                 <i class="fas fa-bars"></i>
             </button>
             <a class="navbar-brand fw-bold" href="<?= base_url('/') ?>">
-                <i class="fas fa-chart-line me-2"></i>Light Able
+                <i class="fas fa-chart-line me-2"></i>LCORP
             </a>
         </div>
 

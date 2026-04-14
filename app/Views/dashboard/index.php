@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
@@ -77,7 +77,7 @@
             color: var(--text-light) !important;
         }
 
-        /* Angka uang ($) jadi warna ungu terang */
+        /* Angka uang (Rp) jadi warna ungu terang */
         body.dark-mode .card-stat h2,
         body.dark-mode .card-stats h2,
         body.dark-mode .card-border h5,
@@ -272,7 +272,7 @@
             /* bintang kosong: abu-abu gelap */
         }
 
-       
+
 
         body.dark-mode .fs-2.text-muted {
             color: #94a3b8 !important;
@@ -302,14 +302,14 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?= base_url('/') ?>">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Analytics</li>
+                    <li class="breadcrumb-item active" aria-current="page">Analitik</li>
                 </ol>
             </nav>
 
             <!-- Header -->
             <div class="page-header mb-4">
-                <h2 class="fw-bold mb-0" style="color: #0f172a;">Home <span style="background: linear-gradient(135deg, #4f46e5, #7c3aed); background-clip: text; -webkit-background-clip: text; color: transparent;">Dashboard</span></h2>
-                <p class="text-muted">Welcome back, Davin! Here's your sales overview</p>
+                <h2 class="fw-bold mb-0" style="color: #0f172a;">Beranda <span style="background: linear-gradient(135deg, #4f46e5, #7c3aed); background-clip: text; -webkit-background-clip: text; color: transparent;">Dashboard</span></h2>
+                <p class="text-muted">Selamat datang kembali, Davin! Berikut ringkasan penjualan Anda</p>
             </div>
 
             <!-- Row 1: 3 Main Cards -->
@@ -318,10 +318,10 @@
                     <div class="card-border card p-3 p-xl-4">
                         <div class="d-flex justify-content-between align-items-start">
                             <div>
-                                <p class="text-muted mb-1">Daily Sales</p>
-                                <h2 class="mb-2 fw-bold">$<?= number_format($daily_sales, 2) ?></h2>
+                                <p class="text-muted mb-1">Penjualan Harian</p>
+                                <h2 class="mb-2 fw-bold">Rp <?= number_format($daily_sales, 0, ',', '.') ?></h2>
                                 <span class="trend-up"><i class="fas fa-arrow-up"></i> <?= $daily_percent ?>%</span>
-                                <small class="text-muted ms-2">You made an extra 35,000 this daily</small>
+                                <small class="text-muted ms-2">dibanding hari sebelumnya</small>
                             </div>
                             <div class="stat-icon bg-primary bg-opacity-10">
                                 <i class="fas fa-calendar-day text-primary fs-4"></i>
@@ -334,10 +334,10 @@
                     <div class="card-border card p-3 p-xl-4">
                         <div class="d-flex justify-content-between align-items-start">
                             <div>
-                                <p class="text-muted mb-1">Monthly Sales</p>
-                                <h2 class="mb-2 fw-bold">$<?= number_format($monthly_sales, 2) ?></h2>
+                                <p class="text-muted mb-1">Penjualan Bulanan</p>
+                                <h2 class="mb-2 fw-bold">Rp <?= number_format($monthly_sales, 0, ',', '.') ?></h2>
                                 <span class="trend-up"><i class="fas fa-arrow-up"></i> <?= $monthly_percent ?>%</span>
-                                <small class="text-muted ms-2">You made an extra 35,000 this Monthly</small>
+                                <small class="text-muted ms-2">dibanding bulan sebelumnya</small>
                             </div>
                             <div class="stat-icon bg-success bg-opacity-10">
                                 <i class="fas fa-calendar-alt text-success fs-4"></i>
@@ -350,9 +350,10 @@
                     <div class="card-border card p-3 p-xl-4">
                         <div class="d-flex justify-content-between align-items-start">
                             <div>
-                                <p class="text-muted mb-1">Yearly Sales</p>
-                                <h2 class="mb-2 fw-bold">$<?= number_format($yearly_sales, 2) ?></h2>
-                                <small class="text-muted">You made an extra 35,000 this Yearly</small>
+                                <p class="text-muted mb-1">Penjualan Tahunan</p>
+                                <h2 class="mb-2 fw-bold">Rp <?= number_format($yearly_sales, 0, ',', '.') ?></h2>
+                                <span class="trend-up"><i class="fas fa-arrow-up"></i> <?= $yearly_percent ?>%</span>
+                                <small class="text-muted">dibanding tahun sebelumnya</small>
                             </div>
                             <div class="stat-icon bg-info bg-opacity-10">
                                 <i class="fas fa-chart-line text-info fs-4"></i>
@@ -368,8 +369,8 @@
                     <div class="card-border card mb-4 p-3 p-xl-4">
                         <div class="d-flex justify-content-between align-items-start">
                             <div>
-                                <p class="text-muted mb-1">Total Earnings</p>
-                                <h2 class="mb-0 fw-bold">$<?= number_format($total_earnings, 2) ?></h2>
+                                <p class="text-muted mb-1">Total Pendapatan</p>
+                                <h2 class="mb-0 fw-bold">Rp <?= number_format($total_earnings, 0, ',', '.') ?></h2>
                             </div>
                             <div class="stat-icon bg-success bg-opacity-10">
                                 <i class="fas fa-money-bill text-success fs-4"></i>
@@ -380,8 +381,8 @@
                     <div class="card-border card mb-4 p-3 p-xl-4">
                         <div class="d-flex justify-content-between align-items-start">
                             <div>
-                                <p class="text-muted mb-1">Total Ideas</p>
-                                <h2 class="mb-0 fw-bold"><?= number_format($total_ideas) ?></h2>
+                                <p class="text-muted mb-1">Total Ide</p>
+                                <h2 class="mb-0 fw-bold"><?= number_format($total_ideas, 0, ',', '.') ?></h2>
                             </div>
                             <div class="stat-icon bg-warning bg-opacity-10">
                                 <i class="fas fa-lightbulb text-warning fs-4"></i>
@@ -392,7 +393,7 @@
                     <div class="card-border card p-3 p-xl-4">
                         <div class="d-flex justify-content-between align-items-start">
                             <div>
-                                <p class="text-muted mb-1">Total Location</p>
+                                <p class="text-muted mb-1">Total Lokasi</p>
                                 <h2 class="mb-0 fw-bold"><?= number_format($total_location) ?></h2>
                             </div>
                             <div class="stat-icon bg-primary bg-opacity-10">
@@ -404,7 +405,7 @@
 
                 <div class="col-md-7">
                     <div class="card-border card h-100 p-3 p-xl-4">
-                        <h5 class="mb-3 fw-bold">Users From United States</h5>
+                        <h5 class="mb-3 fw-bold">Pengguna dari Amerika Serikat</h5>
                         <canvas id="userChart" height="250"></canvas>
                     </div>
                 </div>
@@ -420,20 +421,17 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <div>
-                                    <p class="text-muted mb-1">Total Likes</p>
-                                    <h3 class="mb-0">12,281</h3>
+                                    <p class="text-muted mb-1">Total Suka</p>
+                                    <h3 class="mb-0">12.281</h3>
                                 </div>
                                 <div class="stat-icon bg-danger bg-opacity-10">
                                     <i class="fas fa-heart text-danger"></i>
                                 </div>
                             </div>
-                            <div class="mb-3">
-                                <span class="trend-up"><i class="fas fa-arrow-up"></i> 7.2%</span>
-                            </div>
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <div>
                                     <p class="text-muted mb-1">Target</p>
-                                    <h3 class="mb-0">35,098</h3>
+                                    <h3 class="mb-0">35.098</h3>
                                 </div>
                                 <div class="stat-icon bg-success bg-opacity-10">
                                     <i class="fas fa-bullseye text-success"></i>
@@ -441,8 +439,8 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-start">
                                 <div>
-                                    <p class="text-muted mb-1">Duration</p>
-                                    <h3 class="mb-0">3,539</h3>
+                                    <p class="text-muted mb-1">Total Interaksi</p>
+                                    <h3 class="mb-0">3.539</h3>
                                 </div>
                                 <div class="stat-icon bg-info bg-opacity-10">
                                     <i class="fas fa-clock text-info"></i>
@@ -460,20 +458,18 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <div>
-                                    <p class="text-muted mb-1">Total Likes</p>
-                                    <h3 class="mb-0">15,432</h3>
+                                    <p class="text-muted mb-1">Total Suka</p>
+                                    <h3 class="mb-0">15.432</h3>
                                 </div>
                                 <div class="stat-icon bg-danger bg-opacity-10">
                                     <i class="fas fa-heart text-danger"></i>
                                 </div>
                             </div>
-                            <div class="mb-3">
-                                <span class="trend-up"><i class="fas fa-arrow-up"></i> 12.5%</span>
-                            </div>
+                            
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <div>
                                     <p class="text-muted mb-1">Target</p>
-                                    <h3 class="mb-0">50,000</h3>
+                                    <h3 class="mb-0">50.000</h3>
                                 </div>
                                 <div class="stat-icon bg-success bg-opacity-10">
                                     <i class="fas fa-bullseye text-success"></i>
@@ -481,8 +477,8 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-start">
                                 <div>
-                                    <p class="text-muted mb-1">Duration</p>
-                                    <h3 class="mb-0">2,150</h3>
+                                    <p class="text-muted mb-1">Total Interaksi</p>
+                                    <h3 class="mb-0">2.150</h3>
                                 </div>
                                 <div class="stat-icon bg-info bg-opacity-10">
                                     <i class="fas fa-clock text-info"></i>
@@ -500,20 +496,17 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <div>
-                                    <p class="text-muted mb-1">Total Likes</p>
-                                    <h3 class="mb-0">28,901</h3>
+                                    <p class="text-muted mb-1">Total Suka</p>
+                                    <h3 class="mb-0">28.901</h3>
                                 </div>
                                 <div class="stat-icon bg-danger bg-opacity-10">
                                     <i class="fas fa-heart text-danger"></i>
                                 </div>
                             </div>
-                            <div class="mb-3">
-                                <span class="trend-up"><i class="fas fa-arrow-up"></i> 23.8%</span>
-                            </div>
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <div>
                                     <p class="text-muted mb-1">Target</p>
-                                    <h3 class="mb-0">100,000</h3>
+                                    <h3 class="mb-0">100.000</h3>
                                 </div>
                                 <div class="stat-icon bg-success bg-opacity-10">
                                     <i class="fas fa-bullseye text-success"></i>
@@ -521,8 +514,8 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-start">
                                 <div>
-                                    <p class="text-muted mb-1">Duration</p>
-                                    <h3 class="mb-0">5,678</h3>
+                                    <p class="text-muted mb-1">Total Interaksi</p>
+                                    <h3 class="mb-0">5.678</h3>
                                 </div>
                                 <div class="stat-icon bg-info bg-opacity-10">
                                     <i class="fas fa-clock text-info"></i>
@@ -539,7 +532,7 @@
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-header bg-white border-0 pt-4">
                             <h5 class="mb-0">
-                                <i class="fas fa-users text-primary me-2"></i> Recent Users
+                                <i class="fas fa-users text-primary me-2"></i> Pengguna Terbaru
                             </h5>
                         </div>
                         <div class="card-body">
@@ -565,7 +558,7 @@
                                             </div>
                                             <div>
                                                 <span class="badge bg-success bg-opacity-10 text-success p-2">
-                                                    <i class="fas fa-check-circle me-1"></i> Active
+                                                    <i class="fas fa-check-circle me-1"></i> Aktif
                                                 </span>
                                             </div>
                                         </div>
@@ -575,7 +568,7 @@
                         </div>
                         <div class="card-footer bg-white border-0 pb-4">
                             <a href="#" class="text-decoration-none">
-                                <i class="fas fa-arrow-right me-1"></i> View all users
+                                <i class="fas fa-arrow-right me-1"></i> Lihat semua pengguna
                             </a>
                         </div>
                     </div>
@@ -602,7 +595,7 @@
                                         <?php endif; ?>
                                     <?php endfor; ?>
                                 </div>
-                                <p class="text-muted mt-2">Based on 554 reviews</p>
+                                <p class="text-muted mt-2">Berdasarkan 554 ulasan</p>
                             </div>
 
                             <?php foreach ($rating_details as $star => $count): ?>
@@ -624,15 +617,15 @@
                             <div class="d-flex justify-content-around text-center mt-3">
                                 <div>
                                     <h5 class="mb-0 text-success">4.8</h5>
-                                    <small class="text-muted">Last Month</small>
+                                    <small class="text-muted">Bulan Lalu</small>
                                 </div>
                                 <div>
                                     <h5 class="mb-0 text-danger">4.6</h5>
-                                    <small class="text-muted">This Month</small>
+                                    <small class="text-muted">Bulan Ini</small>
                                 </div>
                                 <div>
                                     <h5 class="mb-0 text-primary">+0.2</h5>
-                                    <small class="text-muted">Growth</small>
+                                    <small class="text-muted">Peningkatan</small>
                                 </div>
                             </div>
                         </div>
@@ -645,10 +638,8 @@
                 <p class="mb-0 text-muted" style="font-family: 'Inter', sans-serif; font-size: 0.8rem;">
                     © 2026
                     <strong class="text-primary">Davin Loise</strong>
-                    <span class="mx-1">&</span>
-                    <strong class="text-primary">Amins Project Team</strong>
                     <span class="mx-2">•</span>
-                    All rights reserved.
+                    Hak Cipta Dilindungi.
                 </p>
             </footer>
         </div>
@@ -660,9 +651,9 @@
         new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
                 datasets: [{
-                    label: 'Users from United States',
+                    label: 'Pengguna dari Amerika Serikat',
                     data: [650, 720, 800, 750, 820, 900, 880, 950, 1020, 1100, 1150, 1200],
                     borderColor: '#4f46e5',
                     backgroundColor: 'rgba(79, 70, 229, 0.1)',
