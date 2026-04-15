@@ -669,7 +669,7 @@ body.dark-mode .satisfaction-card .fw-bold {
             <!-- Header -->
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
                 <div>
-                    <h2 class="fw-bold mb-0" style="color: #0f172a;">Dashboard Helpdesk</h2>
+                    <h2 class="fw-bold mb-0" style="color: #0f172a;">Dashboard Bantuan</h2>
                     <p class="text-muted mt-1">Kelola tiket dukungan dan kepuasan pelanggan</p>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
@@ -147,7 +147,7 @@ body.dark-mode {
             color: var(--text-light) !important;
         }
 
-        /* Angka uang ($) jadi warna ungu terang */
+        /* Angka uang (Rp) jadi warna ungu terang */
         body.dark-mode .card-stat h2,
         body.dark-mode .card-stats h2,
         body.dark-mode .card-border h5,
@@ -426,14 +426,14 @@ body.dark-mode {
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?= base_url('/') ?>">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Invoice Dashboard</li>
+                    <li class="breadcrumb-item active" aria-current="page">Dashboard Invoice</li>
                 </ol>
             </nav>
 
             <!-- Header -->
             <div class="page-header mb-4">
-                <h2 class="fw-bold mb-0" style="color: #0f172a;">Invoice Dashboard</h2>
-                <p class="text-muted">Manage invoices, payments, and financial reports</p>
+                <h2 class="fw-bold mb-0" style="color: #0f172a;">Dashboard Invoice</h2>
+                <p class="text-muted">Kelola invoice, pembayaran, dan laporan keuangan</p>
             </div>
 
             <!-- Row 1: 4 Stats Cards -->
@@ -447,10 +447,10 @@ body.dark-mode {
                                     <i class="fas fa-arrow-up text-warning"></i> 20.3%
                                 </p>
                             </div>
-                            <h5 class="mb-2 mt-3 fw-bold">$5,678.09</h5>
+                            <h5 class="mb-2 mt-3 fw-bold">Rp 5,678.09</h5>
                             <div class="d-flex align-items-center gap-1">
                                 <h5 class="mb-0">3</h5>
-                                <p class="mb-0 text-muted">invoices</p>
+                                <p class="mb-0 text-muted">invoice</p>
                             </div>
                         </div>
                     </div>
@@ -459,15 +459,15 @@ body.dark-mode {
                     <div class="card card-border">
                         <div class="card-body p-3">
                             <div class="d-flex align-items-center justify-content-between">
-                                <h6 class="mb-0">Paid</h6>
+                                <h6 class="mb-0">Dibayar</h6>
                                 <p class="mb-0 text-muted d-flex align-items-center gap-1">
                                     <i class="fas fa-arrow-down text-danger"></i> -8.73%
                                 </p>
                             </div>
-                            <h5 class="mb-2 mt-3 fw-bold">$5,678.09</h5>
+                            <h5 class="mb-2 mt-3 fw-bold">Rp 5,678.09</h5>
                             <div class="d-flex align-items-center gap-1">
                                 <h5 class="mb-0">5</h5>
-                                <p class="mb-0 text-muted">invoices</p>
+                                <p class="mb-0 text-muted">invoice</p>
                             </div>
                         </div>
                     </div>
@@ -476,15 +476,15 @@ body.dark-mode {
                     <div class="card card-border">
                         <div class="card-body p-3">
                             <div class="d-flex align-items-center justify-content-between">
-                                <h6 class="mb-0">Pending</h6>
+                                <h6 class="mb-0">Tertunda</h6>
                                 <p class="mb-0 text-muted d-flex align-items-center gap-1">
                                     <i class="fas fa-arrow-up text-success"></i> 10.73%
                                 </p>
                             </div>
-                            <h5 class="mb-2 mt-3 fw-bold">$5,678.09</h5>
+                            <h5 class="mb-2 mt-3 fw-bold">Rp 5,678.09</h5>
                             <div class="d-flex align-items-center gap-1">
                                 <h5 class="mb-0">20</h5>
-                                <p class="mb-0 text-muted">invoices</p>
+                                <p class="mb-0 text-muted">invoice</p>
                             </div>
                         </div>
                     </div>
@@ -493,15 +493,15 @@ body.dark-mode {
                     <div class="card card-border">
                         <div class="card-body p-3">
                             <div class="d-flex align-items-center justify-content-between">
-                                <h6 class="mb-0">Overdue</h6>
+                                <h6 class="mb-0">Jatuh Tempo</h6>
                                 <p class="mb-0 text-muted d-flex align-items-center gap-1">
                                     <i class="fas fa-arrow-down text-primary"></i> -4.73%
                                 </p>
                             </div>
-                            <h5 class="mb-2 mt-3 fw-bold">$5,678.09</h5>
+                            <h5 class="mb-2 mt-3 fw-bold">Rp 5,678.09</h5>
                             <div class="d-flex align-items-center gap-1">
                                 <h5 class="mb-0">5</h5>
-                                <p class="mb-0 text-muted">invoices</p>
+                                <p class="mb-0 text-muted">invoice</p>
                             </div>
                         </div>
                     </div>
@@ -527,7 +527,7 @@ body.dark-mode {
                                             <div class="avtar bg-primary rounded-circle mx-auto mb-2">
                                                 <i class="fas fa-file-invoice text-white"></i>
                                             </div>
-                                            <h6 class="mb-0 mt-2">All Invoices</h6>
+                                            <h6 class="mb-0 mt-2">Semua Invoice</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -537,7 +537,7 @@ body.dark-mode {
                                             <div class="avtar bg-info rounded-circle mx-auto mb-2">
                                                 <i class="fas fa-chart-line text-white"></i>
                                             </div>
-                                            <h6 class="mb-0 mt-2">Reports</h6>
+                                            <h6 class="mb-0 mt-2">Laporan</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -547,7 +547,7 @@ body.dark-mode {
                                             <div class="avtar bg-success rounded-circle mx-auto mb-2">
                                                 <i class="fas fa-dollar-sign text-white"></i>
                                             </div>
-                                            <h6 class="mb-0 mt-2">Paid</h6>
+                                            <h6 class="mb-0 mt-2">Dibayar</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -557,7 +557,7 @@ body.dark-mode {
                                             <div class="avtar bg-warning rounded-circle mx-auto mb-2">
                                                 <i class="fas fa-clock text-white"></i>
                                             </div>
-                                            <h6 class="mb-0 mt-2">Pending</h6>
+                                            <h6 class="mb-0 mt-2">Tertunda</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -567,7 +567,7 @@ body.dark-mode {
                                             <div class="avtar bg-danger rounded-circle mx-auto mb-2">
                                                 <i class="fas fa-times-circle text-white"></i>
                                             </div>
-                                            <h6 class="mb-0 mt-2">Cancelled</h6>
+                                            <h6 class="mb-0 mt-2">Dibatalkan</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -577,7 +577,7 @@ body.dark-mode {
                                             <div class="avtar bg-secondary rounded-circle mx-auto mb-2">
                                                 <i class="fas fa-pen-fancy text-white"></i>
                                             </div>
-                                            <h6 class="mb-0 mt-2">Draft</h6>
+                                            <h6 class="mb-0 mt-2">Draf</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -594,15 +594,15 @@ body.dark-mode {
                     <div class="card card-border">
                         <div class="card-header bg-transparent border-0 pt-4">
                             <div class="d-flex align-items-center justify-content-between">
-                                <h5 class="mb-0 fw-bold">Recent Invoice</h5>
+                                <h5 class="mb-0 fw-bold">Invoice Terbaru</h5>
                                 <div class="dropdown">
                                     <button class="btn btn-sm btn-light rounded-circle" data-bs-toggle="dropdown">
                                         <i class="fas fa-ellipsis-v"></i>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="#">Today</a></li>
-                                        <li><a class="dropdown-item" href="#">Weekly</a></li>
-                                        <li><a class="dropdown-item" href="#">Monthly</a></li>
+                                        <li><a class="dropdown-item" href="#">Hari Ini</a></li>
+                                        <li><a class="dropdown-item" href="#">Mingguan</a></li>
+                                        <li><a class="dropdown-item" href="#">Bulanan</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -616,10 +616,10 @@ body.dark-mode {
                                         </div>
                                         <div class="flex-grow-1 mx-3">
                                             <h6 class="mb-1">David Jones <span class="text-muted">- #790841</span></h6>
-                                            <p class="mb-0 text-primary fw-bold">$329.20</p>
+                                            <p class="mb-0 text-primary fw-bold">Rp 329.20</p>
                                         </div>
                                         <div class="flex-shrink-0">
-                                            <small class="text-muted">5 min ago</small>
+                                            <small class="text-muted">5 menit lalu</small>
                                         </div>
                                     </div>
                                 </li>
@@ -630,10 +630,10 @@ body.dark-mode {
                                         </div>
                                         <div class="flex-grow-1 mx-3">
                                             <h6 class="mb-1">Jenny Jones <span class="text-muted">- #790841</span></h6>
-                                            <p class="mb-0 text-primary fw-bold">$329.20</p>
+                                            <p class="mb-0 text-primary fw-bold">Rp 329.20</p>
                                         </div>
                                         <div class="flex-shrink-0">
-                                            <small class="text-muted">1 day ago</small>
+                                            <small class="text-muted">1 hari lalu</small>
                                         </div>
                                     </div>
                                 </li>
@@ -644,10 +644,10 @@ body.dark-mode {
                                         </div>
                                         <div class="flex-grow-1 mx-3">
                                             <h6 class="mb-1">Harry Ben <span class="text-muted">- #790841</span></h6>
-                                            <p class="mb-0 text-primary fw-bold">$329.20</p>
+                                            <p class="mb-0 text-primary fw-bold">Rp 329.20</p>
                                         </div>
                                         <div class="flex-shrink-0">
-                                            <small class="text-muted">3 week ago</small>
+                                            <small class="text-muted">3 minggu lalu</small>
                                         </div>
                                     </div>
                                 </li>
@@ -658,16 +658,16 @@ body.dark-mode {
                                         </div>
                                         <div class="flex-grow-1 mx-3">
                                             <h6 class="mb-1">Jenifer Vintage <span class="text-muted">- #790841</span></h6>
-                                            <p class="mb-0 text-primary fw-bold">$329.20</p>
+                                            <p class="mb-0 text-primary fw-bold">Rp 329.20</p>
                                         </div>
                                         <div class="flex-shrink-0">
-                                            <small class="text-muted">3 week ago</small>
+                                            <small class="text-muted">3 minggu lalu</small>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="list-group-item border-0 px-0 pt-3">
                                     <div class="d-grid">
-                                        <button class="btn btn-outline-secondary rounded-pill">View All</button>
+                                        <button class="btn btn-outline-secondary rounded-pill">Lihat Semua</button>
                                     </div>
                                 </li>
                             </ul>
@@ -680,15 +680,15 @@ body.dark-mode {
                     <div class="card card-border">
                         <div class="card-header bg-transparent border-0 pt-4">
                             <div class="d-flex align-items-center justify-content-between">
-                                <h5 class="mb-0 fw-bold">Total Expenses</h5>
+                                <h5 class="mb-0 fw-bold">Total Pengeluaran</h5>
                                 <div class="dropdown">
                                     <button class="btn btn-sm btn-light rounded-circle" data-bs-toggle="dropdown">
                                         <i class="fas fa-ellipsis-v"></i>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="#">Today</a></li>
-                                        <li><a class="dropdown-item" href="#">Weekly</a></li>
-                                        <li><a class="dropdown-item" href="#">Monthly</a></li>
+                                        <li><a class="dropdown-item" href="#">Hari Ini</a></li>
+                                        <li><a class="dropdown-item" href="#">Mingguan</a></li>
+                                        <li><a class="dropdown-item" href="#">Bulanan</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -697,20 +697,20 @@ body.dark-mode {
                             <div id="expensesChart" style="height: 200px;"></div>
                             <div class="mt-3">
                                 <div class="d-flex justify-content-between align-items-center mb-2 pending-item" style="cursor: pointer;">
-                                    <h6 class="mb-0"><i class="fas fa-circle text-warning me-2"></i> Pending</h6>
-                                    <p class="mb-0 fw-bold">$3,202</p>
+                                    <h6 class="mb-0"><i class="fas fa-circle text-warning me-2"></i> Tertunda</h6>
+                                    <p class="mb-0 fw-bold">Rp 3,202</p>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center mb-2 paid-item" style="cursor: pointer;">
-                                    <h6 class="mb-0"><i class="fas fa-circle text-success me-2"></i> Paid</h6>
-                                    <p class="mb-0 fw-bold">$45,050</p>
+                                    <h6 class="mb-0"><i class="fas fa-circle text-success me-2"></i> Dibayar</h6>
+                                    <p class="mb-0 fw-bold">Rp 45,050</p>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center mb-2 overdue-item" style="cursor: pointer;">
-                                    <h6 class="mb-0"><i class="fas fa-circle text-danger me-2"></i> Overdue</h6>
-                                    <p class="mb-0 fw-bold">$25,000</p>
+                                    <h6 class="mb-0"><i class="fas fa-circle text-danger me-2"></i> Jatuh Tempo</h6>
+                                    <p class="mb-0 fw-bold">Rp 25,000</p>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center draft-item" style="cursor: pointer;">
-                                    <h6 class="mb-0"><i class="fas fa-circle text-secondary me-2"></i> Draft</h6>
-                                    <p class="mb-0 fw-bold">$7,694</p>
+                                    <h6 class="mb-0"><i class="fas fa-circle text-secondary me-2"></i> Draf</h6>
+                                    <p class="mb-0 fw-bold">Rp 7,694</p>
                                 </div>
                             </div>
                         </div>
@@ -722,15 +722,15 @@ body.dark-mode {
                     <div class="card card-border">
                         <div class="card-header bg-transparent border-0 pt-4">
                             <div class="d-flex align-items-center justify-content-between">
-                                <h5 class="mb-0 fw-bold">Notification</h5>
+                                <h5 class="mb-0 fw-bold">Notifikasi</h5>
                                 <div class="dropdown">
                                     <button class="btn btn-sm btn-light rounded-circle" data-bs-toggle="dropdown">
                                         <i class="fas fa-ellipsis-v"></i>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="#">Today</a></li>
-                                        <li><a class="dropdown-item" href="#">Weekly</a></li>
-                                        <li><a class="dropdown-item" href="#">Monthly</a></li>
+                                        <li><a class="dropdown-item" href="#">Hari Ini</a></li>
+                                        <li><a class="dropdown-item" href="#">Mingguan</a></li>
+                                        <li><a class="dropdown-item" href="#">Bulanan</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -743,8 +743,8 @@ body.dark-mode {
                                             <i class="fas fa-download text-success"></i>
                                         </div>
                                         <div class="flex-grow-1">
-                                            <h6 class="mb-1">Johnny sent you an invoice billed <strong class="text-primary">$1,000</strong>.</h6>
-                                            <small class="text-muted">2 August</small>
+                                            <h6 class="mb-1">Johnny mengirimi Anda invoice sebesar <strong class="text-primary">Rp 1,000</strong>.</h6>
+                                            <small class="text-muted">2 Agustus</small>
                                         </div>
                                         <a href="#" class="text-muted"><i class="fas fa-link"></i></a>
                                     </div>
@@ -755,8 +755,8 @@ body.dark-mode {
                                             <i class="fas fa-file-invoice text-primary"></i>
                                         </div>
                                         <div class="flex-grow-1">
-                                            <h6 class="mb-1">Sent an invoice to Aida Bugg amount of <strong class="text-primary">$200</strong>.</h6>
-                                            <small class="text-muted">7 hours ago</small>
+                                            <h6 class="mb-1">Mengirim invoice kepada Aida Bugg sebesar <strong class="text-primary">Rp 200</strong>.</h6>
+                                            <small class="text-muted">7 jam lalu</small>
                                         </div>
                                         <a href="#" class="text-muted"><i class="fas fa-link"></i></a>
                                     </div>
@@ -767,15 +767,15 @@ body.dark-mode {
                                             <i class="fas fa-exclamation-triangle text-danger"></i>
                                         </div>
                                         <div class="flex-grow-1">
-                                            <h6 class="mb-1">There was a failure to your setup</h6>
-                                            <small class="text-muted">7 hours ago</small>
+                                            <h6 class="mb-1">Terjadi kegagalan pada pengaturan Anda</h6>
+                                            <small class="text-muted">7 jam lalu</small>
                                         </div>
                                         <a href="#" class="text-muted"><i class="fas fa-link"></i></a>
                                     </div>
                                 </li>
                                 <li class="list-group-item border-0 px-0 pt-3">
                                     <div class="d-grid">
-                                        <button class="btn btn-outline-secondary rounded-pill">View All</button>
+                                        <button class="btn btn-outline-secondary rounded-pill">Lihat Semua</button>
                                     </div>
                                 </li>
                             </ul>
@@ -790,7 +790,7 @@ body.dark-mode {
                     <strong class="text-primary">Davin Loise</strong>
 
                     <span class="mx-2">•</span>
-                    All rights reserved.
+                    Hak Cipta Dilindungi.
                 </p>
             </footer>
         </div>
@@ -801,10 +801,10 @@ body.dark-mode {
         // Invoice Chart
         var invoiceOptions = {
             series: [{
-                name: 'Income',
+                name: 'Pendapatan',
                 data: [31, 40, 28, 51, 42, 85, 77, 60, 55, 68, 45, 70]
             }, {
-                name: 'Expenses',
+                name: 'Pengeluaran',
                 data: [11, 32, 45, 32, 34, 52, 41, 38, 44, 58, 35, 48]
             }],
             chart: {
@@ -828,7 +828,7 @@ body.dark-mode {
                 }
             },
             xaxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des']
             },
             tooltip: {
                 shared: true
@@ -843,7 +843,7 @@ body.dark-mode {
                 type: 'donut',
                 height: 200
             },
-            labels: ['Pending', 'Paid', 'Overdue', 'Draft'],
+            labels: ['Tertunda', 'Dibayar', 'Jatuh Tempo', 'Draf'],
             colors: ['#f59e0b', '#10b981', '#ef4444', '#6c757d'],
             legend: {
                 show: false
@@ -870,7 +870,7 @@ body.dark-mode {
                                 color: '#1e293b',
                                 offsetY: 10,
                                 formatter: function(val) {
-                                    return '$' + val.toLocaleString();
+                                    return 'Rp ' + val.toLocaleString();
                                 }
                             },
                             total: {
@@ -880,7 +880,7 @@ body.dark-mode {
                                 color: '#6c757d',
                                 formatter: function(w) {
                                     var total = w.globals.seriesTotals.reduce((a, b) => a + b, 0);
-                                    return '$' + total.toLocaleString();
+                                    return 'Rp ' + total.toLocaleString();
                                 }
                             }
                         }
@@ -890,7 +890,7 @@ body.dark-mode {
             tooltip: {
                 y: {
                     formatter: function(val) {
-                        return '$' + val.toLocaleString();
+                        return 'Rp ' + val.toLocaleString();
                     }
                 }
             }
@@ -912,7 +912,7 @@ body.dark-mode {
                                 },
                                 value: {
                                     formatter: function() {
-                                        return '$' + value.toLocaleString();
+                                        return 'Rp ' + value.toLocaleString();
                                     }
                                 }
                             }
@@ -923,16 +923,16 @@ body.dark-mode {
         }
 
         document.querySelector('.pending-item').addEventListener('click', function() {
-            updateCenterText('Pending', 3202);
+            updateCenterText('Tertunda', 3202);
         });
         document.querySelector('.paid-item').addEventListener('click', function() {
-            updateCenterText('Paid', 45050);
+            updateCenterText('Dibayar', 45050);
         });
         document.querySelector('.overdue-item').addEventListener('click', function() {
-            updateCenterText('Overdue', 25000);
+            updateCenterText('Jatuh Tempo', 25000);
         });
         document.querySelector('.draft-item').addEventListener('click', function() {
-            updateCenterText('Draft', 7694);
+            updateCenterText('Draf', 7694);
         });
     </script>
 </body>

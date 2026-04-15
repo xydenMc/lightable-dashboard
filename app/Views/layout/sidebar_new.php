@@ -1,40 +1,41 @@
 <!-- Sidebar Navigation -->
 <div class="sidebar" id="mainSidebar">
-    
+
 
     <div class="sidebar-menu p-2">
         <div class="nav-main-title">NAVIGASI</div>
 
-        
 
+
+        <!-- Dashboard dengan Submenu -->
         <div class="nav-item">
-            <div class="nav-link-custom has-submenu" data-menu="analytics">
+            <div class="nav-link-custom has-submenu" data-menu="dashboard">
                 <i class="fas fa-home"></i>
-                <span class="nav-label">dashboard</span>
+                <span class="nav-label">Dashboard</span>
                 <i class="fas fa-chevron-down chevron-icon ms-auto"></i>
             </div>
-            <div class="sub-menu" data-submenu="analytics">
-                <a href="<?= base_url('/index') ?>" class="sub-link"><i class="fas fa-chart-pie"></i><span>Analytics</span></a>
-                <a href="<?= base_url('/affiliate') ?>" class="sub-link"><i class="fas fa-link"></i><span>Affiliate</span></a>
-                <a href="<?= base_url('/finance') ?>" class="sub-link"><i class="fas fa-coins"></i><span>Finance</span></a>
-                <a href="<?= base_url('/helpdesk') ?>" class="sub-link"><i class="fas fa-headset"></i><span>Helpdesk</span></a>
+            <div class="sub-menu" data-submenu="dashboard">
+                <a href="<?= base_url('/index') ?>" class="sub-link"><i class="fas fa-chart-pie"></i><span>Analitik</span></a>
+                <a href="<?= base_url('/affiliate') ?>" class="sub-link"><i class="fas fa-link"></i><span>Afiliasi</span></a>
+                <a href="<?= base_url('/finance') ?>" class="sub-link"><i class="fas fa-coins"></i><span>Keuangan</span></a>
+                <a href="<?= base_url('/helpdesk') ?>" class="sub-link"><i class="fas fa-headset"></i><span>Bantuan</span></a>
                 <a href="<?= base_url('/invoice') ?>" class="sub-link"><i class="fas fa-file-invoice"></i><span>Invoice</span></a>
             </div>
         </div>
 
         <div class="nav-main-title mt-3">WIDGET</div>
-        <div class="nav-item"><a href="<?= base_url('/statistics') ?>" class="nav-link-custom"><i class="fas fa-chart-bar"></i><span class="nav-label">Statistics</span></a></div>
-        <div class="nav-item"><a href="<?= base_url('/user-widget') ?>" class="nav-link-custom"><i class="fas fa-users"></i><span class="nav-label">User</span></a></div>
+        <div class="nav-item"><a href="<?= base_url('/statistics') ?>" class="nav-link-custom"><i class="fas fa-chart-bar"></i><span class="nav-label">Statistik</span></a></div>
+        <div class="nav-item"><a href="<?= base_url('/user-widget') ?>" class="nav-link-custom"><i class="fas fa-users"></i><span class="nav-label">Pengguna</span></a></div>
         <div class="nav-item"><a href="<?= base_url('/data-widget') ?>" class="nav-link-custom"><i class="fas fa-database"></i><span class="nav-label">Data</span></a></div>
-        <div class="nav-item"><a href="<?= base_url('/chart-widget') ?>" class="nav-link-custom"><i class="fas fa-chart-simple"></i><span class="nav-label">Chart</span></a></div>
+        <div class="nav-item"><a href="<?= base_url('/chart-widget') ?>" class="nav-link-custom"><i class="fas fa-chart-simple"></i><span class="nav-label">Grafik</span></a></div>
 
-        <div class="nav-main-title mt-3">APPLICATION</div>
-        <div class="nav-item"><a href="<?= base_url('/calendar') ?>" class="nav-link-custom"><i class="fas fa-calendar-alt"></i><span class="nav-label">Calendar</span></a></div>
-        <div class="nav-item"><a href="<?= base_url('/chat') ?>" class="nav-link-custom"><i class="fas fa-comments"></i><span class="nav-label">Chat</span></a></div>
+        <div class="nav-main-title mt-3">APLIKASI</div>
+        <div class="nav-item"><a href="<?= base_url('/calendar') ?>" class="nav-link-custom"><i class="fas fa-calendar-alt"></i><span class="nav-label">Kalender</span></a></div>
+        <div class="nav-item"><a href="<?= base_url('/chat') ?>" class="nav-link-custom"><i class="fas fa-comments"></i><span class="nav-label">Obrolan</span></a></div>
 
         <div class="nav-item">
             <div class="nav-link-custom has-submenu" data-menu="gallery">
-                <i class="fas fa-images"></i><span class="nav-label">Gallery</span><i class="fas fa-chevron-down chevron-icon ms-auto"></i>
+                <i class="fas fa-images"></i><span class="nav-label">Galeri</span><i class="fas fa-chevron-down chevron-icon ms-auto"></i>
             </div>
             <div class="sub-menu" data-submenu="gallery">
                 <a href="<?= base_url('/gallery/grid') ?>" class="sub-link"><i class="fas fa-th"></i><span>Grid</span></a>
@@ -42,8 +43,8 @@
             </div>
         </div>
 
-        <div class="nav-main-title mt-3">PAGES</div>
-        <div class="nav-item"><a href="<?= base_url('/contact-us') ?>" class="nav-link-custom"><i class="fas fa-address-card"></i><span class="nav-label">Contact Us</span></a></div>
+        <div class="nav-main-title mt-3">HALAMAN</div>
+        <div class="nav-item"><a href="<?= base_url('/contact-us') ?>" class="nav-link-custom"><i class="fas fa-address-card"></i><span class="nav-label">Hubungi Kami</span></a></div>
     </div>
 </div>
 
@@ -160,7 +161,7 @@
         border-right-color: #334155;
     }
 
-    
+
 
     body.dark-mode .nav-main-title {
         color: #64748b;

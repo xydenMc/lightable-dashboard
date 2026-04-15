@@ -28,10 +28,10 @@ class Dashboard extends BaseController
                 ['name' => 'David Brown', 'role' => 'User', 'time' => '5 hours ago']
             ]
         ];
-        
+
         return view('dashboard/index', $data);
     }
-    
+
     // Affiliate Page
     public function affiliate()
     {
@@ -60,49 +60,57 @@ class Dashboard extends BaseController
                 ['name' => 'Daniel', 'earnings' => 7600, 'growth' => 14, 'avatar' => 'user-secret']
             ]
         ];
-        
+
         return view('dashboard/affiliate', $data);
     }
-    
+
     // Finance Page
     public function finance()
     {
         $data = ['title' => 'Finance Dashboard'];
         return view('dashboard/finance', $data);
     }
-    
+
     // Helpdesk Page
     public function helpdesk()
     {
         $data = ['title' => 'Helpdesk Dashboard'];
         return view('dashboard/helpdesk', $data);
     }
-    
+
     // Invoice Page
     public function invoice()
     {
         $data = ['title' => 'Invoice Dashboard'];
         return view('dashboard/invoice', $data);
     }
-    
+
     // Layouts Page
     public function layouts()
     {
         $data = ['title' => 'Layouts'];
         return view('dashboard/layouts', $data);
     }
-    
+
     // Widget Page
-    public function widget()
-    {
-        $data = ['title' => 'Widget'];
-        return view('dashboard/widget', $data);
-    }
-    
+
     // Statistics Page
     public function statistics()
     {
         $data = ['title' => 'Statistics'];
-        return view('dashboard/statistics', $data);
+        return view('widget/statistics', $data);
+    }
+
+    // User Widget Page
+    public function user()
+    {
+        $data = ['title' => 'User Widgets'];
+        return view('widget/user', $data);
+    }
+
+    public function data()
+    {
+        $data = ['title' => 'Data Widgets'];
+        return view('widget/data', $data);
     }
 }

@@ -26,6 +26,8 @@ $routes->get('/invoice', 'Dashboard::invoice');
 $routes->get('/layouts', 'Dashboard::layouts');
 $routes->get('/widget', 'Dashboard::widget');
 $routes->get('/statistics', 'Dashboard::statistics');
+$routes->get('/user-widget', 'Dashboard::user');
+$routes->get('/data-widget', 'Dashboard::data');
 
 if (file_exists(APPPATH . 'Config/Routes.php')) {
     include_once APPPATH . 'Config/Routes.php';
